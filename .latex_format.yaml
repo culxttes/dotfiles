@@ -1,0 +1,23 @@
+lookForAlignDelims:
+  caption: 1
+defaultIndent: "    "
+modifyLineBreaks:
+  preserveBlankLines: 1
+  condenseMultipleBlankLinesInto: 1
+  mandatoryArguments:
+    caption:
+      DBSFinishesWithLineBreak: 1
+      MandArgBodyStartsOnOwnLine: 1
+      RCuBStartsOnOwnLine: 1
+  textWrapOptions:
+    columns: 80
+    when: after
+    multipleSpacesToSingle: 1
+    keepIndent: 1
+    blocksFollow:
+      other: \\\\|\\\]|\\item(?:\h|\[)|\\caption(?:\h|\[)|\\begin{.*?}|\\end{.*?}
+    blocksBeginWith:
+      0-9: 1
+      other: \\\(|\\begin{.*?}|\\end{.*?}
+environmentsToIndent:
+  any: 1
