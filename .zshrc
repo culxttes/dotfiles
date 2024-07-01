@@ -1,4 +1,4 @@
-HISTFILE=~/.zsh_history
+HISTFILE=$HOME/.zsh_history
 export HISTSIZE=1000000   # the number of items for the internal history list
 export SAVEHIST=1000000   # maximum number of items for the history file
 
