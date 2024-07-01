@@ -13,7 +13,7 @@ border-color=#f7768e
 text-color=#c0caf5
 # }}}
 
-default-timeout=5000
+default-timeout=3000
 on-button-middle=exec makoctl menu -n "$id" wofi --dmenu -p 'Select action: '
 on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
 
