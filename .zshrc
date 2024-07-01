@@ -21,5 +21,7 @@ plugins=(git ssh-agent zsh-autosuggestions)
 eval $(/usr/bin/gnome-keyring-daemon)
 export SSH_AUTH_SOCK
 
+alias ssh="kitten ssh"
+
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
 eval "$(zoxide init --cmd cd zsh)"
