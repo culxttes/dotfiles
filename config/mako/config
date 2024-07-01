@@ -8,9 +8,9 @@ margin=10
 border-size=2
 border-radius=8
 
-background-color=#1d202f
-border-color=#f7768e
-text-color=#c0caf5
+background-color=#333333
+border-color=#F6F6F5
+text-color=#F6F6F5
 # }}}
 
 default-timeout=3000
