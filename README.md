@@ -7,7 +7,7 @@ setup of my development environment.
 ## Dependencies
 
 ```bash
-fastfetch geany kitty mako neovim rofi sway waybar zed zoxide gnome-keyring uncrustify zsh latexindent curl swaylock
+fastfetch geany kitty mako neovim rofi sway waybar zed zoxide gnome-keyring uncrustify zsh latexindent curl swaylock nautilus
 ```
 
 [oh-my-posh](https://ohmyposh.dev/docs/installation/linux)
