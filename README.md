@@ -7,10 +7,14 @@ setup of my development environment.
 ## Dependencies
 
 ```bash
-fastfetch geany kitty mako neovim rofi sway waybar zed zoxide gnome-keyring uncrustify zsh latexindent curl swaylock nautilus
+yay -S grimblast gpu-screen-recorder hyprpicker python-gpustat aylurs-gtk-shell-git pipewire bluez \ 
+    bluez-utils btop networkmanager dart-sass brightnessctl python gnome-bluetooth-3.0 btop cava \ 
+    fastfetch geany hyprland hyprpaper hyprlock hypridle kitty zsh nvim lvim mpv rofi yazi zed git \ 
+    uncrustify latexindent
 ```
 
 [oh-my-posh](https://ohmyposh.dev/docs/installation/linux)
+[oh-my-zsh](https://ohmyz.sh/#install)
 
 ## Usage
 
