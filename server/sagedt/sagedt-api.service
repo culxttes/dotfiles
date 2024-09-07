@@ -1,0 +1,13 @@
+[Unit]
+Description=API Rust - Sagedt
+After=network.target
+
+[Service]
+User=sagedt
+WorkingDirectory=/opt/SAGEDT/
+ExecStart=/opt/SAGEDT/target/release/sagedt 
+Restart=always
+Environment=RUST_LOG=info
+
+[Install]
+WantedBy=multi-user.target
