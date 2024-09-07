@@ -1,0 +1,3 @@
+( allow wireguard_t wireguard_t ( capability ( sys_module )))
+( allow wireguard_t system_dbusd_t ( dbus ( send_msg )))
+( allow wireguard_t debugfs_t ( dir ( search )))
