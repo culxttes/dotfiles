@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 User=sagedt
-WorkingDirectory=/opt/SAGEDT/
-ExecStart=/opt/SAGEDT/target/release/sagedt 
+WorkingDirectory=/opt/ADEcampus-API/
+ExecStart=/opt/ADEcampus-API/target/release/ADEcampus 
 Restart=always
 Environment=RUST_LOG=info
 
