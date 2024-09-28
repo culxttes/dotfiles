@@ -9,7 +9,6 @@ done
 mkdir -p "$HOME/.config"
 
 ln -s "$(pwd)/logo.png" "$HOME/.config"
-ln -s "$(pwd)/background.jpeg" "$HOME/.config"
 
 if [ -d "$(pwd)/config" ]; then
   for file in $(pwd)/config/*; do

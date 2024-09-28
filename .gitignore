@@ -1,3 +1,4 @@
 config/geany/session.conf
 config/geany/geany_socket_fedora_wayland-1
 config/zed/.tmp*
+config/btop/*.log

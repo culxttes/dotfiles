@@ -1,0 +1,2 @@
+#!/bin/bash
+hyprctl hyprpaper unload '~/.config/background.png' && hyprctl hyprpaper preload '~/.config/background.png' && hyprctl hyprpaper wallpaper ',~/.config/background.png'
