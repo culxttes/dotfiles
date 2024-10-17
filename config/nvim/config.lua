@@ -12,3 +12,10 @@ lvim.builtin.which_key.mappings["t"] = {
   v = { "<cmd>2ToggleTerm size=30 direction=vertical<cr>", "Split vertical" },
   h = { "<cmd>2ToggleTerm size=30 direction=horizontal<cr>", "Split horizontal" },
 }
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = {"*.c", "*.h"},
+  callback = function()
+    vim.cmd("silent! !uncrustify -c $HOME/.uncrustify072_c.cfg -lc -q --replace --no-backup %")
+  end,
+})
