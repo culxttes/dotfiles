@@ -637,7 +637,7 @@ const options = mkOptions(OPTIONS, {
                     shortcut4: {
                         icon: opt(""),
                         tooltip: opt("Search Apps"),
-                        command: opt("rofi -show drun -theme $HOME/.config/rofi/launchers/type-6/style-7.rasi")
+                        command: opt("rofi -show filebrowser")
                     },
                 },
                 right: {

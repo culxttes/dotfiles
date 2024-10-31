@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if systemctl --user is-active --quiet hypridle; then
+    systemctl --user stop hypridle
+    echo "Hypridle is now disabled."
+else
+    systemctl --user start hypridle
+    echo "Hypridle is now enabled."
+fi
