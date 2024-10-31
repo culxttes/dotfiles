@@ -1,14 +1,12 @@
-@import '../../variables';
-
 .menu-slider {
     trough {
-        border-radius: 0.3rem;
+        border-radius: $bar-menus-slider-progress-radius;
         background: $surface0;
 
         highlight,
         progress {
             background: $peach;
-            border-radius: 0.3rem;
+            border-radius: $bar-menus-slider-progress-radius;
         }
     }
 
@@ -18,7 +16,7 @@
         min-height: 0.6rem;
         min-width: 0.6rem;
         border: 0rem solid transparent;
-        border-radius: 0.3rem;
+        border-radius: $bar-menus-slider-slider-radius;
     }
 
     &:hover {
@@ -36,7 +34,7 @@
 .menu-switch {
     font-size: 1.3em;
     background-color: $surface0;
-    border-radius: 0.2em;
+    border-radius: $bar-menus-switch-radius;
 
     &:checked {
         background: $sky;
@@ -46,7 +44,7 @@
         highlight,
         progress {
             background-color: $peach;
-            border-radius: 0.3em;
+            border-radius: $bar-menus-switch-radius;
         }
     }
 
@@ -56,7 +54,7 @@
         min-height: 1em;
         min-width: 1em;
         border: 0em solid transparent;
-        border-radius: 0.2em;
+        border-radius: $bar-menus-switch-slider-radius;
         margin: 0.1em 0.15em;
     }
 
@@ -74,21 +72,11 @@
     &:active {
         background-color: $sky;
     }
-
-    &:disabled {
-    }
-
-    trough:focus {
-    }
-}
-
-tooltip label {
-    font-size: 0.9em;
 }
 
 .menu-separator {
-    min-height: .1rem;
-    margin: .6rem 0rem;
+    min-height: 0.1rem;
+    margin: 0.6rem 0rem;
     background: $surface1;
 }
 
@@ -96,14 +84,12 @@ tooltip label {
     background: $crust;
     border: $bar-menus-border-size solid $bar-menus-border-color;
     border-radius: $bar-menus-border-radius;
-    min-width: 18em;
     color: $text;
 }
 
 .menu-items-container {
     border-radius: 0.4em;
     font-size: 1.3em;
-    min-width: 18em;
 }
 
 .menu-section-container {
@@ -120,7 +106,7 @@ tooltip label {
         border-radius: $bar-menus-card_radius;
         border-bottom-left-radius: 0em;
         border-bottom-right-radius: 0em;
-        margin: 0em 1em ;
+        margin: 0em 1em;
         min-height: 2em;
     }
 
@@ -162,15 +148,16 @@ tooltip label {
 .menu-active-button {
     padding: 0.1em;
     margin-bottom: -0.2em;
+
     .menu-active-icon {
         font-size: 1.4em;
         font-weight: bold;
-
     }
 
     &.muted image {
         color: $maroon;
     }
+
     &:hover image {
         color: $maroon;
     }
@@ -189,10 +176,11 @@ tooltip label {
 
 .menu-active-slider * {
     min-height: 0.85em;
-    border-radius: .2em;
+    border-radius: 0.2em;
 }
+
 .menu-slider-container {
-    margin-bottom: .7rem;
+    margin-bottom: 0.7rem;
 }
 
 .menu-label-dim {
@@ -214,7 +202,7 @@ tooltip label {
 }
 
 .menu-button {
-    margin-bottom: .4em;
+    margin-bottom: 0.4em;
 }
 
 .menu-button-name {
@@ -227,12 +215,13 @@ tooltip label {
 .menu-button-icon {
     font-size: 1.3em;
     font-weight: bold;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
 }
 
 .menu-item-box {
     margin-bottom: 0.5rem;
 }
+
 .dropdown-menu-container {
     min-height: 10em;
 }
@@ -242,13 +231,21 @@ tooltip label {
     color: $sky;
 }
 
+.event-box-container {
+    min-height: 0em;
+    margin-top: $bar-dropdownGap;
+}
+
 .event-top-padding * {
     min-height: 0em;
-    margin-top: 2.8em;
+    margin-top: if($bar-floating and $bar-location == 'top', $bar-margin_top, 0);
+    margin-bottom: if($bar-floating and $bar-location == 'bottom', $bar-margin_bottom, 0);
 }
 
 @keyframes spin {
-to { -gtk-icon-transform: rotate(1turn); }
+    to {
+        -gtk-icon-transform: rotate(1turn);
+    }
 }
 
 image.spinning {
