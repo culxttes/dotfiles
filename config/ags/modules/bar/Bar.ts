@@ -16,6 +16,7 @@ import {
     // Custom Modules
     Ram,
     Cpu,
+    CpuTemp,
     Storage,
     Netstat,
     KbInput,
@@ -23,6 +24,7 @@ import {
     Submap,
     Weather,
     Power,
+    Hyprsunset,
 } from './Exports';
 
 import { BarItemBox as WidgetContainer } from '../shared/barItemBox.js';
@@ -32,12 +34,13 @@ import Button from 'types/widgets/button.js';
 import Gtk from 'types/@girs/gtk-3.0/gtk-3.0.js';
 
 import './SideEffects';
-import { WindowLayer } from 'lib/types/options.js';
+import { BarLayout, WindowLayer } from 'lib/types/options.js';
 import { Attribute, Child } from 'lib/types/widget.js';
 import Window from 'types/widgets/window.js';
 
 const { layouts } = options.bar;
 const { location } = options.theme.bar;
+const { location: borderLocation } = options.theme.bar.border;
 
 export type BarWidget = keyof typeof widget;
 
@@ -54,6 +57,7 @@ type Section =
     | 'clock'
     | 'ram'
     | 'cpu'
+    | 'cputemp'
     | 'storage'
     | 'netstat'
     | 'kbinput'
@@ -61,16 +65,13 @@ type Section =
     | 'submap'
     | 'weather'
     | 'power'
-    | 'systray';
+    | 'systray'
+    | 'hyprsunset';
 
 type Layout = {
     left: Section[];
     middle: Section[];
     right: Section[];
-};
-
-type BarLayout = {
-    [key: string]: Layout;
 };
 
 const getLayoutForMonitor = (monitor: number, layouts: BarLayout): Layout => {
@@ -92,6 +93,14 @@ const getLayoutForMonitor = (monitor: number, layouts: BarLayout): Layout => {
     };
 };
 
+const isLayoutEmpty = (layout: Layout): boolean => {
+    const isLeftSectionEmpty = !Array.isArray(layout.left) || layout.left.length === 0;
+    const isRightSectionEmpty = !Array.isArray(layout.right) || layout.right.length === 0;
+    const isMiddleSectionEmpty = !Array.isArray(layout.middle) || layout.middle.length === 0;
+
+    return isLeftSectionEmpty && isRightSectionEmpty && isMiddleSectionEmpty;
+};
+
 const widget = {
     battery: (): Button<Child, Attribute> => WidgetContainer(BatteryLabel()),
     dashboard: (): Button<Child, Attribute> => WidgetContainer(Menu()),
@@ -106,6 +115,7 @@ const widget = {
     systray: (): Button<Child, Attribute> => WidgetContainer(SysTray()),
     ram: (): Button<Child, Attribute> => WidgetContainer(Ram()),
     cpu: (): Button<Child, Attribute> => WidgetContainer(Cpu()),
+    cputemp: (): Button<Child, Attribute> => WidgetContainer(CpuTemp()),
     storage: (): Button<Child, Attribute> => WidgetContainer(Storage()),
     netstat: (): Button<Child, Attribute> => WidgetContainer(Netstat()),
     kbinput: (): Button<Child, Attribute> => WidgetContainer(KbInput()),
@@ -113,6 +123,7 @@ const widget = {
     submap: (): Button<Child, Attribute> => WidgetContainer(Submap()),
     weather: (): Button<Child, Attribute> => WidgetContainer(Weather()),
     power: (): Button<Child, Attribute> => WidgetContainer(Power()),
+    hyprsunset: (): Button<Child, Attribute> => WidgetContainer(Hyprsunset()),
 };
 
 type GdkMonitors = {
@@ -255,7 +266,10 @@ export const Bar = (() => {
             name: `bar-${hyprlandMonitor}`,
             class_name: 'bar',
             monitor,
-            visible: true,
+            visible: layouts.bind('value').as(() => {
+                const foundLayout = getLayoutForMonitor(hyprlandMonitor, layouts.value);
+                return !isLayoutEmpty(foundLayout);
+            }),
             anchor: location.bind('value').as((ln) => [ln, 'left', 'right']),
             exclusivity: 'exclusive',
             layer: Utils.merge(
@@ -270,14 +284,16 @@ export const Bar = (() => {
             child: Widget.Box({
                 class_name: 'bar-panel-container',
                 child: Widget.CenterBox({
-                    class_name: 'bar-panel',
+                    class_name: borderLocation
+                        .bind('value')
+                        .as((brdrLcn) => (brdrLcn !== 'none' ? 'bar-panel withBorder' : 'bar-panel')),
                     css: 'padding: 1px',
                     startWidget: Widget.Box({
                         class_name: 'box-left',
                         hexpand: true,
                         setup: (self) => {
                             self.hook(layouts, (self) => {
-                                const foundLayout = getLayoutForMonitor(hyprlandMonitor, layouts.value as BarLayout);
+                                const foundLayout = getLayoutForMonitor(hyprlandMonitor, layouts.value);
                                 self.children = foundLayout.left
                                     .filter((mod) => Object.keys(widget).includes(mod))
                                     .map((w) => widget[w](hyprlandMonitor) as Button<Gtk.Widget, unknown>);
@@ -289,7 +305,7 @@ export const Bar = (() => {
                         hpack: 'center',
                         setup: (self) => {
                             self.hook(layouts, (self) => {
-                                const foundLayout = getLayoutForMonitor(hyprlandMonitor, layouts.value as BarLayout);
+                                const foundLayout = getLayoutForMonitor(hyprlandMonitor, layouts.value);
                                 self.children = foundLayout.middle
                                     .filter((mod) => Object.keys(widget).includes(mod))
                                     .map((w) => widget[w](hyprlandMonitor) as Button<Gtk.Widget, unknown>);
@@ -301,7 +317,7 @@ export const Bar = (() => {
                         hpack: 'end',
                         setup: (self) => {
                             self.hook(layouts, (self) => {
-                                const foundLayout = getLayoutForMonitor(hyprlandMonitor, layouts.value as BarLayout);
+                                const foundLayout = getLayoutForMonitor(hyprlandMonitor, layouts.value);
                                 self.children = foundLayout.right
                                     .filter((mod) => Object.keys(widget).includes(mod))
                                     .map((w) => widget[w](hyprlandMonitor) as Button<Gtk.Widget, unknown>);

@@ -60,7 +60,7 @@
             );
             border: if(
                 $borderEnabled or $bar-buttons-enableBorders,
-                $bar-buttons-borderSize solid if($bar-buttons-monochrome, $bar-buttons-icon, $borderColor),
+                $bar-buttons-borderSize solid if($bar-buttons-monochrome, $bar-buttons-borderColor, $borderColor),
                 0em
             );
 
@@ -92,12 +92,12 @@
             color: if($bar-buttons-monochrome, $bar-buttons-icon, $iconColor);
             border-top-left-radius: if(
                 $borderEnabled or $bar-buttons-enableBorders,
-                $bar-buttons-radius * 0.4,
+                $bar-buttons-radius * $bar-buttons-innerRadiusMultiplier,
                 $bar-buttons-radius
             );
             border-bottom-left-radius: if(
                 $borderEnabled or $bar-buttons-enableBorders,
-                $bar-buttons-radius * 0.4,
+                $bar-buttons-radius * $bar-buttons-innerRadiusMultiplier,
                 $bar-buttons-radius
             );
         }
@@ -113,12 +113,12 @@
             .module-icon {
                 border-top-right-radius: if(
                     $borderEnabled or $bar-buttons-enableBorders,
-                    $bar-buttons-radius * 0.4,
+                    $bar-buttons-radius * $bar-buttons-innerRadiusMultiplier,
                     $bar-buttons-radius
                 );
                 border-bottom-right-radius: if(
                     $borderEnabled or $bar-buttons-enableBorders,
-                    $bar-buttons-radius * 0.4,
+                    $bar-buttons-radius * $bar-buttons-innerRadiusMultiplier,
                     $bar-buttons-radius
                 );
             }
@@ -175,6 +175,33 @@
     $bar-buttons-modules-cpu-enableBorder,
     // border color
     $bar-buttons-modules-cpu-border,
+    // custom font size
+    1.05em //
+);
+
+/* 
+ * #################################
+ * #    Cpu Temp Module Styling    #
+ * #################################
+ */
+@include styleModule(
+    //
+    // class name
+    'cpu-temp',
+    // label color
+    $bar-buttons-modules-cpuTemp-text,
+    // icon color
+    $bar-buttons-modules-cpuTemp-icon,
+    // icon background if split style is used
+    $bar-buttons-modules-cpuTemp-icon_background,
+    // label background
+    $bar-buttons-modules-cpuTemp-background,
+    // inner spacing
+    $bar-buttons-modules-cpuTemp-spacing,
+    // if border enabled
+    $bar-buttons-modules-cpuTemp-enableBorder,
+    // border color
+    $bar-buttons-modules-cpuTemp-border,
     // custom font size
     1.05em //
 );
@@ -364,6 +391,33 @@
     $bar-buttons-modules-power-enableBorder,
     // border color
     $bar-buttons-modules-power-border,
+    // custom font size
+    1.3em //
+);
+
+/* 
+ * #################################
+ * #      Hyprsunset Styling       #
+ * #################################
+ */
+@include styleModule(
+    //
+    // class name
+    'hyprsunset',
+    // label color
+    $bar-buttons-modules-hyprsunset-text,
+    // icon color
+    $bar-buttons-modules-hyprsunset-icon,
+    // icon background if split style is used
+    $bar-buttons-modules-hyprsunset-icon_background,
+    // label background
+    $bar-buttons-modules-hyprsunset-background,
+    // inner spacing
+    $bar-buttons-modules-hyprsunset-spacing,
+    // if border enabled
+    $bar-buttons-modules-hyprsunset-enableBorder,
+    // border color
+    $bar-buttons-modules-hyprsunset-border,
     // custom font size
     1.3em //
 );

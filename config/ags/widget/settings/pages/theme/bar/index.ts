@@ -34,6 +34,11 @@ export const BarTheme = (): Scrollable<Child, Attribute> => {
                     max: 100,
                 }),
                 Option({
+                    opt: options.theme.bar.border.color,
+                    title: 'Bar Border Color',
+                    type: 'color',
+                }),
+                Option({
                     opt: options.theme.bar.buttons.opacity,
                     title: 'Button Opacity',
                     type: 'number',
@@ -64,7 +69,7 @@ export const BarTheme = (): Scrollable<Child, Attribute> => {
                     disabledBinding: options.theme.matugen,
                 }),
                 Option({ opt: options.theme.bar.buttons.background, title: 'Button Background', type: 'color' }),
-                Option({ opt: options.theme.bar.buttons.hover, title: 'Button Hover', type: 'color' }),
+                Option({ opt: options.theme.bar.buttons.borderColor, title: 'Button Border', type: 'color' }),
                 Option({ opt: options.theme.bar.buttons.text, title: 'Button Text', type: 'color' }),
                 Option({ opt: options.theme.bar.buttons.icon, title: 'Button Icon', type: 'color' }),
                 Option({

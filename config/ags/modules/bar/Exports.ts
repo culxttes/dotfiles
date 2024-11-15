@@ -13,6 +13,7 @@ import { SysTray } from './systray/index';
 // Custom Modules
 import { Ram } from '../../customModules/ram/index';
 import { Cpu } from '../../customModules/cpu/index';
+import { CpuTemp } from 'customModules/cputemp/index';
 import { Storage } from 'customModules/storage/index';
 import { Netstat } from 'customModules/netstat/index';
 import { KbInput } from 'customModules/kblayout/index';
@@ -20,6 +21,7 @@ import { Updates } from 'customModules/updates/index';
 import { Submap } from 'customModules/submap/index';
 import { Weather } from 'customModules/weather/index';
 import { Power } from 'customModules/power/index';
+import { Hyprsunset } from 'customModules/hyprsunset/index';
 
 export {
     Menu,
@@ -37,6 +39,7 @@ export {
     // Custom Modules
     Ram,
     Cpu,
+    CpuTemp,
     Storage,
     Netstat,
     KbInput,
@@ -44,4 +47,5 @@ export {
     Submap,
     Weather,
     Power,
+    Hyprsunset,
 };

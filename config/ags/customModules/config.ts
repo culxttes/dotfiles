@@ -154,6 +154,89 @@ export const CustomModuleSettings = (): Scrollable<GtkWidget, Attribute> =>
 
                 /*
                  ************************************
+                 *            CPU TEMP              *
+                 ************************************
+                 */
+                Header('CPU Temperature'),
+                Option({
+                    opt: options.theme.bar.buttons.modules.cpuTemp.enableBorder,
+                    title: 'Button Border',
+                    type: 'boolean',
+                }),
+                Option({
+                    opt: options.bar.customModules.cpuTemp.sensor,
+                    title: 'CPU Temperature Sensor',
+                    subtitle: 'Wiki: https://hyprpanel.com/configuration/panel.html#custom-modules',
+                    subtitleLink: 'https://hyprpanel.com/configuration/panel.html#custom-modules',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.cpuTemp.unit,
+                    title: 'CPU Temperature Unit',
+                    type: 'enum',
+                    enums: ['imperial', 'metric'],
+                }),
+                Option({
+                    opt: options.bar.customModules.cpuTemp.showUnit,
+                    title: 'Show Unit',
+                    type: 'boolean',
+                }),
+                Option({
+                    opt: options.bar.customModules.cpuTemp.icon,
+                    title: 'Cpu Temperature Icon',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.cpuTemp.label,
+                    title: 'Show Label',
+                    type: 'boolean',
+                }),
+                Option({
+                    opt: options.theme.bar.buttons.modules.cpuTemp.spacing,
+                    title: 'Spacing',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.cpuTemp.round,
+                    title: 'Round',
+                    type: 'boolean',
+                }),
+                Option({
+                    opt: options.bar.customModules.cpuTemp.pollingInterval,
+                    title: 'Polling Interval',
+                    type: 'number',
+                    min: 100,
+                    max: 60 * 24 * 1000,
+                    increment: 1000,
+                }),
+                Option({
+                    opt: options.bar.customModules.cpuTemp.leftClick,
+                    title: 'Left Click',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.cpuTemp.rightClick,
+                    title: 'Right Click',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.cpuTemp.middleClick,
+                    title: 'Middle Click',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.cpuTemp.scrollUp,
+                    title: 'Scroll Up',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.cpuTemp.scrollDown,
+                    title: 'Scroll Down',
+                    type: 'string',
+                }),
+
+                /*
+                 ************************************
                  *           STORAGE                *
                  ************************************
                  */
@@ -546,6 +629,83 @@ export const CustomModuleSettings = (): Scrollable<GtkWidget, Attribute> =>
                 }),
                 Option({
                     opt: options.bar.customModules.weather.scrollDown,
+                    title: 'Scroll Down',
+                    type: 'string',
+                }),
+
+                /*
+                 ************************************
+                 *            HYPRSUNSET            *
+                 ************************************
+                 */
+                Header('Hyprsunset'),
+                Option({
+                    opt: options.bar.customModules.hyprsunset.temperature,
+                    title: 'Temperature',
+                    subtitle: 'Ex: 1000k, 2000k, 5000k, etc.',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.theme.bar.buttons.modules.hyprsunset.enableBorder,
+                    title: 'Button Border',
+                    type: 'boolean',
+                }),
+                Option({
+                    opt: options.bar.customModules.hyprsunset.onIcon,
+                    title: 'Enabled Icon',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.hyprsunset.offIcon,
+                    title: 'Disabled Icon',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.hyprsunset.onLabel,
+                    title: 'Enabled Label',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.hyprsunset.offLabel,
+                    title: 'Disabled Label',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.hyprsunset.label,
+                    title: 'Show Label',
+                    type: 'boolean',
+                }),
+                Option({
+                    opt: options.theme.bar.buttons.modules.hyprsunset.spacing,
+                    title: 'Spacing',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.hyprsunset.pollingInterval,
+                    title: 'Polling Interval',
+                    type: 'number',
+                    subtitle: "WARNING: Be careful of your package manager's rate limit.",
+                    min: 100,
+                    max: 60 * 24 * 1000,
+                    increment: 1000,
+                }),
+                Option({
+                    opt: options.bar.customModules.hyprsunset.rightClick,
+                    title: 'Right Click',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.hyprsunset.middleClick,
+                    title: 'Middle Click',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.hyprsunset.scrollUp,
+                    title: 'Scroll Up',
+                    type: 'string',
+                }),
+                Option({
+                    opt: options.bar.customModules.hyprsunset.scrollDown,
                     title: 'Scroll Down',
                     type: 'string',
                 }),
