@@ -41,10 +41,10 @@
       "left": [
         "dashboard",
         "workspaces",
-        "windowtitle"
+        "windowtitle",
+        "hypridle"
       ],
       "middle": [
-        "hypridle",
         "media"
       ],
       "right": [
