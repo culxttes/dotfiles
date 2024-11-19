@@ -42,6 +42,7 @@
         "dashboard",
         "workspaces",
         "windowtitle",
+        "updates",
         "hypridle"
       ],
       "middle": [
@@ -87,5 +88,8 @@
         "notifications"
       ]
     }
-  }
+  },
+  "bar.customModules.updates.padZero": false,
+  "bar.customModules.updates.leftClick": "kitty yay -Syyu",
+  "terminal": "kitty"
 }
