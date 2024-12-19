@@ -8,11 +8,9 @@ set window-height 1024
 set window-width 768
 set render-loading false
 set adjust-open "best-fit"
-# Fix following links feature
-set sandbox none
 # already default
 set synctex true
-set synctex-editor-command "texlab inverse-search -i %{input} -l %{line}"
+set synctex-editor-command "nvim --headless -c \"VimtexInverseSearch %{line}:%{column} '%{input}'\""
 set dbus-service true
 set database "sqlite"
 

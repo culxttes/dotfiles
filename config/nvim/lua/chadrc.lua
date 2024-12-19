@@ -6,7 +6,8 @@
 local M = {}
 
 M.base46 = {
-	theme = "chadracula",
+  theme_toggle = { "chadracula", "github_light" },
+  theme = "chadracula",
   transparency = true,
 
 	-- hl_override = {
