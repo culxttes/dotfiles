@@ -10,7 +10,7 @@ setup of my development environment.
 yay -S grimblast gpu-screen-recorder hyprpicker python-gpustat aylurs-gtk-shell-git pipewire bluez \ 
     bluez-utils btop networkmanager dart-sass brightnessctl python gnome-bluetooth-3.0 btop cava \ 
     fastfetch geany hyprland hyprpaper hyprlock hypridle kitty zsh nvim lvim mpv rofi yazi zed git \ 
-    uncrustify latexindent networkmanager-dmenu-git pamixer
+    uncrustify latexindent networkmanager-dmenu-git pamixer ags-hyprpanel-git python-pywal
 ```
 
 [oh-my-posh](https://ohmyposh.dev/docs/installation/linux)

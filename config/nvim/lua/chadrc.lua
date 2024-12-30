@@ -16,4 +16,11 @@ M.base46 = {
 	-- },
 }
 
+M.mason = {
+    pkgs = {
+    "rust-analyzer",
+    "codelldb",
+  }
+}
+
 return M

@@ -16,8 +16,7 @@ return {
           '-verbose',
           '-synctex=1',
           '-interaction=nonstopmode',
-          '-file-line-error',
-          '-pretex="cat $S > /tmp/test"',
+          '-file-line-error'
         }
       }
     end,
