@@ -70,5 +70,9 @@
   "terminal": "kitty",
   "menus.power.lowBatteryNotification": true,
   "theme.bar.transparent": true,
-  "bar.customModules.updates.padZero": false
+  "bar.customModules.updates.padZero": false,
+  "wallpaper.image": "/home/culottes/.config/background.jpg",
+  "wallpaper.pywal": true,
+  "bar.customModules.updates.pollingInterval": 1440000,
+  "wallpaper.enable": false
 }
