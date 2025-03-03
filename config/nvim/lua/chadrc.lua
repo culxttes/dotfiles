@@ -8,7 +8,6 @@ local M = {}
 M.base46 = {
   theme_toggle = { "chadracula", "github_light" },
   theme = "chadracula",
-  transparency = true,
 
 	-- hl_override = {
 	-- 	Comment = { italic = true },
@@ -20,6 +19,7 @@ M.mason = {
     pkgs = {
     "rust-analyzer",
     "codelldb",
+    "clangd",
   }
 }
 

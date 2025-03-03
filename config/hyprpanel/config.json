@@ -74,5 +74,5 @@
   "wallpaper.image": "/home/culottes/.config/background.jpg",
   "wallpaper.pywal": true,
   "bar.customModules.updates.pollingInterval": 1440000,
-  "wallpaper.enable": false
+  "theme.bar.shadowMargins": "0px 0px 0px 0px"
 }
