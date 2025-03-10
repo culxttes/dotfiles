@@ -16,6 +16,28 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+local ok, ltex_config = pcall(require, "ltex_config")
+if not ok then ltex_config = {} end
+
+lspconfig.ltex.setup({
+  settings = {
+    ltex = {
+      additionalRules = {
+        enablePickyRules = true,
+        motherTongue = "fr",
+      },
+      languageToolHttpServerUri = "https://api.languagetoolplus.com/",
+      languageToolOrg = {
+        apiKey = ltex_config.apiKey or "",
+        username = ltex_config.username or "",
+      },
+      language = "fr",
+      completionEnabled = true,
+      diagnosticSeverity = "warning",
+    },
+  },
+})
+
 -- configuring single server, example: typescript
 -- lspconfig.ts_ls.setup {
 --   on_attach = nvlsp.on_attach,
