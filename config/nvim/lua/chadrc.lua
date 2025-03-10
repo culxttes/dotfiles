@@ -15,6 +15,7 @@ M.mason = {
     "rust-analyzer",
     "codelldb",
     "clangd",
+    "deno",
   }
 }
 
