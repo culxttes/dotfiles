@@ -21,14 +21,6 @@ yay -S grimblast gpu-screen-recorder hyprpicker python-gpustat aylurs-gtk-shell-
 Clone the repository and run `install.sh` to set up the configuration files on
 your system.
 
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-
 ## License
 
 This project is licensed under the Unlicense.
