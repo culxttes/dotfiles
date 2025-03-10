@@ -6,13 +6,8 @@
 local M = {}
 
 M.base46 = {
-  theme_toggle = { "chadracula", "github_light" },
-  theme = "chadracula",
-
-	-- hl_override = {
-	-- 	Comment = { italic = true },
-	-- 	["@comment"] = { italic = true },
-	-- },
+  theme_toggle = { "ayu_light", "gatekeeper" },
+  theme = "ayu_light",
 }
 
 M.mason = {

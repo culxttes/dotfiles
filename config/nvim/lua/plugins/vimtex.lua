@@ -16,7 +16,8 @@ return {
           '-verbose',
           '-synctex=1',
           '-interaction=nonstopmode',
-          '-file-line-error'
+          '-file-line-error',
+          "-shell-escape",
         }
       }
     end,
