@@ -1,7 +1,0 @@
-#!/bin/bash
-
-BACKGROUND="$HOME/.config/background.jpg"
-
-hyprctl hyprpaper unload "$BACKGROUND"
-hyprctl hyprpaper preload "$BACKGROUND"
-hyprctl hyprpaper wallpaper ",$BACKGROUND"
