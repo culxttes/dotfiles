@@ -1,0 +1,224 @@
+{ pkgs, hyprland, username, ... }:
+let
+  screenshot_sh = pkgs.writeShellScriptBin "screenshot" ''
+    ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -d)" - | ${pkgs.wl-clipboard}/bin/wl-copy
+  '';
+in
+{
+  programs.hyprland = {
+    enable = true;
+    package = hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+  };
+
+  home-manager.users.${username} = {
+    home.packages = [
+      pkgs.slurp
+      pkgs.grim
+      pkgs.wl-clipboard
+      pkgs.brightnessctl
+    ];
+
+    home.file = {
+      ".icons/default".source = "${pkgs.vanilla-dmz}/share/icons/Vanilla-DMZ";
+    };
+
+    wayland.windowManager.hyprland = {
+      enable = true;
+      package = hyprland.packages.${pkgs.system}.hyprland;
+      portalPackage = hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+      
+      settings = {  
+        # Environement Variables
+        env = [
+          "XCURSOR_SIZE,24"
+          "HYPRCURSOR_SIZE,24"
+        ];
+
+        # Monitors
+        monitor = [
+          ",preferred,auto,1"
+        ];
+
+        # Programs
+        "$terminal" = "kitty";
+        "$fileManager" = "yazi";
+        "$menu" = "rofi -show drun";
+        
+        # Look and feel
+
+        general = {
+          gaps_in = 5;
+          gaps_out = 5;
+
+          border_size = 2;
+
+          "col.active_border" = "rgba(363656ee)";
+          "col.inactive_border" = "rgba(595959aa)";
+
+          resize_on_border = false;
+
+          allow_tearing = false;
+
+          layout = "dwindle";
+        };
+
+        decoration = {
+          rounding = 10;
+
+          active_opacity = "1.0";
+          inactive_opacity = "1.0";
+
+          shadow = {
+            enabled = false;
+            range = 4;
+            render_power = 3;
+            color = "rgba(1a1a1aee)";
+          };
+
+          blur = {
+            enabled = true;
+            size = 5;
+            passes = 2;
+
+            vibrancy = "0.1696";
+          };
+        };
+
+        animations = {
+          enabled = true;
+
+          bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+
+          animation = [
+            "windows, 1, 7, myBezier"
+            "windowsOut, 1, 7, default, popin 80%"
+            "border, 1, 10, default"
+            "borderangle, 1, 8, default"
+            "fade, 1, 7, default"
+            "workspaces, 1, 6, default"
+          ];
+        };
+
+        dwindle = {
+          pseudotile = true;
+          preserve_split = true;
+        };
+
+        master = {
+          new_status = "master";
+        };
+
+        misc = {
+          force_default_wallpaper = 0;
+          disable_hyprland_logo = true;
+        };
+
+        # Inputs
+
+        input = {
+          kb_layout = "fr";
+          follow_mouse = 1;
+          sensitivity = 0;
+
+          touchpad = {
+            natural_scroll = false;
+          };
+
+          numlock_by_default = true;
+        };
+
+        gestures = {
+           workspace_swipe = false;
+        };
+
+        device = {
+          name = "epic-mouse-v1";
+          sensitivity = "-0.5";
+        };
+
+        windowrulev2 = "suppressevent maximize, class:.*";
+
+        "$mod" = "SUPER";
+
+        bind = [
+          # Screenshot
+          ", Print, exec, ${screenshot_sh}/bin/screenshot"
+
+          # Special keys
+          ", xf86monbrightnessup, exec, brightnessctl set 10%+"
+          ", xf86monbrightnessdown, exec, brightnessctl set 10%-"
+          ", xf86audioraisevolume, exec, pamixer -i 5"
+          ", xf86audiolowervolume, exec, pamixer -d 5"
+          ", xf86audiomute, exec, pamixer -t"
+          ", xf86calculator, exec, galculator"
+
+          # Default bind
+          "$mod, Return, exec, $terminal"
+          "$mod SHIFT, Q, killactive,"
+          "$mod, M, exit,"
+          "$mod, E, exec, $fileManager"
+          "$mod, Space, togglefloating"
+          "$mod, D, exec, $menu"
+          "$mod, P, pseudo,"
+          "$mod, J, togglesplit,"
+
+          # Move focus with mod + arrow keys
+          "$mod SHIFT, left, movefocus, l"
+          "$mod SHIFT, right, movefocus, r"
+          "$mod SHIFT, up, movefocus, u"
+          "$mod SHIFT, down, movefocus, d"
+
+          # Move window with mod + shift + arrow keys
+          "$mod SHIFT, left, movewindow, l"
+          "$mod SHIFT, right, movewindow, r"
+          "$mod SHIFT, up, movewindow, u"
+          "$mod SHIFT, down, movewindow, d"
+
+          # Resize window with mod + alt + arrow keys
+          "$mod ALT, left, resizeactive, -10 0"
+          "$mod ALT, right, resizeactive, 10 0"
+          "$mod ALT, up, resizeactive, 0 -10"
+          "$mod ALT, down, resizeactive, 0 10"
+
+          # Toggle fullscreen
+          "$mod, F, fullscreen"
+
+          # Switch workspaces with mod + [0-9]
+          "$mod, ampersand, workspace, 1"
+          "$mod, eacute, workspace, 2"
+          "$mod, quotedbl, workspace, 3"
+          "$mod, apostrophe, workspace, 4"
+          "$mod, parenleft, workspace, 5"
+          "$mod, minus, workspace, 6"
+          "$mod, egrace, workspace, 7"
+          "$mod, underscore, workspace, 8"
+          "$mod, ccdeilla, workspace, 9"
+          "$mod, agrave, workspace, 10"
+
+          # Move active window to a workspace with mod + SHIFT + [0-9]
+          "$mod SHIFT, ampersand, movetoworkspace, 1"
+          "$mod SHIFT, eacute, movetoworkspace, 2"
+          "$mod SHIFT, quotedbl, movetoworkspace, 3"
+          "$mod SHIFT, apostrophe, movetoworkspace, 4"
+          "$mod SHIFT, parenleft, movetoworkspace, 5"
+          "$mod SHIFT, minus, movetoworkspace, 6"
+          "$mod SHIFT, egrace, movetoworkspace, 7"
+          "$mod SHIFT, underscore, movetoworkspace, 8"
+          "$mod SHIFT, ccdeilla, movetoworkspace, 9"
+          "$mod SHIFT, agrave, movetoworkspace, 10"
+
+          # Special workspace (scratchpad)
+          "$mod, S, togglespecialworkspace, magic"
+          "$mod SHIFT, S, movetoworkspace, special:magic"
+        ];
+
+        bindm = [
+          # Move/resize windows with mod + LMB/RMB and dragging
+          "$mod, mouse:272, movewindow"
+          "$mod, mouse:273, resizewindow"
+        ];
+      };
+    };
+  };
+}

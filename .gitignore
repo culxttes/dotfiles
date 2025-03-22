@@ -1,2 +1,1 @@
-nvim/ltex_config.lua
-bin/noi.AppImage
+modules/desktop/tui/nvim/config/ltex_config.lua

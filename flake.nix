@@ -22,24 +22,21 @@
   };
 
   outputs = { nixpkgs, ... } @ inputs:
+  let
+    username = "culottes";
+    hostName = "tantale";
+    systemType = "desktop";
+  in 
   {
-    nixosConfigurations.tantale = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.${hostName} = nixpkgs.lib.nixosSystem {
       specialArgs = {
-        inherit inputs; 
-      };
+        inherit username;
+        inherit hostName;
+        inherit systemType;
+      } // inputs;
       modules = [
-        ./configuration.nix
-        inputs.home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.culottes = import ./home.nix;
-          home-manager.backupFileExtension = "hm-backup";
-
-
-          home-manager.extraSpecialArgs = {
-            inherit inputs;
-          };
-        }
+        ./profiles/${systemType}.nix
+        ./profiles
       ];
     };
   };
