@@ -5,5 +5,6 @@
     ./desktop
     ./languages
     ./security
+    ./config
   ];
 }
