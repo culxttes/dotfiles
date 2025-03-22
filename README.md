@@ -1,3 +1,5 @@
+<!--- LTeX: language=en-US --->
+
 # dotfiles
 
 This repository contains various configuration files and binaries from my
@@ -8,19 +10,16 @@ setup of my development environment.
 
 ```
 .
-├── flake.lock
-├── flake.nix
 ├── hosts
 │   ├── common
 │   │   ├── boot.nix
 │   │   ├── default.nix
 │   │   └── locale.nix
-│   ├── default.nix
-│   └── tantale
-│       ├── default.nix
-│       ├── hardware-configuration.nix
-│       └── hardware-specific.nix
-├── LICENSE
+│   ├── tantale
+│   │   ├── default.nix
+│   │   ├── hardware-configuration.nix
+│   │   └── hardware-specific.nix
+│   └── default.nix
 ├── modules
 │   ├── config
 │   │   ├── default.nix
@@ -32,30 +31,29 @@ setup of my development environment.
 │   │   │   └── ssh-agent.nix
 │   │   ├── bluetooth
 │   │   │   └── default.nix
-│   │   ├── default.nix
 │   │   ├── network
 │   │   │   └── default.nix
 │   │   ├── nix
 │   │   │   ├── default.nix
 │   │   │   └── settings.nix
 │   │   ├── programs
-│   │   │   ├── default.nix
 │   │   │   ├── monitoring
 │   │   │   │   ├── btop.nix
 │   │   │   │   ├── default.nix
 │   │   │   │   └── fastfetch.nix
-│   │   │   └── utils
-│   │   │       ├── default.nix
-│   │   │       └── tree.nix
+│   │   │   ├── utils
+│   │   │   │   ├── default.nix
+│   │   │   │   └── tree.nix
+│   │   │   └── default.nix
 │   │   ├── runtime
 │   │   │   ├── appimage.nix
 │   │   │   ├── default.nix
 │   │   │   └── nix-ld.nix
-│   │   └── service
-│   │       ├── default.nix
-│   │       ├── displayManager.nix
-│   │       └── upower.nix
-│   ├── default.nix
+│   │   ├── service
+│   │   │   ├── default.nix
+│   │   │   ├── displayManager.nix
+│   │   │   └── upower.nix
+│   │   └── default.nix
 │   ├── desktop
 │   │   ├── cli
 │   │   │   ├── default.nix
@@ -68,7 +66,6 @@ setup of my development environment.
 │   │   │   ├── ssh.nix
 │   │   │   ├── unzip.nix
 │   │   │   └── wl-mirror.nix
-│   │   ├── default.nix
 │   │   ├── gtk
 │   │   │   └── default.nix
 │   │   ├── gui
@@ -95,32 +92,33 @@ setup of my development environment.
 │   │   │   ├── assets
 │   │   │   │   └── rofi.jpg
 │   │   │   └── default.nix
-│   │   └── tui
-│   │       ├── default.nix
-│   │       └── nvim
-│   │           ├── config
-│   │           │   ├── init.lua
-│   │           │   ├── lazy-lock.json
-│   │           │   ├── LICENSE
-│   │           │   ├── ltex_config.lua
-│   │           │   ├── lua
-│   │           │   │   ├── chadrc.lua
-│   │           │   │   ├── configs
-│   │           │   │   │   ├── conform.lua
-│   │           │   │   │   ├── lazy.lua
-│   │           │   │   │   └── lspconfig.lua
-│   │           │   │   ├── mappings.lua
-│   │           │   │   ├── options.lua
-│   │           │   │   └── plugins
-│   │           │   │       ├── init.lua
-│   │           │   │       ├── nvim-dap.lua
-│   │           │   │       ├── rustaceanvim.lua
-│   │           │   │       ├── rust.lua
-│   │           │   │       ├── treesitter.lua
-│   │           │   │       ├── vimtex.lua
-│   │           │   │       └── virt-column.lua
-│   │           │   └── README.md
-│   │           └── default.nix
+│   │   ├── tui
+│   │   │   ├── nvim
+│   │   │   │   ├── config
+│   │   │   │   │   ├── lua
+│   │   │   │   │   │   ├── configs
+│   │   │   │   │   │   │   ├── conform.lua
+│   │   │   │   │   │   │   ├── lazy.lua
+│   │   │   │   │   │   │   └── lspconfig.lua
+│   │   │   │   │   │   ├── plugins
+│   │   │   │   │   │   │   ├── init.lua
+│   │   │   │   │   │   │   ├── nvim-dap.lua
+│   │   │   │   │   │   │   ├── rustaceanvim.lua
+│   │   │   │   │   │   │   ├── rust.lua
+│   │   │   │   │   │   │   ├── treesitter.lua
+│   │   │   │   │   │   │   ├── vimtex.lua
+│   │   │   │   │   │   │   └── virt-column.lua
+│   │   │   │   │   │   ├── chadrc.lua
+│   │   │   │   │   │   ├── mappings.lua
+│   │   │   │   │   │   └── options.lua
+│   │   │   │   │   ├── init.lua
+│   │   │   │   │   ├── lazy-lock.json
+│   │   │   │   │   ├── LICENSE
+│   │   │   │   │   ├── ltex_config.lua
+│   │   │   │   │   └── README.md
+│   │   │   │   └── default.nix
+│   │   │   └── default.nix
+│   │   └── default.nix
 │   ├── languages
 │   │   ├── c
 │   │   │   ├── assets
@@ -132,25 +130,29 @@ setup of my development environment.
 │   │   ├── rust.nix
 │   │   └── scala.nix
 │   ├── security
+│   │   ├── yubikey
+│   │   │   ├── assets
+│   │   │   │   └── u2f_keys
+│   │   │   └── default.nix
 │   │   ├── default.nix
-│   │   ├── pam.nix
-│   │   └── yubikey
-│   │       ├── assets
-│   │       │   └── u2f_keys
-│   │       └── default.nix
-│   └── shell
-│       ├── default.nix
-│       ├── kitty.nix
-│       ├── oh-my-posh.nix
-│       └── zsh.nix
+│   │   └── pam.nix
+│   ├── shell
+│   │   ├── default.nix
+│   │   ├── kitty.nix
+│   │   ├── oh-my-posh.nix
+│   │   └── zsh.nix
+│   └── default.nix
 ├── profiles
 │   ├── default.nix
 │   └── desktop.nix
-├── README.md
-└── users
-    ├── culottes
-    │   └── default.nix
-    └── default.nix
+├── users
+│   ├── culottes
+│   │   └── default.nix
+│   └── default.nix
+├── flake.lock
+├── flake.nix
+├── LICENSE
+└── README.md
 ```
 
 ## License
