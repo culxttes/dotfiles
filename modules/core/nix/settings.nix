@@ -1,5 +1,9 @@
 {
   nix.settings = {
+    trusted-users = [
+      "root"
+      "@wheel"
+    ];
     substituters = [
       "https://hyprland.cachix.org"
     ];

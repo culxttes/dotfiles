@@ -93,6 +93,10 @@
           power.lowBatteryNotification = true;
         };
         bar = {
+          workspaces = {
+            showApplicationIcons = true;
+            showWsIcons = true;
+          };
           notifications = {
             show_total = true;
             hideCountWhenZero = true;

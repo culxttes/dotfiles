@@ -6,5 +6,6 @@
     ./rust.nix
     ./scala.nix
     ./javascript.nix
+    ./sage.nix
   ];
 }
