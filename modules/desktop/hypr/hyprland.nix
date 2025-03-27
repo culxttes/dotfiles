@@ -17,6 +17,8 @@ in
       pkgs.grim
       pkgs.wl-clipboard
       pkgs.brightnessctl
+      pkgs.pamixer
+      pkgs.galculator
     ];
 
     home.file = {
