@@ -17,7 +17,6 @@ M.mason = {
     "codelldb",
     "clangd",
     "ltex-ls",
-    "deno",
   }
 }
 

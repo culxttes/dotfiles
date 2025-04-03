@@ -11,7 +11,6 @@
   home-manager.users.${username} = {
     home.packages = [
       pkgs.ripgrep
-      pkgs.deno
     ];
 
     xdg.configFile = {
