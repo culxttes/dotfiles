@@ -1,17 +1,19 @@
 { pkgs, username, ... }:
 
 {
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-  };
-
   home-manager.users.${username} = {
-    home.packages = [
-      pkgs.ripgrep
-    ];
+    programs.neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      extraPackages = [
+        pkgs.jdk23
+        pkgs.nodejs
+        pkgs.ripgrep
+        pkgs.tex-fmt
+      ];
+    };
 
     xdg.configFile = {
       nvim = {

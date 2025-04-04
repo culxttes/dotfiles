@@ -2,9 +2,8 @@
 
 {
   home-manager.users.${username} = {
-    home.packages = [
-      pkgs.scala
-      pkgs.sbt
-    ];
+    programs.gh = {
+      enable = true;
+    };
   };
 }

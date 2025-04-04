@@ -23,6 +23,7 @@
          clipboard = "kitten clipboard";
          rebuild = "sudo nixos-rebuild switch --flake ~/git/dotfiles/";
          update = "sudo nix flake update --flake ~/git/dotfiles/ && sudo nixos-rebuild switch --upgrade --flake ~/git/dotfiles/";
+         nix-shell = "nix-shell --run $SHELL";
       };
       initExtra = ''
         eval "$(zoxide init --cmd cd zsh)"
@@ -34,6 +35,15 @@
             builtin cd -- "$cwd"
           fi
           rm -f -- "$tmp"
+        }
+
+        nix() {
+          if [[ $1 == "develop" ]]; then
+            shift
+            command nix develop -c $SHELL "$@"
+          else
+            command nix "$@"
+          fi
         }
       '';
       oh-my-zsh = {
