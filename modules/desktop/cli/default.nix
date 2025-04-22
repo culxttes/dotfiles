@@ -4,7 +4,7 @@
     ./graphics
     ./pentest
     ./processor
-    ./git.nix
+    ./git
     ./gpg.nix
     ./ssh.nix
     ./gh.nix

@@ -5,6 +5,7 @@
       "@wheel"
     ];
     substituters = [
+      "https://cache.nixos.org/"
       "https://hyprland.cachix.org"
     ];
     trusted-public-keys = [

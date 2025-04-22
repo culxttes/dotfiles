@@ -20,6 +20,7 @@
             pkgs.gcc
             pkgs.gnumake
             pkgs.uncrustify
+            pkgs.valgrind
 
             hgcc_sh
           ];
