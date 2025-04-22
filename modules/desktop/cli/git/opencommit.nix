@@ -8,7 +8,7 @@
 
     home.file.".opencommit".text = ''
       OCO_AI_PROVIDER=ollama
-      OCO_MODEL=llama3.3:latest
+      OCO_MODEL=llama3:8b
       OCO_API_URL=https://ollama.sagbot.com/api/chat
       OCO_API_KEY=undefined
       OCO_TOKENS_MAX_INPUT=40960
