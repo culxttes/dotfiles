@@ -1,4 +1,4 @@
-{ home-manager, username, ... }:
+{ home-manager, nixvim, username, ... }:
 
 {
   imports = [
