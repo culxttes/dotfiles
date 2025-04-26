@@ -1,5 +1,13 @@
+{ config, ... }:
+
 {
-  plugins.lsp.enable = true;
+  imports = [
+    (import ../lsp { inherit config; })
+  ];
+
+  plugins.lsp = {
+    enable = true;
+  };
 
   keymaps = [
     {

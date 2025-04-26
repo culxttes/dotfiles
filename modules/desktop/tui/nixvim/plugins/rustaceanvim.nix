@@ -1,4 +1,10 @@
+{ pkgs, ... }:
+
 {
+  extraPackages = with pkgs; [
+    rust-analyzer
+  ];
+
   plugins.rustaceanvim = {
     enable = true;
     settings = {

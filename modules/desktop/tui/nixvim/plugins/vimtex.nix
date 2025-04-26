@@ -1,4 +1,10 @@
+{ pkgs, ... }:
+
 {
+  extraPackages = with pkgs; [
+    texlive.combined.scheme-full
+  ];
+
   plugins = {
     vimtex = {
       enable = true;

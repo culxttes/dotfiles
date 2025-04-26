@@ -1,3 +1,5 @@
+{ config, ... }:
+
 {
   imports = [
     ./lualine.nix
@@ -9,9 +11,12 @@
     ./virt-column.nix
     ./rustaceanvim.nix
     ./crates.nix
-    ./lsp.nix
+    (import ./lsp.nix { inherit config; })
     ./bufferline.nix
     ./toggleterm.nix
     ./telescope.nix
+    ./markdown-preview.nix
+    ./mini.nix
+    ./cmp.nix
   ];
 }

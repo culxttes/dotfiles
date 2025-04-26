@@ -1,5 +1,4 @@
-{ pkgs, nixvim, username, ... }:
-
+{ config, pkgs, nixvim, username, ... }:
 {
   home-manager.users.${username} = {
     imports = [
@@ -34,8 +33,12 @@
         smartindent = true;
       };
 
+      clipboard = {
+        register = "unnamedplus";
+      };
+
       imports = [
-        ./plugins
+        (import ./plugins { inherit config; })
         ./keymaps.nix
       ];
     };
