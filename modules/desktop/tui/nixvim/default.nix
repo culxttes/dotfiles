@@ -37,6 +37,15 @@
         register = "unnamedplus";
       };
 
+      extraConfigLua = ''
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          pattern = "*",
+          callback = function()
+            vim.lsp.buf.format({ async = false })
+          end,
+        })
+      '';
+
       imports = [
         (import ./plugins { inherit config; })
         ./keymaps.nix

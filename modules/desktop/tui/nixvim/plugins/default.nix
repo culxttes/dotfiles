@@ -18,5 +18,6 @@
     ./markdown-preview.nix
     ./mini.nix
     ./cmp.nix
+    ./none-ls.nix
   ];
 }

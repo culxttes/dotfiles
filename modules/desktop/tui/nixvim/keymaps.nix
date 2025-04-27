@@ -72,5 +72,14 @@
         silent = true;
       };
     }
+    {
+      mode = "n";
+      key = "²";
+      action = ":lua vim.diagnostic.open_float()<CR>";
+      options = {
+        desc = "Open LSP diagnostics float";
+        silent = true;
+      };
+    }
   ];
 }
