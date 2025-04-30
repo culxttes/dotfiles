@@ -1,5 +1,5 @@
 {
   imports = [
-    ./tree.nix
+    ./uncrustify
   ];
 }

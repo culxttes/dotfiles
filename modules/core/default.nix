@@ -4,8 +4,9 @@
     ./programs
     ./agent
     ./network
-    ./bluetooth
     ./service
     ./runtime
+    ./shell
+    ./security
   ];
 }

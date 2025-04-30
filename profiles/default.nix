@@ -10,12 +10,11 @@
         programs.home-manager.enable = true;
         home.username = username;
         home.homeDirectory = "/home/${username}";
-
-        home.sessionVariables = {
-          NIXOS_OZONE_WL = "1";
-          WLR_DRM_NO_ATOMIC = "1";
-        };
       };
     }
+
+    ../hosts
+    ../modules
+    ../users
   ];
 }

@@ -51,5 +51,9 @@
         ./keymaps.nix
       ];
     };
+
+    home.sessionVariables = {
+      EDITOR = "nvim";
+    };
   };
 }

@@ -30,20 +30,17 @@
   };
 
   outputs = { nixpkgs, ... } @ inputs:
-  let
-    username = "culottes";
-    hostName = "tantale";
-    systemType = "desktop";
-  in 
   {
-    nixosConfigurations.${hostName} = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.tantale = nixpkgs.lib.nixosSystem {
       specialArgs = {
-        inherit username;
-        inherit hostName;
-        inherit systemType;
+        username = "culottes";
+        hostName = "tantale";
+        systemTypes = [
+          "additional"
+          "desktop"
+        ];
       } // inputs;
       modules = [
-        ./profiles/${systemType}.nix
         ./profiles
       ];
     };

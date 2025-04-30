@@ -1,10 +1,7 @@
+{ systemTypes, ... }:
+
 {
-  imports = [
+  imports = map (type: ./. + "/${type}") systemTypes ++ [
     ./core
-    ./shell
-    ./desktop
-    ./languages
-    ./security
-    ./config
   ];
 }

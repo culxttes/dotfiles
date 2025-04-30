@@ -1,6 +1,0 @@
-{
-  imports = [
-    ./c
-    ./latex.nix
-  ];
-}

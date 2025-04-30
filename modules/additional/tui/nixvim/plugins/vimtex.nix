@@ -28,8 +28,4 @@
       };
     };
   };
-
-  environment.variables = {
-    EDITOR = "nvim";
-  };
 }

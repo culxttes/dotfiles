@@ -1,8 +1,10 @@
 {
   imports = [
+    ./service
+    ./bluetooth
+    ./font
     ./hypr
     ./rofi
-    ./tui
     ./cli
     ./gui
     ./gtk

@@ -1,5 +1,6 @@
 {
   imports = [
-    ./font.nix
+    ./cli
+    ./tui
   ];
 }
