@@ -9,7 +9,7 @@
       pkgs.nerd-fonts._3270                    # IBM 3270 Nerd Font
       pkgs.nerd-fonts.lilex                    # Lilex Nerd Font
       pkgs.nerd-fonts.agave                    # Agave Nerd Font
-      pkgs.nerd-fonts.mplus                    # M+ Nerd Font
+      pkgs.nerd-fonts."m+"                     # M+ Nerd Font
       pkgs.nerd-fonts.arimo                    # Arimo Nerd Font
       pkgs.nerd-fonts.tinos                    # Tinos Nerd Font
       pkgs.nerd-fonts.hurmit                   # Hurmit Nerd Font
@@ -78,6 +78,8 @@
 
     # Enable the system-wide font directory
     fontDir.enable = true;
+
+    fontconfig.enable = true;
   };
 }
 

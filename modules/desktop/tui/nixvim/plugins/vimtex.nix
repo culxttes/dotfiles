@@ -1,13 +1,12 @@
 { pkgs, ... }:
 
 {
-  extraPackages = with pkgs; [
-    texlive.combined.scheme-full
-  ];
-
   plugins = {
     vimtex = {
       enable = true;
+
+      texlivePackage = pkgs.texlive.combined.scheme-full;
+
       settings = {
         view_method = "zathura";
         view_zathura_check_libsynctex = false;
@@ -28,5 +27,9 @@
         };
       };
     };
+  };
+
+  environment.variables = {
+    EDITOR = "nvim";
   };
 }

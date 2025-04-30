@@ -1,5 +1,11 @@
 {
-  plugins.nvim-tree.enable = true;
+  plugins.nvim-tree = {
+    enable = true;
+
+    git = {
+      ignore = false;
+    };
+  };
 
   keymaps = [
     {

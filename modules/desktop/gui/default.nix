@@ -9,5 +9,6 @@
     ./noi.nix
     ./obs.nix
     ./networkmanagerapplet.nix
+    ./libreoffice.nix
   ];
 }
