@@ -8,5 +8,6 @@
     ./runtime
     ./shell
     ./security
+    ./font
   ];
 }
