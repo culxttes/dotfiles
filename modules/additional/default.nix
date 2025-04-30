@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./cli
-    ./tui
-  ];
-}
+{ imports = [ ./cli ./tui ]; }

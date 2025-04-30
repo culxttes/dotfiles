@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./btop.nix
-    ./fastfetch.nix
-  ];
-}
+{ imports = [ ./btop.nix ./fastfetch.nix ]; }

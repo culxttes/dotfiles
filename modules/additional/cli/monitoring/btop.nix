@@ -1,7 +1,5 @@
 { pkgs, username, ... }:
 
 {
-  home-manager.users.${username} = {
-    home.packages = [ pkgs.btop ];
-  };
+  home-manager.users.${username} = { home.packages = [ pkgs.btop ]; };
 }

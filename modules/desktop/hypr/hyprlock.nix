@@ -32,7 +32,8 @@
           fade_on_empty = false;
           rounding = "-1";
           check_color = "rgb(204, 136, 34)";
-          placeholder_text = "<i><span foreground=\"##cdd6f4\">Input Password...</span></i>";
+          placeholder_text =
+            ''<i><span foreground="##cdd6f4">Input Password...</span></i>'';
           hide_input = false;
           position = "0, -200";
           halign = "center";
@@ -40,7 +41,7 @@
         };
         label = [
           {
-            text = "cmd[update:1000] echo \"$(date +\"%A, %B %d\")\"";
+            text = ''cmd[update:1000] echo "$(date +"%A, %B %d")"'';
             color = "rgba(242, 243, 244, 0.75)";
             font_size = 22;
             font_family = "JetBrains Mono";
@@ -49,7 +50,7 @@
             valign = "center";
           }
           {
-            text = "cmd[update:1000] echo \"$(date +\"%-I:%M\")\"";
+            text = ''cmd[update:1000] echo "$(date +"%-I:%M")"'';
             color = "rgba(242, 243, 244, 0.75)";
             font_size = 95;
             font_family = "JetBrains Mono Extrabold";

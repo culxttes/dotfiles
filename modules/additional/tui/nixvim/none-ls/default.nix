@@ -1,5 +1,1 @@
-{
-  imports = [
-    ./uncrustify
-  ];
-}
+{ imports = [ ./uncrustify ./nixfmt.nix ]; }

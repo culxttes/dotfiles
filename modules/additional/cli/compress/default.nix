@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./gzip.nix
-    ./unzip.nix
-  ];
-}
+{ imports = [ ./gzip.nix ./unzip.nix ]; }

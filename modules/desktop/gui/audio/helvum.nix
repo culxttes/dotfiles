@@ -1,9 +1,5 @@
 { pkgs, username, ... }:
 
 {
-  home-manager.users.${username} = {
-    home.packages = [
-      pkgs.helvum
-    ];
-  };
+  home-manager.users.${username} = { home.packages = [ pkgs.helvum ]; };
 }

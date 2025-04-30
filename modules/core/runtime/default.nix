@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./nix-ld.nix
-    ./appimage.nix
-  ];
-}
+{ imports = [ ./nix-ld.nix ./appimage.nix ]; }

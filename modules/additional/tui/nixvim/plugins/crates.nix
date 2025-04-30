@@ -1,3 +1,1 @@
-{
-  plugins.crates.enable = true;
-}
+{ plugins.crates.enable = true; }

@@ -1,7 +1,1 @@
-{
-  imports = [
-    ./vscode.nix
-    ./idea.nix
-    ./bruno.nix
-  ];
-}
+{ imports = [ ./vscode.nix ./idea.nix ./bruno.nix ]; }

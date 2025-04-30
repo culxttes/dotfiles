@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./jq.nix
-    ./fq.nix
-  ];
-}
+{ imports = [ ./jq.nix ./fq.nix ]; }

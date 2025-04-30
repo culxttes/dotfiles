@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./cachix.nix
-    ./sops.nix
-  ];
-}
+{ imports = [ ./cachix.nix ./sops.nix ]; }

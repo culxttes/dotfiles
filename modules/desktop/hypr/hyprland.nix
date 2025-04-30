@@ -3,12 +3,12 @@ let
   screenshot_sh = pkgs.writeShellScriptBin "screenshot" ''
     ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -d)" - | ${pkgs.wl-clipboard}/bin/wl-copy
   '';
-in
-{
+in {
   programs.hyprland = {
     enable = true;
     package = hyprland.packages.${pkgs.system}.hyprland;
-    portalPackage = hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+    portalPackage =
+      hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
   };
 
   home-manager.users.${username} = {
@@ -28,25 +28,21 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
       package = hyprland.packages.${pkgs.system}.hyprland;
-      portalPackage = hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
-      
-      settings = {  
+      portalPackage =
+        hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+
+      settings = {
         # Environement Variables
-        env = [
-          "XCURSOR_SIZE,24"
-          "HYPRCURSOR_SIZE,24"
-        ];
+        env = [ "XCURSOR_SIZE,24" "HYPRCURSOR_SIZE,24" ];
 
         # Monitors
-        monitor = [
-          ",preferred,auto,1"
-        ];
+        monitor = [ ",preferred,auto,1" ];
 
         # Programs
         "$terminal" = "kitty";
         "$fileManager" = "yazi";
         "$menu" = "rofi -show drun";
-        
+
         # Look and feel
 
         general = {
@@ -107,9 +103,7 @@ in
           preserve_split = true;
         };
 
-        master = {
-          new_status = "master";
-        };
+        master = { new_status = "master"; };
 
         misc = {
           force_default_wallpaper = 0;
@@ -123,16 +117,12 @@ in
           follow_mouse = 1;
           sensitivity = 0;
 
-          touchpad = {
-            natural_scroll = false;
-          };
+          touchpad = { natural_scroll = false; };
 
           numlock_by_default = true;
         };
 
-        gestures = {
-           workspace_swipe = false;
-        };
+        gestures = { workspace_swipe = false; };
 
         device = {
           name = "epic-mouse-v1";

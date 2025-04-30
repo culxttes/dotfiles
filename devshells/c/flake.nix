@@ -13,8 +13,7 @@
         hgcc_sh = pkgs.writeShellScriptBin "hgcc" ''
           ${pkgs.gcc}/bin/gcc -std=c23 -Wall -Wconversion -Werror -Wextra -Wpedantic -Wwrite-strings -O2 -o "$(dirname $1)/$(basename $1 .c)" $1
         '';
-      in
-      {
+      in {
         devShells.default = pkgs.mkShell rec {
           buildInputs = with pkgs; [
             pkgs.gcc
@@ -25,6 +24,5 @@
             hgcc_sh
           ];
         };
-      }
-    );
+      });
 }

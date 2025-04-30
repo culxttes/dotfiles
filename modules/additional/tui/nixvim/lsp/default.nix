@@ -1,7 +1,5 @@
 { config, ... }:
 
 {
-  imports = [
-    (import ./ltex.nix { inherit config; })
-  ];
+  imports = [ (import ./ltex.nix { inherit config; }) ];
 }

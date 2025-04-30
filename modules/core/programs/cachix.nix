@@ -1,9 +1,5 @@
 { pkgs, username, ... }:
 
 {
-  home-manager.users.${username} = {
-    home.packages = [
-      pkgs.cachix
-    ];
-  };
+  home-manager.users.${username} = { home.packages = [ pkgs.cachix ]; };
 }

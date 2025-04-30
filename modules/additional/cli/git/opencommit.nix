@@ -2,9 +2,7 @@
 
 {
   home-manager.users.${username} = {
-    home.packages = [
-      pkgs.opencommit
-    ];
+    home.packages = [ pkgs.opencommit ];
 
     home.file.".opencommit".text = ''
       OCO_AI_PROVIDER=ollama

@@ -1,7 +1,1 @@
-{
-  imports = [
-    ./displayManager.nix
-    ./upower.nix
-    ./logind.nix
-  ];
-}
+{ imports = [ ./displayManager.nix ./upower.nix ./logind.nix ]; }

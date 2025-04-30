@@ -1,13 +1,9 @@
 { config, ... }:
 
 {
-  imports = [
-    (import ../lsp { inherit config; })
-  ];
+  imports = [ (import ../lsp { inherit config; }) ];
 
-  plugins.lsp = {
-    enable = true;
-  };
+  plugins.lsp = { enable = true; };
 
   keymaps = [
     {
@@ -22,7 +18,8 @@
     {
       mode = "n";
       key = "<leader>ih";
-      action = ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>";
+      action =
+        ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<CR>";
       options = {
         desc = "Toggle Inlay Hint";
         silent = true;

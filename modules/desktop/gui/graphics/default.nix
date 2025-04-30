@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./gimp.nix
-    ./inkscape.nix
-  ];
-}
+{ imports = [ ./gimp.nix ./inkscape.nix ]; }

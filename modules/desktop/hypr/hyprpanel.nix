@@ -4,9 +4,7 @@
   nixpkgs.overlays = [ hyprpanel.overlay ];
 
   home-manager.users.${username} = {
-    imports = [ 
-      hyprpanel.homeManagerModules.hyprpanel 
-    ];
+    imports = [ hyprpanel.homeManagerModules.hyprpanel ];
 
     programs.hyprpanel = {
       enable = true;
@@ -29,15 +27,8 @@
         layout = {
           "bar.layouts" = {
             "0" = {
-              left = [
-                "dashboard"
-                "workspaces"
-                "windowtitle"
-                "hypridle"
-              ];
-              middle = [
-                "media"
-              ];
+              left = [ "dashboard" "workspaces" "windowtitle" "hypridle" ];
+              middle = [ "media" ];
               right = [
                 "volume"
                 "network"
@@ -49,34 +40,14 @@
               ];
             };
             "1" = {
-              left = [
-                "dashboard"
-                "workspaces"
-                "windowtitle"
-              ];
-              middle = [
-                "media"
-              ];
-              right = [
-                "volume"
-                "clock"
-                "notifications"
-              ];
+              left = [ "dashboard" "workspaces" "windowtitle" ];
+              middle = [ "media" ];
+              right = [ "volume" "clock" "notifications" ];
             };
             "2" = {
-              left = [
-                "dashboard"
-                "workspaces"
-                "windowtitle"
-              ];
-              middle = [
-                "media"
-              ];
-              right = [
-                "volume"
-                "clock"
-                "notifications"
-              ];
+              left = [ "dashboard" "workspaces" "windowtitle" ];
+              middle = [ "media" ];
+              right = [ "volume" "clock" "notifications" ];
             };
           };
         };

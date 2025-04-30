@@ -1,7 +1,1 @@
-{
-  imports = [
-    ./git.nix
-    ./gh.nix
-    ./opencommit.nix
-  ];
-}
+{ imports = [ ./git.nix ./gh.nix ./opencommit.nix ]; }

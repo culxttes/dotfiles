@@ -14,7 +14,7 @@
           {
             timeout = 3600;
             on-timeout = "loginctl lock-session";
-            on-resume = "notify-send \"Welcome back!\"";
+            on-resume = ''notify-send "Welcome back!"'';
           }
           {
             timeout = 3630;

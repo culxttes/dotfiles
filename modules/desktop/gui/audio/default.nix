@@ -1,6 +1,1 @@
-{
-  imports = [
-    ./helvum.nix
-    ./pavucontrol.nix
-  ];
-}
+{ imports = [ ./helvum.nix ./pavucontrol.nix ]; }

@@ -1,7 +1,5 @@
 { systemTypes, ... }:
 
 {
-  imports = map (type: ./. + "/${type}") systemTypes ++ [
-    ./core
-  ];
+  imports = map (type: ./. + "/${type}") systemTypes ++ [ ./core ];
 }

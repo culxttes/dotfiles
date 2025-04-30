@@ -16,7 +16,7 @@
       timeout = 0;
     };
 
-    kernelParams = [ 
+    kernelParams = [
       # Reduce kernel output during boot
       "quiet"
 
@@ -54,12 +54,10 @@
       theme = "rings";
 
       # Install the selected Plymouth theme
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "rings" ];
-        })
-      ];
+      themePackages = with pkgs;
+        [
+          (adi1090x-plymouth-themes.override { selected_themes = [ "rings" ]; })
+        ];
     };
   };
 }
-
