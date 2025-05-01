@@ -17,7 +17,8 @@
           lib.makeLibraryPath [
             # load external libraries that you need in your rust project here
           ];
-      in {
+      in
+      {
         devShells.default = pkgs.mkShell rec {
           nativeBuildInputs = [ pkgs.pkg-config ];
           buildInputs = with pkgs; [ clang llvmPackages.bintools rustup ];

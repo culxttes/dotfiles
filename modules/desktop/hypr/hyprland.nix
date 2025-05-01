@@ -3,7 +3,8 @@ let
   screenshot_sh = pkgs.writeShellScriptBin "screenshot" ''
     ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -d)" - | ${pkgs.wl-clipboard}/bin/wl-copy
   '';
-in {
+in
+{
   programs.hyprland = {
     enable = true;
     package = hyprland.packages.${pkgs.system}.hyprland;

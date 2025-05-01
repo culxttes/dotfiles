@@ -43,16 +43,18 @@
           systemTypes = [ "additional" "server" ];
         }
       ];
-    in {
-      nixosConfigurations = builtins.listToAttrs (builtins.map (entry: {
-        name = entry.hostName;
-        value = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = {
-            inherit (entry) username hostName systemTypes;
-          } // inputs;
-          modules = [ ./profiles ];
-        };
-      }) systemInfo);
+    in
+    {
+      nixosConfigurations = builtins.listToAttrs (builtins.map
+        (entry: {
+          name = entry.hostName;
+          value = nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              inherit (entry) username hostName systemTypes;
+            } // inputs;
+            modules = [ ./profiles ];
+          };
+        })
+        systemInfo);
     };
 }
