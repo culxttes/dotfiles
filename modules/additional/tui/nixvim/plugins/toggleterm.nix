@@ -21,7 +21,7 @@
       };
     }
     {
-      mode = "t"; # terminal mode
+      mode = "t";
       key = "<Esc>";
       action = "<C-\\><C-n>";
       options = {

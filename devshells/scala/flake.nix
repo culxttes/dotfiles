@@ -11,6 +11,11 @@
       let pkgs = nixpkgs.legacyPackages.${system};
       in {
         devShells.default =
-          pkgs.mkShell rec { buildInputs = with pkgs; [ sbt scala ]; };
+          pkgs.mkShell rec {
+            buildInputs = with pkgs; [
+              sbt
+              scala
+            ];
+          };
       });
 }

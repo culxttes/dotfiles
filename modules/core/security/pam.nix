@@ -1,7 +1,9 @@
 {
   security.pam = {
     u2f = {
-      settings = { cue = true; };
+      settings = {
+        cue = true;
+      };
       control = "required";
     };
     services = {

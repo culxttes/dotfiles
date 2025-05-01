@@ -2,12 +2,16 @@
 
 {
   home-manager.users.${username} = {
-    imports = [ nixvim.homeManagerModules.nixvim ];
+    imports = [
+      nixvim.homeManagerModules.nixvim
+    ];
 
     programs.nixvim = {
       enable = true;
 
-      colorschemes.catppuccin = { enable = true; };
+      colorschemes.catppuccin = {
+        enable = true;
+      };
 
       globals.mapleader = " ";
       globals.maplocalleader = ",";
@@ -30,7 +34,9 @@
         smartindent = true;
       };
 
-      clipboard = { register = "unnamedplus"; };
+      clipboard = {
+        register = "unnamedplus";
+      };
 
       extraConfigLua = ''
         vim.api.nvim_create_autocmd("BufWritePre", {
@@ -41,7 +47,10 @@
         })
       '';
 
-      imports = [ (import ./plugins { inherit config; }) ./keymaps.nix ];
+      imports = [
+        (import ./plugins { inherit config; })
+        ./keymaps.nix
+      ];
     };
 
     home.sessionVariables = { EDITOR = "nvim"; };

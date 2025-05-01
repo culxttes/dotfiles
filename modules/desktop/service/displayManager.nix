@@ -2,7 +2,9 @@
 
 {
   environment.systemPackages = with pkgs;
-    [ (catppuccin-sddm.override { flavor = "mocha"; }) ];
+    [
+      (catppuccin-sddm.override { flavor = "mocha"; })
+    ];
 
   services.displayManager = {
     enable = true;

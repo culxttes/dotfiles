@@ -1,5 +1,9 @@
 {
-  imports = [ ../none-ls ];
+  imports = [
+    ../none-ls
+  ];
 
-  plugins.none-ls = { enable = true; };
+  plugins.none-ls = {
+    enable = true;
+  };
 }

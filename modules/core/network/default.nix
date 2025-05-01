@@ -9,7 +9,9 @@
         powersave = true;
         macAddress = "random";
       };
-      ethernet = { macAddress = "random"; };
+      ethernet = {
+        macAddress = "random";
+      };
     };
   };
 }

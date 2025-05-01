@@ -8,5 +8,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  home-manager.users.${username} = { home.stateVersion = "25.05"; };
+  home-manager.users.${username} = {
+    home.stateVersion = "25.05";
+  };
 }

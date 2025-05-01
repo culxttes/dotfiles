@@ -3,9 +3,16 @@
     enable = true;
 
     settings = {
-      filetypes = [ "c" ];
+      filetypes = [
+        "c"
+      ];
 
-      args = [ "-l" "C" "-c" ./assets/.uncrustify_c.cfg ];
+      args = [
+        "-l"
+        "C"
+        "-c"
+        ./assets/.uncrustify_c.cfg
+      ];
     };
   };
 }

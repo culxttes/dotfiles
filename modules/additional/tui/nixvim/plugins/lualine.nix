@@ -4,8 +4,18 @@
     settings = {
       options = {
         disabled_filetypes = {
-          statusline = [ "NvimTree" "packer" "TelescopePrompt" "neo-tree" ];
-          winbar = [ "NvimTree" "packer" "TelescopePrompt" "neo-tree" ];
+          statusline = [
+            "NvimTree"
+            "packer"
+            "TelescopePrompt"
+            "neo-tree"
+          ];
+          winbar = [
+            "NvimTree"
+            "packer"
+            "TelescopePrompt"
+            "neo-tree"
+          ];
         };
       };
     };

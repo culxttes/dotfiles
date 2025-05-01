@@ -1,1 +1,3 @@
-{ plugins.mini.enable = true; }
+{
+  plugins.mini.enable = true;
+}

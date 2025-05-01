@@ -1,1 +1,5 @@
-{ imports = [ ./wl-mirror.nix ]; }
+{
+  imports = [
+    ./wl-mirror.nix
+  ];
+}

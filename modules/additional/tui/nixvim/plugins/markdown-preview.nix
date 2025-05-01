@@ -1,9 +1,13 @@
 { pkgs, ... }:
 
 {
-  extraPackages = with pkgs; [ nodejs ];
+  extraPackages = with pkgs; [
+    nodejs
+  ];
 
-  plugins.markdown-preview = { enable = true; };
+  plugins.markdown-preview = {
+    enable = true;
+  };
 
   keymaps = [{
     mode = "n";

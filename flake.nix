@@ -35,12 +35,18 @@
         {
           hostName = "tantale";
           username = "culottes";
-          systemTypes = [ "additional" "desktop" ];
+          systemTypes = [
+            "additional"
+            "desktop"
+          ];
         }
         {
           hostName = "sisyphe";
           username = "culottes";
-          systemTypes = [ "additional" "server" ];
+          systemTypes = [
+            "additional"
+            "server"
+          ];
         }
       ];
     in
@@ -52,7 +58,9 @@
             specialArgs = {
               inherit (entry) username hostName systemTypes;
             } // inputs;
-            modules = [ ./profiles ];
+            modules = [
+              ./profiles
+            ];
           };
         })
         systemInfo);

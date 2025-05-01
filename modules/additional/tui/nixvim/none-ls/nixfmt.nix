@@ -1,1 +1,3 @@
-{ plugins.none-ls.sources.formatting.nixfmt.enable = true; }
+{
+  plugins.none-ls.sources.formatting.nixpkgs_fmt.enable = true;
+}

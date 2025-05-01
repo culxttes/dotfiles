@@ -1,1 +1,11 @@
-{ imports = [ ./service ./bluetooth ./hypr ./rofi ./cli ./gui ./gtk ]; }
+{
+  imports = [
+    ./service
+    ./bluetooth
+    ./hypr
+    ./rofi
+    ./cli
+    ./gui
+    ./gtk
+  ];
+}

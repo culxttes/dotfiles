@@ -1,12 +1,19 @@
 { pkgs, ... }:
 
 {
-  extraPackages = with pkgs; [ gcc git nodejs tree-sitter ];
+  extraPackages = with pkgs; [
+    gcc
+    git
+    nodejs
+    tree-sitter
+  ];
 
   plugins = {
     treesitter = {
       enable = true;
-      settings = { ensure_installed = "all"; };
+      settings = {
+        ensure_installed = "all";
+      };
     };
   };
 }

@@ -1,1 +1,6 @@
-{ imports = [ ./hardware-configuration.nix ./hardware-specific.nix ]; }
+{
+  imports = [
+    ./hardware-configuration.nix
+    ./hardware-specific.nix
+  ];
+}

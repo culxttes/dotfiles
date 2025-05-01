@@ -16,7 +16,8 @@
         adjust-open = "best-fit";
         synctex = true;
         synctex-editor-command = ''
-          nvim --headless -c "VimtexInverseSearch %{line}:%{column} '%{input}'"'';
+          nvim --headless -c "VimtexInverseSearch %{line}:%{column} '%{input}'"
+        '';
         dbus-service = true;
         database = "sqlite";
 

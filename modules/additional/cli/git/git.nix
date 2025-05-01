@@ -9,7 +9,11 @@
       aliases = {
         pull-all = "!git pull && git submodule update --init --recursive";
       };
-      extraConfig = { commit = { gpgSign = true; }; };
+      extraConfig = {
+        commit = {
+          gpgSign = true;
+        };
+      };
     };
   };
 }

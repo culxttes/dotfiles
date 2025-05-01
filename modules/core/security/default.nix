@@ -1,1 +1,6 @@
-{ imports = [ ./pam.nix ./yubikey ]; }
+{
+  imports = [
+    ./pam.nix
+    ./yubikey
+  ];
+}

@@ -11,6 +11,10 @@
       let pkgs = nixpkgs.legacyPackages.${system};
       in {
         devShells.default =
-          pkgs.mkShell rec { buildInputs = with pkgs; [ sage ]; };
+          pkgs.mkShell rec {
+            buildInputs = with pkgs; [
+              sage
+            ];
+          };
       });
 }

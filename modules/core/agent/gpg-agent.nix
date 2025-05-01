@@ -10,7 +10,9 @@
       enableSshSupport = false;
 
       verbose = true;
-      pinentry = { package = pkgs.pinentry-curses; };
+      pinentry = {
+        package = pkgs.pinentry-curses;
+      };
     };
   };
 }

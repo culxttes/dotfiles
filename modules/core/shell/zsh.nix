@@ -7,7 +7,10 @@
 
   home-manager.users.${username} = {
 
-    home.packages = [ pkgs.zoxide pkgs.yazi ];
+    home.packages = [
+      pkgs.zoxide
+      pkgs.yazi
+    ];
 
     programs.zsh = {
       enable = true;
@@ -17,8 +20,7 @@
         icat = "kitten icat";
         clipboard = "kitten clipboard";
         rebuild = "sudo nixos-rebuild switch --flake ~/git/dotfiles/";
-        update =
-          "sudo nix flake update --flake ~/git/dotfiles/ && sudo nixos-rebuild switch --upgrade --flake ~/git/dotfiles/";
+        update = "sudo nix flake update --flake ~/git/dotfiles/ && sudo nixos-rebuild switch --upgrade --flake ~/git/dotfiles/";
       };
       initContent = ''
         eval "$(zoxide init --cmd cd zsh)"
@@ -43,7 +45,9 @@
       '';
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" ];
+        plugins = [
+          "git"
+        ];
       };
     };
   };

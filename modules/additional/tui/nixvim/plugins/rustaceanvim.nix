@@ -1,7 +1,13 @@
 { pkgs, ... }:
 
 {
-  extraPackages = with pkgs; [ rust-analyzer clippy cargo rustfmt lldb ];
+  extraPackages = with pkgs; [
+    rust-analyzer
+    clippy
+    cargo
+    rustfmt
+    lldb
+  ];
 
   plugins.rustaceanvim = {
     enable = true;
@@ -9,8 +15,12 @@
       server = {
         default_settings = {
           rust-analyzer = {
-            check = { command = "clippy"; };
-            inlayHints = { lifetimeElisionHints = { enable = "always"; }; };
+            check = {
+              command = "clippy";
+            };
+            inlayHints = {
+              lifetimeElisionHints = { enable = "always"; };
+            };
           };
         };
         standalone = false;

@@ -2,6 +2,8 @@
 
 {
   home-manager.users.${username} = {
-    home.packages = [ pkgs.networkmanagerapplet ];
+    home.packages = [
+      pkgs.networkmanagerapplet
+    ];
   };
 }

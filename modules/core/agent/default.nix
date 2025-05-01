@@ -1,1 +1,6 @@
-{ imports = [ ./ssh-agent.nix ./gpg-agent.nix ]; }
+{
+  imports = [
+    ./ssh-agent.nix
+    ./gpg-agent.nix
+  ];
+}

@@ -1,1 +1,6 @@
-{ imports = [ ./imagemagick.nix ./ffmpeg.nix ]; }
+{
+  imports = [
+    ./imagemagick.nix
+    ./ffmpeg.nix
+  ];
+}

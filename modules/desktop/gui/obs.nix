@@ -3,7 +3,10 @@
 {
   programs.adb.enable = true;
 
-  users.users.${username}.extraGroups = [ "adbusers" "video" ];
+  users.users.${username}.extraGroups = [
+    "adbusers"
+    "video"
+  ];
 
   programs.obs-studio = {
     enable = true;

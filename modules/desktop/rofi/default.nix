@@ -2,7 +2,9 @@
 
 {
   home-manager.users.${username} = {
-    home.packages = [ pkgs.networkmanager_dmenu ];
+    home.packages = [
+      pkgs.networkmanager_dmenu
+    ];
 
     home.file.".config/networkmanager-dmenu/config.ini" = {
       text = ''
@@ -38,8 +40,7 @@
 
         drun-categories = "";
         drun-match-fields = "name,generic,exec,categories,keywords";
-        drun-display-format =
-          "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+        drun-display-format = "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
         drun-show-actions = false;
         drun-url-launcher = "xdg-open";
         drun-use-desktop-cache = false;
@@ -75,8 +76,7 @@
       };
       theme =
         let
-          inherit (config.home-manager.users.${username}.lib.formats.rasi)
-            mkLiteral;
+          inherit (config.home-manager.users.${username}.lib.formats.rasi) mkLiteral;
         in
         {
           "*" = {
@@ -115,10 +115,13 @@
           imagebox = {
             padding = mkLiteral "20px";
             background-color = mkLiteral "transparent";
-            background-image =
-              mkLiteral ''url("${builtins.toString ./assets/rofi.jpg}", height)'';
+            background-image = mkLiteral ''url("${builtins.toString ./assets/rofi.jpg}", height)'';
             orientation = mkLiteral "vertical";
-            children = [ "inputbar" "dummy" "mode-switcher" ];
+            children = [
+              "inputbar"
+              "dummy"
+              "mode-switcher"
+            ];
           };
 
           listbox = {
@@ -126,10 +129,15 @@
             padding = mkLiteral "20px";
             background-color = mkLiteral "transparent";
             orientation = mkLiteral "vertical";
-            children = [ "message" "listview" ];
+            children = [
+              "message"
+              "listview"
+            ];
           };
 
-          dummy = { background-color = mkLiteral "transparent"; };
+          dummy = {
+            background-color = mkLiteral "transparent";
+          };
 
           inputbar = {
             enabled = true;
@@ -138,7 +146,10 @@
             border-radius = mkLiteral "10px";
             background-color = mkLiteral "@background-alt";
             text-color = mkLiteral "@foreground";
-            children = [ "textbox-prompt-colon" "entry" ];
+            children = [
+              "textbox-prompt-colon"
+              "entry"
+            ];
           };
           textbox-prompt-colon = {
             enabled = true;
@@ -239,7 +250,9 @@
             horizontal-align = mkLiteral "0.0";
           };
 
-          message = { background-color = mkLiteral "transparent"; };
+          message = {
+            background-color = mkLiteral "transparent";
+          };
           textbox = {
             padding = mkLiteral "15px";
             border-radius = mkLiteral "10px";

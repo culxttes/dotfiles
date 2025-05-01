@@ -20,14 +20,22 @@
       in
       {
         devShells.default = pkgs.mkShell rec {
-          nativeBuildInputs = [ pkgs.pkg-config ];
-          buildInputs = with pkgs; [ clang llvmPackages.bintools rustup ];
+          nativeBuildInputs = [
+            pkgs.pkg-config
+          ];
+          buildInputs = with pkgs; [
+            clang
+            llvmPackages.bintools
+            rustup
+          ];
 
           RUSTC_VERSION = overrides.toolchain.channel;
 
           # https://github.com/rust-lang/rust-bindgen#environment-variables
           LIBCLANG_PATH =
-            pkgs.lib.makeLibraryPath [ pkgs.llvmPackages_latest.libclang.lib ];
+            pkgs.lib.makeLibraryPath [
+              pkgs.llvmPackages_latest.libclang.lib
+            ];
 
           shellHook = ''
             export PATH=$PATH:''${CARGO_HOME:-~/.cargo}/bin

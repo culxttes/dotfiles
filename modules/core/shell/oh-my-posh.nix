@@ -20,14 +20,15 @@
                 style = "plain";
                 template = "{{ .Path }}";
                 type = "path";
-                properties = { style = "full"; };
+                properties = {
+                  style = "full";
+                };
               }
               {
                 background = "transparent";
                 foreground = "green";
                 style = "plain";
-                template =
-                  " {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>";
+                template = " {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>";
                 type = "git";
                 properties = {
                   branch_icon = "";
@@ -46,7 +47,9 @@
               style = "plain";
               template = "{{ .FormattedMs }}";
               type = "executiontime";
-              properties = { threshold = 5000; };
+              properties = {
+                threshold = 5000;
+              };
             }];
           }
           {

@@ -2,7 +2,9 @@
   plugins.nvim-tree = {
     enable = true;
 
-    git = { ignore = false; };
+    git = {
+      ignore = false;
+    };
   };
 
   keymaps = [{

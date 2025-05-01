@@ -2,6 +2,8 @@
 
 {
   home-manager.users.${username} = {
-    home.packages = [ pkgs.jetbrains.idea-community-bin ];
+    home.packages = [
+      pkgs.jetbrains.idea-community-bin
+    ];
   };
 }
