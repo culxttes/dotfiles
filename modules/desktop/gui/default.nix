@@ -10,5 +10,6 @@
     ./obs.nix
     ./networkmanagerapplet.nix
     ./libreoffice.nix
+    ./filelight.nix
   ];
 }

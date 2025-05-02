@@ -2,8 +2,8 @@
 
 {
   home-manager.users.${username} = {
-    programs.gh = {
-      enable = true;
-    };
+    home.packages = [
+      pkgs.kdePackages.filelight
+    ];
   };
 }

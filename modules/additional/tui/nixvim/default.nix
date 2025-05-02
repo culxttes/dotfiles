@@ -1,4 +1,4 @@
-{ config, pkgs, nixvim, username, ... }:
+{ pkgs, nixvim, username, ... }:
 
 {
   home-manager.users.${username} = {
@@ -48,7 +48,7 @@
       '';
 
       imports = [
-        (import ./plugins { inherit config; })
+        ./plugins
         ./keymaps.nix
       ];
     };

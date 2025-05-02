@@ -7,7 +7,6 @@
     ./service
     ./runtime
     ./shell
-    ./security
     ./font
   ];
 }

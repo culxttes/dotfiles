@@ -27,5 +27,13 @@
         };
       };
     };
+
+    cmp = {
+      settings = {
+        sources = [
+          { name = "vimtex"; }
+        ];
+      };
+    };
   };
 }

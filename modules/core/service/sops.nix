@@ -14,7 +14,11 @@
   sops.secrets."language-tool/username" = {
     owner = username;
   };
-  sops.secrets."language-tool/apiKey" = {
+  sops.secrets."language-tool/api-key" = {
     owner = username;
   };
+
+  sops.secrets."cloudflare/dns-api-token" = { };
+
+  sops.secrets."vaultwarden/admin-token" = { };
 }

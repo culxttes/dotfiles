@@ -9,7 +9,6 @@
         { name = "nvim_lsp"; }
         { name = "path"; }
         { name = "buffer"; }
-        { name = "vimtex"; }
       ];
 
       mapping = {
