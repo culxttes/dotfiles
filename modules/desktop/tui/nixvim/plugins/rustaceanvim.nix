@@ -1,29 +1,33 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
-  extraPackages = with pkgs; [
-    rust-analyzer
-    clippy
-    cargo
-    rustfmt
-    lldb
-  ];
+  home-manager.users.${username}.programs.nixvim = {
+    extraPackages = with pkgs; [
+      rust-analyzer
+      clippy
+      cargo
+      rustfmt
+      lldb
+    ];
 
-  plugins.rustaceanvim = {
-    enable = true;
-    settings = {
-      server = {
-        default_settings = {
-          rust-analyzer = {
-            check = {
-              command = "clippy";
-            };
-            inlayHints = {
-              lifetimeElisionHints = { enable = "always"; };
+    plugins.rustaceanvim = {
+      enable = true;
+      settings = {
+        server = {
+          default_settings = {
+            rust-analyzer = {
+              check = {
+                command = "clippy";
+              };
+              inlayHints = {
+                lifetimeElisionHints = {
+                  enable = "always";
+                };
+              };
             };
           };
+          standalone = false;
         };
-        standalone = false;
       };
     };
   };

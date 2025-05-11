@@ -3,6 +3,7 @@
     ./graphics
     ./development
     ./audio
+    ./chromium
     ./zathura.nix
     ./discord.nix
     ./firefox.nix
@@ -10,6 +11,6 @@
     ./obs.nix
     ./networkmanagerapplet.nix
     ./libreoffice.nix
-    ./filelight.nix
+    ./baobab.nix
   ];
 }

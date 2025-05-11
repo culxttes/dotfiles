@@ -1,3 +1,7 @@
+{ username, ... }:
+
 {
-  plugins.crates.enable = true;
+  home-manager.users.${username}.programs.nixvim = {
+    plugins.crates.enable = true;
+  };
 }

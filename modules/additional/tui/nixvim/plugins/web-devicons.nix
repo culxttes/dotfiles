@@ -1,3 +1,7 @@
+{ username, ... }:
+
 {
-  plugins.web-devicons.enable = true;
+  home-manager.users.${username}.programs.nixvim = {
+    plugins.web-devicons.enable = true;
+  };
 }

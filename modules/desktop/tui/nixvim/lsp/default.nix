@@ -2,6 +2,6 @@
 
 {
   imports = [
-    (import ./ltex.nix { inherit config; })
+    ./ltex.nix
   ];
 }

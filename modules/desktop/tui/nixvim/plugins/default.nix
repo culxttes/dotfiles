@@ -5,7 +5,7 @@
     ./vimtex.nix
     ./rustaceanvim.nix
     ./crates.nix
-    (import ./lsp.nix { inherit config; })
+    ./lsp.nix
     ./markdown-preview.nix
     ./peek.nix
   ];

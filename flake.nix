@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    #nixpkgs.url = "github:Lurgrid/nixpkgs";
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -29,7 +30,8 @@
     };
   };
 
-  outputs = { nixpkgs, ... }@inputs:
+  outputs =
+    { nixpkgs, ... }@inputs:
     let
       systemInfo = [
         {
@@ -51,18 +53,17 @@
       ];
     in
     {
-      nixosConfigurations = builtins.listToAttrs (builtins.map
-        (entry: {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+      nixosConfigurations = builtins.listToAttrs (
+        builtins.map (entry: {
           name = entry.hostName;
           value = nixpkgs.lib.nixosSystem {
             specialArgs = {
               inherit (entry) username hostName systemTypes;
             } // inputs;
-            modules = [
-              ./profiles
-            ];
+            modules = [ ./profiles ];
           };
-        })
-        systemInfo);
+        }) systemInfo
+      );
     };
 }

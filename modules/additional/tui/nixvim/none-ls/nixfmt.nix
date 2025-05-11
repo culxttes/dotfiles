@@ -1,3 +1,10 @@
+{ pkgs, username, ... }:
+
 {
-  plugins.none-ls.sources.formatting.nixpkgs_fmt.enable = true;
+  home-manager.users.${username}.programs.nixvim = {
+    plugins.none-ls.sources.formatting.nixfmt = {
+      enable = true;
+      package = pkgs.nixfmt-rfc-style;
+    };
+  };
 }

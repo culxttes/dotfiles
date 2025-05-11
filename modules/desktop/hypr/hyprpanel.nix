@@ -27,7 +27,12 @@
         layout = {
           "bar.layouts" = {
             "0" = {
-              left = [ "dashboard" "workspaces" "windowtitle" "hypridle" ];
+              left = [
+                "dashboard"
+                "workspaces"
+                "windowtitle"
+                "hypridle"
+              ];
               middle = [ "media" ];
               right = [
                 "volume"
@@ -40,14 +45,30 @@
               ];
             };
             "1" = {
-              left = [ "dashboard" "workspaces" "windowtitle" ];
+              left = [
+                "dashboard"
+                "workspaces"
+                "windowtitle"
+              ];
               middle = [ "media" ];
-              right = [ "volume" "clock" "notifications" ];
+              right = [
+                "volume"
+                "clock"
+                "notifications"
+              ];
             };
             "2" = {
-              left = [ "dashboard" "workspaces" "windowtitle" ];
+              left = [
+                "dashboard"
+                "workspaces"
+                "windowtitle"
+              ];
               middle = [ "media" ];
-              right = [ "volume" "clock" "notifications" ];
+              right = [
+                "volume"
+                "clock"
+                "notifications"
+              ];
             };
           };
         };
@@ -60,7 +81,7 @@
           dashboard = {
             directories.enabled = false;
             shortcuts.enabled = false;
-            powermenu.avatar.image = toString ./assets/logo.jpg;
+            powermenu.avatar.image = "${./assets/logo.jpg}";
           };
           power.lowBatteryNotification = true;
         };

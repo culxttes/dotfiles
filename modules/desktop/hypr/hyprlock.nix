@@ -6,7 +6,7 @@
       enable = true;
       settings = {
         background = {
-          path = (builtins.toString ./assets/background.jpg);
+          path = "${./assets/background.jpg}";
           blur_passes = "2";
           contrast = "1";
           brightness = "0.7";

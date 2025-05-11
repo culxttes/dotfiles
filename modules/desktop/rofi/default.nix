@@ -1,4 +1,9 @@
-{ pkgs, config, username, ... }:
+{
+  pkgs,
+  config,
+  username,
+  ...
+}:
 
 {
   home-manager.users.${username} = {
@@ -109,7 +114,10 @@
             spacing = mkLiteral "0px";
             background-color = mkLiteral "transparent";
             orientation = mkLiteral "horizontal";
-            children = [ "imagebox" "listbox" ];
+            children = [
+              "imagebox"
+              "listbox"
+            ];
           };
 
           imagebox = {

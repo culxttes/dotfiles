@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 
 {
-  plugins = {
+  home-manager.users.${username}.programs.nixvim.plugins = {
     vimtex = {
       enable = true;
 

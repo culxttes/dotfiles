@@ -1,6 +1,15 @@
-{ pkgs, nixvim, username, ... }:
+{
+  pkgs,
+  nixvim,
+  username,
+  ...
+}:
 
 {
+  imports = [
+    ./plugins
+  ];
+
   home-manager.users.${username} = {
     imports = [
       nixvim.homeManagerModules.nixvim
@@ -48,11 +57,12 @@
       '';
 
       imports = [
-        ./plugins
         ./keymaps.nix
       ];
     };
 
-    home.sessionVariables = { EDITOR = "nvim"; };
+    home.sessionVariables = {
+      EDITOR = "nvim";
+    };
   };
 }

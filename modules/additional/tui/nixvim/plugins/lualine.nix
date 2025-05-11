@@ -1,5 +1,7 @@
+{ username, ... }:
+
 {
-  plugins.lualine = {
+  home-manager.users.${username}.programs.nixvim.plugins.lualine = {
     enable = true;
     settings = {
       options = {

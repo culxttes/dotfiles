@@ -1,5 +1,7 @@
+{ username, ... }:
+
 {
-  plugins.cmp = {
+  home-manager.users.${username}.programs.nixvim.plugins.cmp = {
     enable = true;
 
     autoEnableSources = true;
