@@ -200,7 +200,7 @@ in
           "$mod, minus, workspace, 6"
           "$mod, egrace, workspace, 7"
           "$mod, underscore, workspace, 8"
-          "$mod, ccdeilla, workspace, 9"
+          "$mod, ccedilla, workspace, 9"
           "$mod, agrave, workspace, 10"
 
           # Move active window to a workspace with mod + SHIFT + [0-9]
@@ -212,7 +212,7 @@ in
           "$mod SHIFT, minus, movetoworkspace, 6"
           "$mod SHIFT, egrace, movetoworkspace, 7"
           "$mod SHIFT, underscore, movetoworkspace, 8"
-          "$mod SHIFT, ccdeilla, movetoworkspace, 9"
+          "$mod SHIFT, ccedilla, movetoworkspace, 9"
           "$mod SHIFT, agrave, movetoworkspace, 10"
 
           # Special workspace (scratchpad)
