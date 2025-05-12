@@ -6,6 +6,7 @@
     ./processor
     ./git
     ./monitoring
+    ./steganography
     ./gpg.nix
     ./ssh.nix
     ./tree.nix
