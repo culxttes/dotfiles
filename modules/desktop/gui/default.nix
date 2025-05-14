@@ -4,6 +4,7 @@
     ./development
     ./audio
     ./chromium
+    ./yubikey
     ./zathura.nix
     ./discord.nix
     ./firefox.nix
