@@ -1,1 +1,7 @@
-{ hostName, ... }: { imports = [ ./${hostName} ./common ]; }
+{ hostName, ... }:
+{
+  imports = [
+    ./${hostName}
+    ./common
+  ];
+}

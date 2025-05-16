@@ -41,31 +41,35 @@
           {
             overflow = "hidden";
             type = "rprompt";
-            segments = [{
-              background = "transparent";
-              foreground = "yellow";
-              style = "plain";
-              template = "{{ .FormattedMs }}";
-              type = "executiontime";
-              properties = {
-                threshold = 5000;
-              };
-            }];
+            segments = [
+              {
+                background = "transparent";
+                foreground = "yellow";
+                style = "plain";
+                template = "{{ .FormattedMs }}";
+                type = "executiontime";
+                properties = {
+                  threshold = 5000;
+                };
+              }
+            ];
           }
           {
             alignment = "left";
             newline = true;
             type = "prompt";
-            segments = [{
-              background = "transparent";
-              foreground_templates = [
-                "{{if gt .Code 0}}red{{end}}"
-                "{{if eq .Code 0}}magenta{{end}}"
-              ];
-              style = "plain";
-              template = "❯";
-              type = "text";
-            }];
+            segments = [
+              {
+                background = "transparent";
+                foreground_templates = [
+                  "{{if gt .Code 0}}red{{end}}"
+                  "{{if eq .Code 0}}magenta{{end}}"
+                ];
+                style = "plain";
+                template = "❯";
+                type = "text";
+              }
+            ];
           }
         ];
         secondary_prompt = {
@@ -75,8 +79,10 @@
         };
         transient_prompt = {
           background = "transparent";
-          foreground_templates =
-            [ "{{if gt .Code 0}}red{{end}}" "{{if eq .Code 0}}magenta{{end}}" ];
+          foreground_templates = [
+            "{{if gt .Code 0}}red{{end}}"
+            "{{if eq .Code 0}}magenta{{end}}"
+          ];
           template = "❯ ";
         };
       };
