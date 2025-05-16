@@ -13,5 +13,6 @@
     ./networkmanagerapplet.nix
     ./libreoffice.nix
     ./baobab.nix
+    ./ledger-live-desktop.nix
   ];
 }
