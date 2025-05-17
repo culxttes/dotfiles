@@ -7,8 +7,8 @@
     ./git
     ./monitoring
     ./steganography
+    ./filesystem
     ./gpg.nix
     ./ssh.nix
-    ./tree.nix
   ];
 }
