@@ -5,6 +5,7 @@
     ./audio
     ./chromium
     ./yubikey
+    ./spotify
     ./zathura.nix
     ./discord.nix
     ./firefox.nix
