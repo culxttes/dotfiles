@@ -6,7 +6,7 @@
     ./chromium
     ./yubikey
     ./spotify
-    ./zathura.nix
+    ./viewers
     ./discord.nix
     ./firefox.nix
     ./noi.nix
