@@ -9,5 +9,6 @@
     ./gui
     ./tui
     ./gtk
+    ./xdg
   ];
 }

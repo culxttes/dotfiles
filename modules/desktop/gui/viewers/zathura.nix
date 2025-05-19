@@ -2,6 +2,12 @@
 
 {
   home-manager.users.${username} = {
+    xdg.mimeApps = {
+      defaultApplications = {
+        "application/pdf" = "zathura.desktop";
+      };
+    };
+
     programs.zathura = {
       enable = true;
       options = {
