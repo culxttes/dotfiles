@@ -10,7 +10,7 @@
         macAddress = "random";
       };
       ethernet = {
-        macAddress = "random";
+        macAddress = "50:33:51:46:3d:96";
       };
     };
   };

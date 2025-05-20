@@ -4,7 +4,7 @@
   home-manager.users.${username} = {
     xdg.mimeApps = {
       defaultApplications = {
-        "application/pdf" = "zathura.desktop";
+        "application/pdf" = "org.pwmt.zathura.desktop";
       };
     };
 
