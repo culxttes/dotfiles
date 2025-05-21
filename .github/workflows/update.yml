@@ -1,0 +1,43 @@
+name: Run all update scripts
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Every hour
+  workflow_dispatch:     # Can be run manually
+
+jobs:
+  auto-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v26
+
+      - name: Make update scripts executable
+        run: |
+          chmod +x ci/run-all-updates.sh
+          chmod +x ci/script/*.sh || true
+
+      - name: Run all update scripts
+        run: ./ci/run-all-updates.sh
+
+      - name: Check for changes
+        id: git_diff
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push if needed
+        if: steps.git_diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "chore: auto-update scripts output"
+          git push
