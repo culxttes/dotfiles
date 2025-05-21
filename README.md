@@ -2,6 +2,11 @@
 
 # culxttes/dotfiles
 
+<center>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/NixOS_logo.svg" alt="NixOS Logo" width="500"/>
+</center>
+
+
 This repository contains my personal NixOS configuration files, structured to facilitate reproducible and modular system setups using Nix Flakes and Home Manager.
 
 ## Features
@@ -24,14 +29,13 @@ This repository contains my personal NixOS configuration files, structured to fa
 * `secrets/`: Encrypted secrets managed via sops.
 * `.github/workflows/`: CI workflows for automated checks and builds.
 * `.sops.yaml`: Configuration file for sops, specifying encryption details.
-* `treefmt.nix`: Defines formatting standards for the codebase.([GitHub][1], [Kevin Jalbert][2])
-
+* `treefmt.nix`: Defines formatting standards for the codebase.
 ## Getting Started
 
 ### Prerequisites
 
 * Nix with Flakes enabled.
-* [sops](https://github.com/mozilla/sops) installed for secrets management.([GitHub][3])
+* [sops](https://github.com/mozilla/sops) installed for secrets management.
 
 ### Installation
 
@@ -61,12 +65,12 @@ This repository contains my personal NixOS configuration files, structured to fa
 
 ## Secrets Management
 
-Sensitive information is managed using sops. Ensure you have the necessary GPG keys to decrypt the secrets.
+Sensitive information is managed using sops. Ensure you have the necessary GPG/SSH keys to decrypt the secrets.
 
 To edit a secret:
 
 ```bash
-sops secrets/your-secret.yaml
+sops secrets/secrets.yaml
 ```
 
 
