@@ -18,11 +18,11 @@ jobs:
 
       - name: Make update scripts executable
         run: |
-          chmod +x ci/run-all-updates.sh
+          chmod +x ci/update.sh
           chmod +x ci/script/*.sh || true
 
       - name: Run all update scripts
-        run: ./ci/run-all-updates.sh
+        run: ./ci/update.sh
 
       - name: Check for changes
         id: git_diff
