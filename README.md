@@ -2,9 +2,9 @@
 
 # culxttes/dotfiles
 
-<center>
+<div align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/NixOS_logo.svg" alt="NixOS Logo" width="500"/>
-</center>
+</div>
 
 
 This repository contains my personal NixOS configuration files, structured to facilitate reproducible and modular system setups using Nix Flakes and Home Manager.
