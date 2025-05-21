@@ -8,5 +8,6 @@
     ./runtime
     ./shell
     ./font
+    ./home-manager
   ];
 }

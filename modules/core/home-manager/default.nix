@@ -1,14 +1,6 @@
-{ home-manager, username, ... }:
+{ username, ... }:
 
 {
-  imports = [
-    home-manager.nixosModules.home-manager
-
-    ../hosts
-    ../modules
-    ../users
-  ];
-
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.backupFileExtension = "hm-backup";
