@@ -18,9 +18,7 @@
     KERNEL=="hidraw*", ATTRS{idVendor}=="2c97", MODE="0666"
   '';
 
-  users.users.${username} = {
-    extraGroups = [
-      "plugdev"
-    ];
-  };
+  users.users.${username}.extraGroups = [
+    "plugdev"
+  ];
 }

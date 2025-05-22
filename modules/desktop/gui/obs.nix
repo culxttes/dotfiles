@@ -5,7 +5,6 @@
 
   users.users.${username}.extraGroups = [
     "adbusers"
-    "video"
   ];
 
   programs.obs-studio = {
