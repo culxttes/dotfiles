@@ -13,7 +13,7 @@ This repository contains my personal NixOS configuration files, structured to fa
 
 * **Nix Flakes**: Utilizes the Nix Flakes feature for declarative and reproducible system configurations.
 * **Home Manager**: Manages user-specific configurations, ensuring consistency across environments.
-* **Modular Design**: Organized into modules for hosts, users, and profiles, promoting reusability and clarity.
+* **Modular Design**: Organized into modules for hosts and users, promoting reusability and clarity.
 * **Development Shells**: Provides predefined development environments for various projects.
 * **Secrets Management**: Handles sensitive information securely using [sops](https://github.com/mozilla/sops).
 * **CI Integration**: Includes GitHub Actions workflows for continuous integration and validation.
@@ -23,7 +23,6 @@ This repository contains my personal NixOS configuration files, structured to fa
 * `flake.nix` & `flake.lock`: Define the Nix Flake entry point and lock dependencies.
 * `hosts/`: Contains host-specific configurations.
 * `users/`: Defines user-specific settings and packages.
-* `profiles/`: Aggregates modules into reusable profiles.
 * `modules/`: Houses custom NixOS and Home Manager modules.
 * `devshells/`: Sets up development environments with necessary tools and dependencies.
 * `secrets/`: Encrypted secrets managed via sops.
@@ -50,7 +49,7 @@ This repository contains my personal NixOS configuration files, structured to fa
 
 2. **Review and Customize**:
 
-   Inspect the `hosts/`, `users/`, and `profiles/` directories to understand the configurations. Modify them as needed to suit your environment.
+   Inspect the `hosts/` and `users/` directories to understand the configurations. Modify them as needed to suit your environment.
 
 3. **Apply Configuration**:
 
