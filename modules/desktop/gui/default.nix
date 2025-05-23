@@ -1,7 +1,6 @@
 {
   imports = [
     ./graphics
-    ./development
     ./audio
     ./chromium
     ./yubikey

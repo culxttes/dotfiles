@@ -49,6 +49,7 @@
           username = "culottes";
           systemTypes = [
             "additional"
+            "development"
             "desktop"
           ];
         }

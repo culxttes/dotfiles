@@ -7,7 +7,6 @@
     ./rofi
     ./cli
     ./gui
-    ./tui
     ./gtk
     ./xdg
   ];

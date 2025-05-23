@@ -8,7 +8,7 @@ NAME="vscode-insiders"
 # Get the absolute path to the directory of this script
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 
-NIX_FILE=$(readlink -f "$SCRIPT_DIR/../../modules/desktop/gui/development/vscode.nix")
+NIX_FILE=$(readlink -f "$SCRIPT_DIR/../../modules/development/gui/ide/vscode.nix")
 
 echo "  Fetching new hash for: $URL"
 HASH_RAW=$(nix-prefetch-url --name "$NAME" --unpack "$URL" 2> /dev/null)

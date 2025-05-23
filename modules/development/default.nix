@@ -1,5 +1,6 @@
 {
   imports = [
-    ./wl-mirror.nix
+    ./gui
+    ./tui
   ];
 }

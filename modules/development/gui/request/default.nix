@@ -1,5 +1,5 @@
 {
   imports = [
-    ./wl-mirror.nix
+    ./bruno.nix
   ];
 }
