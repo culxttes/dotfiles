@@ -79,7 +79,11 @@
             specialArgs = {
               inherit (entry) username hostName systemTypes;
             } // inputs;
-            modules = [ ./profiles ];
+            modules = [
+              ./hosts
+              ./modules
+              ./users
+            ];
           };
         }) systemInfo
       );
