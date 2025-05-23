@@ -1,6 +1,7 @@
 {
   imports = [
     ./gui
+    ./cli
     ./tui
   ];
 }

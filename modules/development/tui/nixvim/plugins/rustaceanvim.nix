@@ -1,12 +1,23 @@
-{ pkgs, username, ... }:
+{
+  pkgs,
+  username,
+  fenix,
+  ...
+}:
 
+let
+  nightlyToolchain = fenix.packages.${pkgs.system}.complete.withComponents [
+    "rustc"
+    "cargo"
+    "clippy"
+    "rustfmt"
+    "rust-analyzer"
+  ];
+in
 {
   home-manager.users.${username}.programs.nixvim = {
     extraPackages = with pkgs; [
-      rust-analyzer
-      clippy
-      cargo
-      rustfmt
+      nightlyToolchain
       lldb
     ];
 
