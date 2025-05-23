@@ -8,6 +8,7 @@
     ./monitoring
     ./steganography
     ./filesystem
+    ./viewer
     ./gpg.nix
     ./ssh.nix
   ];
