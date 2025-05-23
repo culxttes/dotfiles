@@ -27,8 +27,6 @@
           "rustfmt"
           "rust-analyzer"
         ];
-
-        libPath = pkgs.lib.makeLibraryPath [ ];
       in
       {
         devShells.default = pkgs.mkShell rec {
