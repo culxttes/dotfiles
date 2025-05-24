@@ -2,8 +2,8 @@ name: Run all update scripts
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Every hour
-  workflow_dispatch:     # Can be run manually
+    - cron: '*/15 * * * *'  # Every 15 min
+  workflow_dispatch:        # Can be run manually
 
 permissions:
   contents: write
