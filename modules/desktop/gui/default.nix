@@ -3,11 +3,11 @@
     ./graphics
     ./audio
     ./chromium
+    ./firefox
     ./yubikey
     ./spotify
     ./viewers
     ./discord.nix
-    ./firefox.nix
     ./noi.nix
     ./obs.nix
     ./networkmanagerapplet.nix

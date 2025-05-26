@@ -9,5 +9,6 @@
     ./shell
     ./font
     ./home-manager
+    ./nur
   ];
 }
