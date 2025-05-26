@@ -55,8 +55,8 @@
               "nav-bar" = [
                 "sidebar-button"
                 "home-button"
-                "forward-button"
                 "back-button"
+                "forward-button"
                 "urlbar-container"
                 "vertical-spacer"
                 "languagetool-webextension_languagetool_org-browser-action"
