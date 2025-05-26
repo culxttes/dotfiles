@@ -32,6 +32,7 @@
 
         settings = {
           "extensions.autoDisableScopes" = 0;
+          "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
 
           "browser.privatebrowsing.autostart" = true;
           "browser.translations.automaticallyPopup" = false;
@@ -39,7 +40,8 @@
           "browser.ml.chat.enabled" = false;
           "browser.compactmode.show" = true;
           "browser.uidensity" = 1;
-          "browser.theme.content-theme" = 2;
+          "browser.theme.content-theme" = 0;
+          "browser.theme.toolbar-theme" = 0;
           "browser.startup.homepage" = "about:blank";
 
           "browser.uiCustomization.state" = {
