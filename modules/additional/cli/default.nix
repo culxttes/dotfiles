@@ -9,6 +9,7 @@
     ./steganography
     ./filesystem
     ./viewer
+    ./network
     ./analyzer
     ./gpg.nix
     ./ssh.nix
