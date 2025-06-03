@@ -1,5 +1,9 @@
 { username, hyprpanel, ... }:
-
+/*
+  Hyprpanel, a customizable Wayland panel built specifically for Hyprland. It
+  provides a status bar that can display workspaces, system info  (like CPU,
+  RAM, battery), notifications, and more.
+*/
 {
   nixpkgs.overlays = [ hyprpanel.overlay ];
 

@@ -1,5 +1,9 @@
 { username, ... }:
-
+/*
+  Kitty terminal emulator for the user.Kitty is a fast, GPU-accelerated
+  terminal with advanced features like ligature support, image display, tabs,
+  and extensive customization options.
+*/
 {
   home-manager.users.${username} = {
     programs.kitty = {
@@ -32,6 +36,12 @@
         color15 = "#ffffff";
         selection_foreground = "#fafafa";
       };
+    };
+
+    programs.zsh.shellAliases = {
+      ssh = "kitten ssh";
+      icat = "kitten icat";
+      clipboard = "kitten clipboard";
     };
   };
 }

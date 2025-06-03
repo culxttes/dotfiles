@@ -7,6 +7,7 @@
     ./yubikey
     ./spotify
     ./viewers
+    ./filesystem
     ./discord.nix
     ./noi.nix
     ./obs.nix

@@ -1,5 +1,9 @@
 { pkgs, username, ... }:
-
+/*
+  Ledger Live Desktop, the official desktop application for managing Ledger
+  hardware wallets. It allows users to install apps, manage crypto assets, and
+  perform transactions securely with Ledger devices.
+*/
 {
   home-manager.users.${username} = {
     home.packages = [

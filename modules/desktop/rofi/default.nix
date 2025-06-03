@@ -4,7 +4,11 @@
   username,
   ...
 }:
-
+/*
+  Rofi, a powerful and highly customizable application launcher, window
+  switcher, SSH launcher, and more. Rofi is widely used in tiling window
+  manager setups due to its speed, flexibility, and keyboard-driven workflow.
+*/
 {
   home-manager.users.${username} = {
     home.packages = [

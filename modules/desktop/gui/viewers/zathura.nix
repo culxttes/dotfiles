@@ -1,5 +1,9 @@
 { username, ... }:
-
+/*
+  Zathura, a lightweight and highly customizable PDF viewer for the terminal
+  environment. It supports Vim-like keybindings, plugins for various document
+  formats (PDF, DjVu, etc.), and is well-suited for keyboard-driven workflows.
+*/
 {
   home-manager.users.${username} = {
     xdg.mimeApps = {

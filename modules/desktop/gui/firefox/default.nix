@@ -4,7 +4,10 @@
   firefox,
   ...
 }:
-
+/*
+  This allows managing Firefox settings declaratively via Home Manager, such
+  as enabling policies, setting preferences, or customizing profiles.
+*/
 {
   imports = [
     ./wrapper

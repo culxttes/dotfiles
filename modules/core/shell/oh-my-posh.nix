@@ -1,5 +1,9 @@
 { username, ... }:
-
+/*
+  Oh My Posh, a prompt theme engine for the shell. It allows creating highly
+  customizable and informative prompts with support for Git, Kubernetes, time,
+  status codes, and many other segments.
+*/
 {
   home-manager.users.${username} = {
     programs.oh-my-posh = {

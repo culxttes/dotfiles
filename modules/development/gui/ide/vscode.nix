@@ -1,5 +1,9 @@
 { pkgs, username, ... }:
-
+/*
+  Installs the Visual Studio Code Insiders edition by:
+   - Overriding the default `vscode` package to set `isInsiders = true`,
+   enabling the nightly build.
+*/
 {
   home-manager.users.${username} = {
     home.packages = [

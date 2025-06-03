@@ -1,5 +1,9 @@
 { pkgs, username, ... }:
-
+/*
+  opencommit, a CLI tool that uses AI to generate conventional commit messages
+  based on staged git changes. It helps maintain consistent commit formatting
+  and saves time when writing descriptive messages.
+*/
 {
   home-manager.users.${username} = {
     home.packages = [

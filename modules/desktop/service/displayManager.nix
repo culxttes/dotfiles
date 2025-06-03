@@ -1,5 +1,11 @@
 { pkgs, ... }:
-
+/*
+  display manager — the graphical login screen that launches user sessions.
+  This block allows you to:
+   - Enable a specific display manager (e.g., GDM, SDDM, LightDM).
+   - Customize session behavior, auto-login, and appearance.
+   - Set the default session (like Hyprland, GNOME, KDE, etc.).
+*/
 {
   environment.systemPackages = with pkgs; [
     (catppuccin-sddm.override { flavor = "mocha"; })

@@ -4,7 +4,11 @@
   username,
   ...
 }:
-
+/*
+  NixVim, a Neovim setup managed through Nix. It allows declarative
+  configuration of plugins, keybindings, themes, and language support directly
+  within the Nix ecosystem.
+*/
 {
   imports = [
     ./plugins

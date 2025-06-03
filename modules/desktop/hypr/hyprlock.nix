@@ -1,5 +1,9 @@
 { username, ... }:
-
+/*
+  Hyprlock, the official screen locker for Hyprland. Hyprlock is designed to
+  integrate seamlessly with Hyprland, supporting modern aesthetics,
+  animations, and Wayland-native security.
+*/
 {
   home-manager.users.${username} = {
     programs.hyprlock = {

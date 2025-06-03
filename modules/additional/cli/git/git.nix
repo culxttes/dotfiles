@@ -1,5 +1,7 @@
 { pkgs, username, ... }:
-
+#
+# Enables Git with user info and defines a pull-all alias.
+#
 {
   home-manager.users.${username} = {
     programs.git = {

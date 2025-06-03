@@ -4,6 +4,11 @@
   username,
   ...
 }:
+/*
+  Hyprland, a dynamic tiling Wayland compositor that supports modern features
+  like animations, gestures, and advanced window management. It's known for
+  its performance, configurability, and support for NVIDIA GPUs and HDR.
+*/
 let
   screenshot_sh = pkgs.writeShellScriptBin "screenshot" ''
     ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -d)" - | ${pkgs.wl-clipboard}/bin/wl-copy
