@@ -1,4 +1,9 @@
-{ username, home-manager, ... }:
+{
+  config,
+  username,
+  home-manager,
+  ...
+}:
 /*
   Declares and configures Home Manager as a NixOS module.
    - Imports the Home Manager module into the system configuration.
@@ -20,6 +25,6 @@
   home-manager.users.${username} = {
     programs.home-manager.enable = true;
     home.username = username;
-    home.homeDirectory = "/home/${username}";
+    home.homeDirectory = config.users.users.${username}.home;
   };
 }
