@@ -1,19 +1,19 @@
 {
   imports = [
-    ./graphics
     ./audio
     ./chromium
-    ./firefox
-    ./yubikey
-    ./spotify
-    ./viewers
+    ./discord
     ./filesystem
+    ./firefox
+    ./graphics
+    ./ledger
+    ./math
+    ./network-manager
+    ./office
     ./record
+    ./spotify
     ./terminal
-    ./discord.nix
-    ./noi.nix
-    ./networkmanagerapplet.nix
-    ./libreoffice.nix
-    ./ledger-live-desktop.nix
+    ./viewers
+    ./yubikey
   ];
 }
