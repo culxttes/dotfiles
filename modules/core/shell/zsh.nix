@@ -1,4 +1,9 @@
-{ pkgs, username, ... }:
+{
+  pkgs,
+  config,
+  username,
+  ...
+}:
 
 {
   programs.zsh = {
@@ -19,7 +24,12 @@
       autocd = true;
       shellAliases = {
         rebuild = "sudo nixos-rebuild switch --flake ~/git/dotfiles/";
-        update = "sudo nix flake update --flake ~/git/dotfiles/ && sudo nixos-rebuild switch --upgrade --flake ~/git/dotfiles/";
+        update = ''
+          sudo NIX_CONFIG="access-tokens = github.com=$(cat ${
+            config.sops.secrets."language-tool/api-key".path
+          })" nix flake update --flake ~/git/dotfiles/ && \
+          sudo nixos-rebuild switch --upgrade --flake ~/git/dotfiles/
+        '';
       };
       initContent = ''
         eval "$(zoxide init --cmd cd zsh)"

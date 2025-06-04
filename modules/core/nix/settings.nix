@@ -1,11 +1,11 @@
+{ config, ... }:
+
 {
   nix.settings = {
     trusted-users = [
-      "root"
       "@wheel"
     ];
     substituters = [
-      "https://cache.nixos.org/"
       "https://hyprland.cachix.org"
       "https://focal.cachix.org"
     ];

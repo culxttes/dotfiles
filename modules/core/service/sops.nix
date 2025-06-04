@@ -21,4 +21,6 @@
   sops.secrets."cloudflare/dns-api-token" = { };
 
   sops.secrets."vaultwarden/admin-token" = { };
+
+  sops.secrets."github/token/readonly" = { };
 }
