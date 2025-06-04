@@ -20,6 +20,10 @@
     ];
 
     programs.nixvim = {
+      extraPackages = [
+        pkgs.wl-clipboard
+      ];
+
       enable = true;
 
       colorschemes.catppuccin = {
