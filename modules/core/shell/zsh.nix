@@ -25,7 +25,7 @@
       shellAliases = {
         rebuild = "sudo nixos-rebuild switch --flake ~/git/dotfiles/";
         update = ''
-          sudo NIX_CONFIG="access-tokens = github.com=$(sudo cat ${
+          NIX_CONFIG="access-tokens = github.com=$(sudo cat ${
             config.sops.secrets."github/token/readonly".path
           })" nix flake update --flake ~/git/dotfiles/ && \
           sudo nixos-rebuild switch --flake ~/git/dotfiles/
