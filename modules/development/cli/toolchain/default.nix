@@ -1,5 +1,5 @@
 {
   imports = [
-    ./devenv.nix
+    # ./devenv.nix
   ];
 }
