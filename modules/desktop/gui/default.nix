@@ -9,6 +9,7 @@
     ./viewers
     ./filesystem
     ./record
+    ./terminal
     ./discord.nix
     ./noi.nix
     ./networkmanagerapplet.nix
