@@ -1,4 +1,9 @@
-{ username, sops-nix, ... }:
+{
+  config,
+  username,
+  sops-nix,
+  ...
+}:
 
 {
   imports = [
@@ -8,8 +13,13 @@
   sops.defaultSopsFile = ../../../secrets/secrets.yaml;
   sops.defaultSopsFormat = "yaml";
 
-  # nix run nixpkgs#ssh-to-age -- -private-key -i ~/.ssh/nixos > ~/.config/sops/age/keys.txt
-  sops.age.keyFile = "/home/${username}/.config/sops/age/keys.txt";
+  sops.age = {
+    sshKeyPaths = [
+      "${config.users.users.${username}.home}/.ssh/nixos"
+    ];
+    keyFile = "${config.users.users.${username}.home}/.config/sops/age/keys.txt";
+    generateKey = true;
+  };
 
   sops.secrets."language-tool/username" = {
     owner = username;
