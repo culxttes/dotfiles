@@ -8,9 +8,9 @@
     ./spotify
     ./viewers
     ./filesystem
+    ./record
     ./discord.nix
     ./noi.nix
-    ./obs.nix
     ./networkmanagerapplet.nix
     ./libreoffice.nix
     ./ledger-live-desktop.nix

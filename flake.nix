@@ -40,6 +40,10 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    focal = {
+      url = "github:iynaix/focal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

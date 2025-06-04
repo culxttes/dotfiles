@@ -9,11 +9,6 @@
   like animations, gestures, and advanced window management. It's known for
   its performance, configurability, and support for NVIDIA GPUs and HDR.
 */
-let
-  screenshot_sh = pkgs.writeShellScriptBin "screenshot" ''
-    ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -d)" - | ${pkgs.wl-clipboard}/bin/wl-copy
-  '';
-in
 {
   programs.hyprland = {
     enable = true;
@@ -23,9 +18,6 @@ in
 
   home-manager.users.${username} = {
     home.packages = [
-      pkgs.slurp
-      pkgs.grim
-      pkgs.wl-clipboard
       pkgs.brightnessctl
       pkgs.pamixer
       pkgs.galculator
@@ -155,7 +147,8 @@ in
 
         bind = [
           # Screenshot
-          ", Print, exec, ${screenshot_sh}/bin/screenshot"
+          ", Print, exec, focal image --area selection"
+          "$mod, Print, exec, focal video --rofi --audio"
 
           # Special keys
           ", xf86monbrightnessup, exec, brightnessctl set 10%+"
