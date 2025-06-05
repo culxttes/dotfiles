@@ -15,5 +15,7 @@
       "nix-command"
       "flakes"
     ];
+
+    download-buffer-size = 1073741824;
   };
 }
