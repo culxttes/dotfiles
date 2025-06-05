@@ -11,7 +11,7 @@
         src = (
           builtins.fetchTarball {
             url = "https://code.visualstudio.com/sha/download?build=insider&os=linux-x64";
-            sha256 = "0rh17jikj393fp0fj4r88xgk1d15gr4ds5y7mrdsgww67lb4acgh";
+            sha256 = "1ac6nm6xcczf67b7lq5f7vwnfyz2wrxfs9z5qr7jvzl3ar7rfbq5";
           }
         );
         version = "latest";
