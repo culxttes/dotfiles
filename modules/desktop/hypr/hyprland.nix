@@ -168,6 +168,9 @@
           "$mod, P, pseudo,"
           "$mod, J, togglesplit,"
 
+          # Lock the session
+          "$mod, L, exec, hyprlock"
+
           # Move focus with mod + arrow keys
           "$mod SHIFT, left, movefocus, l"
           "$mod SHIFT, right, movefocus, r"
