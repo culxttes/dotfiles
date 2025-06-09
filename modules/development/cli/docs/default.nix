@@ -1,0 +1,5 @@
+{
+  imports = [
+    ./rusty-man.nix
+  ];
+}
