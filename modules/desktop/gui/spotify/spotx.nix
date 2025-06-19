@@ -2,7 +2,7 @@ final: prev:
 let
   spotx = prev.fetchurl {
     url = "https://raw.githubusercontent.com/SpotX-Official/SpotX-Bash/refs/heads/main/spotx.sh";
-    hash = "sha256-x4gXhTchzwsx954Gm8qVH1v3oOdfskR8cY4a/Asj1Mk=";
+    hash = "sha256-UHNZy3mTHkYXWShLNHJTIwVBEJ8a+K4uP6+T8+x8vJY=";
   };
 in
 {
