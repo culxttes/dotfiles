@@ -10,6 +10,7 @@
     ./filesystem
     ./viewer
     ./analyzer
+    ./benchmark
     ./gpg.nix
     ./ssh.nix
   ];
