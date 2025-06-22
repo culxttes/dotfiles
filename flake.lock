@@ -551,11 +551,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1750486389,
-        "narHash": "sha256-zOlR4uiw++aFWNRvlARY6Uz5VeXQFKXDMlUX45XSDX0=",
+        "lastModified": 1750618016,
+        "narHash": "sha256-wn6XV23Sz/nsDPI+1FGjtyMfAWJWcXRpNcryS47DJdY=",
         "owner": "jas-singhfsu",
         "repo": "hyprpanel",
-        "rev": "0c2bcb773cdd55d385e68d59c8d43a066c029895",
+        "rev": "2c0c66a8ddcdff69b2ff694fefbcd8df4387a9e7",
         "type": "github"
       },
       "original": {
@@ -753,11 +753,11 @@
         "systems": "systems_5"
       },
       "locked": {
-        "lastModified": 1750611973,
-        "narHash": "sha256-k+1ED+K1/9HnWe0j2/boQ35rVtf70dXYfo6lAQGGa10=",
+        "lastModified": 1750618764,
+        "narHash": "sha256-gLrojvJOvzeKxK+/0u66tisnA8H+0QQufUnPq+yCTMM=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "229079e32a0b7c86be467b77cbae25891249e591",
+        "rev": "c1520693f04539327fd7a3d6935286161f556df0",
         "type": "github"
       },
       "original": {
