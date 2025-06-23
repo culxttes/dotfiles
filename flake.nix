@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # nixpkgs.url = "/home/culottes/git/nixpkgs/";
+    # nixpkgs.url = "git+file:///home/culottes/git/nixpkgs/";
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
@@ -48,6 +48,11 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hermes-mux = {
+      url = "github:culxttes/hermes-mux";
+      # url = "git+file:///home/culottes/git/hermes-mux/";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -67,6 +72,7 @@
             "additional"
             "development"
             "desktop"
+            "hermes-mux-test"
           ];
         }
         {
