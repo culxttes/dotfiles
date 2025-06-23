@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     firefox = {
-      url = "github:K900/flake-firefox-nightly/vendor-package-expression";
+      url = "github:culxttes/flake-firefox-nightly/vendor-package-expression";
       # url = "github:nix-community/flake-firefox-nightly";
       inputs.nixpkgs.follows = "nixpkgs";
     };

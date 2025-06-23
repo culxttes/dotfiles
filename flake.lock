@@ -128,15 +128,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1750254752,
-        "narHash": "sha256-9lLq3Zqw1nifwnUTxQrVIDM8+YHTvYEYKWdYLND20SM=",
-        "owner": "K900",
+        "lastModified": 1750659658,
+        "narHash": "sha256-9iFOtm23KrpogLXHzrIvuuk3kjUFz2LlEu/OevdPOJw=",
+        "owner": "culxttes",
         "repo": "flake-firefox-nightly",
-        "rev": "d2ddd6ebe41ec54d9e0141b794af1943a78cc00b",
+        "rev": "ec33d3d65dc1f3441f9cb6bce89dbbd64f259fbe",
         "type": "github"
       },
       "original": {
-        "owner": "K900",
+        "owner": "culxttes",
         "ref": "vendor-package-expression",
         "repo": "flake-firefox-nightly",
         "type": "github"
