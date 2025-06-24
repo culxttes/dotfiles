@@ -808,11 +808,11 @@
         "systems": "systems_6"
       },
       "locked": {
-        "lastModified": 1750691276,
-        "narHash": "sha256-F507hXG4ORVpvuFeuoyDo/bmO/rR2PJRB7XhtDuBnBE=",
+        "lastModified": 1750745411,
+        "narHash": "sha256-OjrOjC+jRDkAuOYtcKFO0WT1/M0TP8brEk58fDdDP0Q=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "1f3e5741a927b5b0a983f08ab9d3bcf313bc141e",
+        "rev": "a41559f0931eab14e3186059bd57591843e5cbe0",
         "type": "github"
       },
       "original": {
