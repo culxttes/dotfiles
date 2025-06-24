@@ -164,7 +164,7 @@
           "$mod, M, exit,"
           "$mod, E, exec, $fileManager"
           "$mod, Space, togglefloating"
-          "$mod, D, exec, $menu"
+          "$mod, D, exec, pkill -x rofi || $menu"
           "$mod, P, pseudo,"
           "$mod, J, togglesplit,"
 
