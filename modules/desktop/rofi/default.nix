@@ -2,7 +2,6 @@
   pkgs,
   config,
   username,
-  focal,
   ...
 }:
 /*
@@ -11,11 +10,12 @@
   manager setups due to its speed, flexibility, and keyboard-driven workflow.
 */
 {
-  home-manager.users.${username} = {
-    home.packages = [
-      pkgs.networkmanager_dmenu
-    ];
+  imports = [
+    ./networkmanager.nix
+    ./bluetooth.nix
+  ];
 
+  home-manager.users.${username} = {
     home.file.".config/networkmanager-dmenu/config.ini" = {
       text = ''
         [dmenu]
@@ -29,8 +29,9 @@
     programs.rofi = {
       package = pkgs.rofi-wayland;
       enable = true;
+
       extraConfig = {
-        modi = "drun,run,filebrowser,window";
+        modi = "drun,run,filebrowser";
         case-sensitive = false;
         cycle = true;
         filter = "";
