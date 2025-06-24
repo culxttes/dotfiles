@@ -8,12 +8,12 @@
   nixpkgs.overlays = [ hyprpanel.overlay ];
 
   home-manager.users.${username} = {
-    imports = [ hyprpanel.homeManagerModules.hyprpanel ];
+    # imports = [ hyprpanel.homeManagerModules.hyprpanel ];
 
     programs.hyprpanel = {
       enable = true;
-      hyprland.enable = true;
-      overwrite.enable = true;
+      # hyprland.enable = true;
+      # overwrite.enable = true;
 
       settings = {
         scalingPriority = "hyprland";
