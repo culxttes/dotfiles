@@ -23,12 +23,20 @@
       enable = true;
       autocd = true;
       shellAliases = {
-        rebuild = "sudo nixos-rebuild switch --flake ~/git/dotfiles/";
+        rebuild = ''
+          sudo \
+            NIX_SSHOPTS="-i /home/culottes/.ssh/sisyphe" \
+          nixos-rebuild switch \
+            --flake ~/git/dotfiles/ \
+            --build-host culottes@sisyphe.sagbot.com
+        '';
         update = ''
           NIX_CONFIG="access-tokens = github.com=$(sudo cat ${
             config.sops.secrets."github/token/readonly".path
-          })" nix flake update --flake ~/git/dotfiles/ && \
-          sudo nixos-rebuild switch --flake ~/git/dotfiles/
+          })" nix flake update --flake ~/git/dotfiles/
+        '';
+        update-commit = ''
+          git commit -m "chore(flake.lock): update dependencies" -n
         '';
       };
       initContent = ''
