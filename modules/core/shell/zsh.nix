@@ -30,6 +30,9 @@
             --flake ~/git/dotfiles/ \
             --build-host culottes@sisyphe.sagbot.com
         '';
+        rebuild-local = ''
+          sudo nixos-rebuild switch --flake ~/git/dotfiles/
+        '';
         update = ''
           NIX_CONFIG="access-tokens = github.com=$(sudo cat ${
             config.sops.secrets."github/token/readonly".path
