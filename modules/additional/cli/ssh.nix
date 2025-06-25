@@ -9,6 +9,13 @@
     programs.ssh = {
       enable = true;
       addKeysToAgent = "yes";
+      matchBlocks = {
+        "sisyphe.sagbot.com" = {
+          user = username;
+          identityFile = "~/.ssh/sisyphe";
+          identitiesOnly = true;
+        };
+      };
     };
   };
 }
