@@ -5,7 +5,9 @@
   sops-nix,
   ...
 }:
-
+let
+  home = config.users.users.${username}.home;
+in
 {
   imports = [
     sops-nix.nixosModules.sops
@@ -16,9 +18,9 @@
 
   sops.age = {
     sshKeyPaths = [
-      "${config.users.users.${username}.home}/.ssh/nixos"
+      "${home}/.ssh/nixos"
     ];
-    keyFile = "${config.users.users.${username}.home}/.config/sops/age/keys.txt";
+    keyFile = "${home}/.config/sops/age/keys.txt";
     generateKey = true;
   };
 
