@@ -1,4 +1,5 @@
 {
+  self,
   config,
   username,
   sops-nix,
@@ -10,7 +11,7 @@
     sops-nix.nixosModules.sops
   ];
 
-  sops.defaultSopsFile = ../../../secrets/secrets.yaml;
+  sops.defaultSopsFile = "${self}/secrets/secrets.yaml";
   sops.defaultSopsFormat = "yaml";
 
   sops.age = {
