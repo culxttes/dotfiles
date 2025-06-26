@@ -6,6 +6,7 @@
     # nixpkgs.url = "git+file:///home/culottes/git/nixpkgs/";
     hyprland = {
       url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
