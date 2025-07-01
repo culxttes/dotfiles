@@ -31,7 +31,7 @@ in
 
   sops.secrets."cloudflare/dns-api-token" = { };
 
-  sops.secrets."vaultwarden/admin-token" = { };
+  sops.secrets."vaultwarden/env" = { };
 
   sops.secrets."github/token/readonly" = { };
   sops.secrets."github/token/dotfiles-rw" = { };
