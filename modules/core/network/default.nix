@@ -3,6 +3,7 @@
 {
   networking = {
     hostName = hostName;
+    enableIPv6 = true;
     networkmanager = {
       enable = true;
       wifi = {

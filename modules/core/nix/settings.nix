@@ -1,7 +1,10 @@
+{ username, ... }:
+
 {
   nix.settings = {
     trusted-users = [
       "@wheel"
+      username
     ];
     substituters = [
       "https://hyprland.cachix.org"
