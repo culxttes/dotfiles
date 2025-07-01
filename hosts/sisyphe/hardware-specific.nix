@@ -9,4 +9,20 @@
       MAILADDR mdadm-error@sagbot.com
     '';
   };
+
+  networking.interfaces.enp6s0.ipv6 = {
+    routes = [
+      {
+        address = "::";
+        via = "2001:41d0:0303:4eff:00ff:00ff:00ff:00ff";
+        prefixLength = 0;
+      }
+    ];
+    addresses = [
+      {
+        address = "2001:41d0:303:4ea4::";
+        prefixLength = 64;
+      }
+    ];
+  };
 }
