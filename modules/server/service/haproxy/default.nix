@@ -25,6 +25,11 @@
         timeout check           10s
         maxconn                 3000
 
+      backend close_connection
+        mode tcp
+        timeout connect 1ms
+        timeout server 1ms
+
       frontend http-in
         bind *:80
         mode http
@@ -68,8 +73,9 @@
 
       backend backend_ollama
         mode http
-        server server1 127.0.0.1:11434 check
+        timeout server          60m
         http-request set-header Host localhost:11434
+        server server1 127.0.0.1:11434 check
 
       backend backend_webui_ollama
         mode http
@@ -95,8 +101,8 @@
   environment.etc = {
     "haproxy/http.map" = {
       text = ''
-        sagbot.com backend_www.sagbot.com
-        mail.sagbot.com backend_mail.sagbot.com
+        sagbot.com/ backend_www.sagbot.com
+        mail.sagbot.com/ backend_mail.sagbot.com
         api.sagbot.com/sagedt backend_api.sagbot.com.sagedt
         atacc.sagbot.com backend_atacc
         atacc-edu.org backend_atacc
@@ -118,5 +124,10 @@
 
   users.groups.acme.members = [
     "haproxy"
+  ];
+
+  networking.firewall.llowedTCPPorts = [
+    80
+    443
   ];
 }

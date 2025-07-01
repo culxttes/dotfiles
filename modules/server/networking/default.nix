@@ -1,0 +1,3 @@
+{
+  networking.allowPing = false;
+}
