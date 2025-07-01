@@ -1,4 +1,9 @@
-{ username, ... }:
+{
+  username,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   services.nginx = {

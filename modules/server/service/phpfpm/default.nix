@@ -1,3 +1,5 @@
+{ config, ... }:
+
 {
   services.phpfpm.pools.mypool = {
     user = "nobody";
