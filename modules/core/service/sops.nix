@@ -20,8 +20,6 @@ in
     sshKeyPaths = [
       "${home}/.ssh/nixos"
     ];
-    keyFile = "${home}/.config/sops/age/keys.txt";
-    generateKey = true;
   };
 
   sops.secrets."language-tool/username" = {
