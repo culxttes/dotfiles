@@ -34,4 +34,5 @@ in
   sops.secrets."vaultwarden/admin-token" = { };
 
   sops.secrets."github/token/readonly" = { };
+  sops.secrets."github/token/dotfiles-rw" = { };
 }
