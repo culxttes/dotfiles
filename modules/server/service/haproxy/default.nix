@@ -126,7 +126,7 @@
     "haproxy"
   ];
 
-  networking.firewall.llowedTCPPorts = [
+  networking.firewall.allowedTCPPorts = [
     80
     443
   ];
