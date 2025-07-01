@@ -1,5 +1,4 @@
 {
-  self,
   config,
   username,
   sops-nix,
@@ -13,7 +12,7 @@ in
     sops-nix.nixosModules.sops
   ];
 
-  sops.defaultSopsFile = "${self}/secrets/secrets.yaml";
+  sops.defaultSopsFile = ./secrets.yaml;
   sops.defaultSopsFormat = "yaml";
 
   sops.age = {
@@ -21,17 +20,6 @@ in
       "${home}/.ssh/nixos"
     ];
   };
-
-  sops.secrets."language-tool/username" = {
-    owner = username;
-  };
-  sops.secrets."language-tool/api-key" = {
-    owner = username;
-  };
-
-  sops.secrets."cloudflare/dns-api-token" = { };
-
-  sops.secrets."vaultwarden/env" = { };
 
   sops.secrets."github/token/readonly" = { };
   sops.secrets."github/token/dotfiles-rw" = { };

@@ -10,5 +10,6 @@
     ./font
     ./home-manager
     ./nur
+    ./secrets
   ];
 }

@@ -3,5 +3,6 @@
     ./gui
     ./cli
     ./tui
+    ./secrets
   ];
 }
