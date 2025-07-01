@@ -27,7 +27,7 @@
     };
   };
 
-  users.users.culottes.extraGroups = [
+  users.users.${username}.extraGroups = [
     "nginx"
   ];
 }
