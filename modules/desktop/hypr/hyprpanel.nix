@@ -680,8 +680,30 @@
           };
         };
 
-        layout = {
-          "bar.layouts" = {
+        menus = {
+          clock = {
+            time.military = true;
+            weather.enabled = false;
+          };
+          dashboard = {
+            directories.enabled = false;
+            shortcuts.enabled = false;
+            powermenu.avatar.image = "${./assets/logo.jpg}";
+          };
+          power.lowBatteryNotification = true;
+        };
+
+        bar = {
+          workspaces = {
+            showApplicationIcons = true;
+            showWsIcons = true;
+          };
+          notifications = {
+            show_total = true;
+            hideCountWhenZero = true;
+          };
+          launcher.icon = "";
+          layouts = {
             "0" = {
               left = [
                 "dashboard"
@@ -727,31 +749,6 @@
               ];
             };
           };
-        };
-
-        menus = {
-          clock = {
-            time.military = true;
-            weather.enabled = false;
-          };
-          dashboard = {
-            directories.enabled = false;
-            shortcuts.enabled = false;
-            powermenu.avatar.image = "${./assets/logo.jpg}";
-          };
-          power.lowBatteryNotification = true;
-        };
-
-        bar = {
-          workspaces = {
-            showApplicationIcons = true;
-            showWsIcons = true;
-          };
-          notifications = {
-            show_total = true;
-            hideCountWhenZero = true;
-          };
-          launcher.icon = "";
         };
       };
     };
