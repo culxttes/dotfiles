@@ -1,0 +1,7 @@
+--- haproxy_minecraft.lua
++++ haproxy_minecraft.lua
+@@ -139,4 +139,0 @@
+-    if (protocol_version <= 0) then
+-        -- fast-fail (illegal version)
+-        return false
+-    end

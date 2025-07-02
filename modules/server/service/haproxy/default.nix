@@ -1,3 +1,30 @@
+{ pkgs, ... }:
+let
+  haproxy_minecraft = pkgs.stdenv.mkDerivation {
+    pname = "haproxy_minecraft-patch";
+    version = "1.0";
+
+    src = builtins.fetchurl {
+      url = "https://gist.githubusercontent.com/nathan818fr/a078e92604784ad56e84843ebf99e2e5/raw/3d9c74eec578aa0c0a177369d7106fe224b03efd/haproxy_minecraft.lua";
+      sha256 = "0krznqcq1v7vqz473gyy1cbhgwpj9s7xbzzfqg4llrzdvpk6xrzp";
+    };
+
+    patches = [ ./assets/haproxy_minecraft.patch ];
+
+    unpackPhase = ''
+      cp $src haproxy_minecraft.lua
+    '';
+
+    patchPhase = ''
+      patch -p0 < ${./assets/haproxy_minecraft.patch}
+    '';
+
+    installPhase = ''
+      mkdir -p $out
+      cp haproxy_minecraft.lua $out/
+    '';
+  };
+in
 {
   services.haproxy = {
     enable = true;
@@ -10,6 +37,9 @@
 
         ssl-default-bind-options ssl-min-ver TLSv1.2 
         ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384
+
+        tune.lua.bool-sample-conversion normal
+        lua-load ${haproxy_minecraft}/haproxy_minecraft.lua
 
       defaults
         log     global
@@ -29,6 +59,7 @@
         mode tcp
         timeout connect 1ms
         timeout server 1ms
+        tcp-request content reject
 
       frontend http-in
         bind *:80
@@ -49,6 +80,16 @@
         bind 127.0.0.84:8404
         mode http
         http-request use-service prometheus-exporter
+
+      frontend minecraft
+        bind *:25565
+        mode tcp
+
+        tcp-request inspect-delay 1s
+        tcp-request content lua.mc_handshake
+        tcp-request content accept if { var(txn.mc_proto) -m found }
+
+        use_backend %[var(txn.mc_host),map(/etc/haproxy/minecraft.map,close_connection)]
 
       backend backend_www.sagbot.com
         mode http
@@ -85,6 +126,10 @@
       backend backend_stats
         mode http
         server server1 127.0.0.27:2701 check
+
+      backend backend_mc_prominence
+        mode tcp
+        server server1 127.0.0.1:25566 check
     '';
   };
 
@@ -110,6 +155,13 @@
         ollama.sagbot.com backend_ollama
         ai.sagbot.com backend_webui_ollama
         stats.sagbot.com backend_stats
+      '';
+    };
+
+    "haproxy/minecraft.map" = {
+      text = ''
+        prominence.sagbot.com backend_mc_prominence
+        play.sagbot.com backend_mc_prominence
       '';
     };
 
