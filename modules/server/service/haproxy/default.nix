@@ -85,11 +85,7 @@ in
         bind *:25565
         mode tcp
 
-        tcp-request inspect-delay 1s
-        tcp-request content lua.mc_handshake
-        tcp-request content accept if { var(txn.mc_proto) -m found }
-
-        use_backend %[var(txn.mc_host),map(/etc/haproxy/minecraft.map,close_connection)]
+        use_backend backend_mc_prominence
 
       backend backend_www.sagbot.com
         mode http
