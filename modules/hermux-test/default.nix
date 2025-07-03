@@ -1,5 +1,5 @@
 {
-  hermes-mux,
+  hermux,
   pkgs,
   username,
   ...
@@ -8,13 +8,13 @@
 {
   /*
     nixpkgs.overlays = [
-      hermes-mux.overlays.default
+      hermux.overlays.default
     ];
   */
 
   home-manager.users.${username} = {
     home.packages = [
-      hermes-mux.packages.${pkgs.system}.hermes-mux
+      hermux.packages.${pkgs.system}.hermux
     ];
   };
 }

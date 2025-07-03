@@ -44,8 +44,8 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hermes-mux = {
-      url = "github:culxttes/hermes-mux";
+    hermux = {
+      url = "github:culxttes/hermux";
       # url = "git+file:///home/culottes/git/hermes-mux/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -68,7 +68,7 @@
             "additional"
             "development"
             "desktop"
-            "hermes-mux-test"
+            "hermux-test"
           ];
         }
         {
