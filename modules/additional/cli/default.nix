@@ -8,7 +8,6 @@
     ./monitoring
     ./steganography
     ./filesystem
-    ./viewer
     ./analyzer
     ./benchmark
     ./gpg.nix
