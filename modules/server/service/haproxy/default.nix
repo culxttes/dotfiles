@@ -62,12 +62,12 @@ in
         tcp-request content reject
 
       frontend http-in
-        bind *:80
+        bind :::80 v4v6
         mode http
         redirect scheme https code 301 if !{ ssl_fc }
 
       frontend https-in
-        bind *:443 ssl crt-list /etc/haproxy/domain.map
+        bind :::443 v4v6 ssl crt-list /etc/haproxy/domain.map
         mode http
         option http-server-close
         option forwardfor
@@ -82,7 +82,7 @@ in
         http-request use-service prometheus-exporter
 
       frontend minecraft
-        bind *:25565
+        bind :::25565 v4v6
         mode tcp
 
         use_backend backend_mc_prominence
