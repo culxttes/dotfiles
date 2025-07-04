@@ -255,11 +255,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1751542952,
-        "narHash": "sha256-vTwA6Py3DJu7JMH+SfKRzPE1noCWXZErvgN6+6E2yOU=",
+        "lastModified": 1751616829,
+        "narHash": "sha256-11I2QlspC1NfVegaJn92thgAvDAL6E9IncWsuwHYvrc=",
         "owner": "culxttes",
         "repo": "hermux",
-        "rev": "1736e2ebf61eb30d90a810872ee38814fdffc157",
+        "rev": "7d6b748d8e0d3e753c9260f15274d8c8248e234c",
         "type": "github"
       },
       "original": {
@@ -618,11 +618,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1751613341,
-        "narHash": "sha256-xap3nD8P/E5ODqVRy4oa8TYlSWfoHlPIJ552egi5kcE=",
+        "lastModified": 1751617406,
+        "narHash": "sha256-63WtOvBZyPSUGB6j8uyshiihX74EXbFyMzsnwjRRlPw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "cdac6b28a4bf145b775ba09f7207c9b67389caa1",
+        "rev": "99469cb5872f5ac9e47d8515dc6ba326b78dae69",
         "type": "github"
       },
       "original": {
