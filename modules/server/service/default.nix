@@ -5,6 +5,7 @@
     ./grafana
     ./haproxy
     ./mailcow
+    ./minecraft
     ./nginx
     ./ollama
     ./openssh
