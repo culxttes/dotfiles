@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  users.users.minecraft = {
+  users.users.minecraft2 = {
     isNormalUser = true;
     packages = with pkgs; [
       curl
