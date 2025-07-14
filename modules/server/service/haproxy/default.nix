@@ -129,10 +129,6 @@ in
         mode http
         server server1 127.0.0.27:2701 check
 
-      backend backend_mc_prominence
-        mode tcp
-        server server1 127.0.0.1:25566 check
-
       backend backend_mc_oceanblock2
         mode tcp
         server server1 127.0.0.1:25567 check
@@ -166,8 +162,6 @@ in
 
     "haproxy/minecraft.map" = {
       text = ''
-        prominence.sagbot.com backend_mc_prominence
-        play.sagbot.com backend_mc_prominence
         oceanblock2.sagbot.com backend_mc_oceanblock2
       '';
     };
