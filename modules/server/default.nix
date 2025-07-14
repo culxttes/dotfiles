@@ -1,6 +1,5 @@
 {
   imports = [
-    ./minecraft
     ./networking
     ./secrets
     ./service
