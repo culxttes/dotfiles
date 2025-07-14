@@ -21,7 +21,7 @@
 {
   home-manager.users.${username} = {
     imports = [
-      nix-index-database.hmModules.nix-index
+      nix-index-database.homeModules.nix-index
     ];
 
     programs.nix-index-database = {
