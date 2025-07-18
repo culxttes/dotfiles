@@ -16,10 +16,13 @@
       "focal.cachix.org-1:/YkOWkXNH2uK7TnskrVMvda8LyCe4iIbMM1sZN2AOXY="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
+
     experimental-features = [
       "nix-command"
       "flakes"
     ];
+
+    warn-dirty = false;
 
     download-buffer-size = 1073741824;
   };
