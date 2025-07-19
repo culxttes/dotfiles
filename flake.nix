@@ -101,7 +101,8 @@
           value = nixpkgs.lib.nixosSystem {
             specialArgs = {
               inherit (entry) username hostName systemTypes;
-            } // inputs;
+            }
+            // inputs;
             modules = [
               ./hosts
               ./modules
