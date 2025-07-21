@@ -4,5 +4,6 @@
     ./cli
     ./tui
     ./secrets
+    ./virtualisation
   ];
 }
