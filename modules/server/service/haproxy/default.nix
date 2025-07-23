@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   haproxy_minecraft = pkgs.stdenv.mkDerivation {
     pname = "haproxy_minecraft-patch";
@@ -129,6 +129,10 @@ in
         mode http
         server server1 127.0.0.27:2701 check
 
+      backend backend_neo4j
+        mode http
+        server server1 ${config.services.neo4j.http.listenAddress} check
+
       backend backend_mc_oceanblock2
         mode tcp
         server server1 127.0.0.1:25567 check
@@ -157,6 +161,7 @@ in
         ollama.sagbot.com backend_ollama
         ai.sagbot.com backend_webui_ollama
         stats.sagbot.com backend_stats
+        ${config.services.neo4j.http.advertisedAddress} backend_neo4j
       '';
     };
 
