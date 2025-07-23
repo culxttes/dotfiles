@@ -6,6 +6,7 @@
     ./haproxy
     ./mailcow
     ./minecraft
+    ./neo4j
     ./nginx
     ./ollama
     ./openssh
