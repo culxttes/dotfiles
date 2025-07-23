@@ -3,5 +3,6 @@
 {
   imports = [
     ./ltex.nix
+    ./ruff.nix
   ];
 }
