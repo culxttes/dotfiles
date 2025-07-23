@@ -34,7 +34,9 @@
         nix() {
           if [[ $1 == "develop" ]]; then
             shift
-            command nix develop -c $SHELL "$@"
+            command nom develop -c $SHELL "$@"
+          elif [[ $1 == "shell" || $1 == "build" ]]; then
+            command nom "$@"
           else
             command nix "$@"
           fi
