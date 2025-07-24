@@ -1,5 +1,3 @@
-{ config, ... }:
-
 {
   imports = [
     ./vimtex.nix
@@ -8,5 +6,6 @@
     ./lsp.nix
     ./markdown-preview.nix
     ./peek.nix
+    ./none-ls.nix
   ];
 }
