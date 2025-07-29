@@ -5,6 +5,10 @@ let
     url = "https://sagbot.com/OceanBlock2.zip";
     sha256 = "17z63kbg01vdlv5h4x7bwp7l23lb3sa9s4vsyrsnmmbspqyjg02j";
   };
+  ItemClearLag = builtins.fetchurl {
+    url = "https://cdn.modrinth.com/data/NJcJEXNc/versions/dB0S0FMl/ICL-1.21-neoforge-1.5.3.jar";
+    sha256 = "01qskmkxbkhkirzn5r885iy3am2b6mbqanw8pywdmdj2z2yq7615";
+  };
 
   version = "21.1.172";
   installer = builtins.fetchurl {
@@ -30,7 +34,9 @@ in
 
     jvmOpts = "-Xms6G -Xmx10G";
 
-    symlinks = collectFilesAt modpack "mods";
+    symlinks = collectFilesAt modpack "mods" // {
+      "mods/ICL-1.21-neoforge-1.5.3.jar" = ItemClearLag;
+    };
     files =
       collectFilesAt modpack "config"
       // collectFilesAt modpack "defaultconfigs"
