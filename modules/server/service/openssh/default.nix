@@ -1,4 +1,4 @@
-{ username, ... }:
+{ username, hostName, ... }:
 
 {
   services.openssh = {
@@ -13,6 +13,6 @@
   };
 
   users.users.${username}.openssh.authorizedKeys.keyFiles = [
-    ./assets/tantale.pub
+    ./assets/${hostName}.pub
   ];
 }
