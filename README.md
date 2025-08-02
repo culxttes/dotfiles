@@ -27,7 +27,6 @@ This repository contains my personal NixOS configuration files, structured to fa
 * `devshells/`: Sets up development environments with necessary tools and dependencies.
 * `secrets/`: Encrypted secrets managed via sops.
 * `.github/workflows/`: CI workflows for automated checks and builds.
-* `.sops.yaml`: Configuration file for sops, specifying encryption details.
 * `treefmt.nix`: Defines formatting standards for the codebase.
 ## Getting Started
 
