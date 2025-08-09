@@ -5,8 +5,10 @@
     plugins.nvim-tree = {
       enable = true;
 
-      git = {
-        ignore = false;
+      settings = {
+        git = {
+          ignore = false;
+        };
       };
     };
 
