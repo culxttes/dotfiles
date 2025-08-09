@@ -16,7 +16,7 @@
 
   home-manager.users.${username} = {
     imports = [
-      nixvim.homeManagerModules.nixvim
+      nixvim.homeModules.nixvim
     ];
 
     programs.nixvim = {
