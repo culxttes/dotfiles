@@ -8,8 +8,11 @@
   home-manager.users.${username} = {
     programs.ssh = {
       enable = true;
-      addKeysToAgent = "yes";
+      enableDefaultConfig = false;
       matchBlocks = {
+        "*" = {
+          addKeysToAgent = "yes";
+        };
         "sisyphe.sagbot.com" = {
           user = username;
           identityFile = "~/.ssh/sisyphe";
