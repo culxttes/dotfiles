@@ -9,8 +9,10 @@
 */
 {
   services.logind = {
-    extraConfig = ''
-      HandlePowerKey=ignore
-    '';
+    settings = {
+      Login = {
+        HandlePowerKey = "ignore";
+      };
+    };
   };
 }
