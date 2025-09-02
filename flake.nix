@@ -64,26 +64,24 @@
       ...
     }@inputs:
     let
-      systemInfo = [
-        {
-          hostName = "tantale";
+      systemInfo = {
+        tantale = {
           username = "culottes";
-          systemTypes = [
+          groups = [
             "additional"
             "development"
             "desktop"
             "hermux-test"
           ];
-        }
-        {
-          hostName = "sisyphe";
+        };
+        sisyphe = {
           username = "culottes";
-          systemTypes = [
+          groups = [
             "additional"
             "server"
           ];
-        }
-      ];
+        };
+      };
 
       eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
 
@@ -95,21 +93,20 @@
         formatting = treefmtEval.${pkgs.system}.config.build.check self;
       });
 
-      nixosConfigurations = builtins.listToAttrs (
-        builtins.map (entry: {
-          name = entry.hostName;
-          value = nixpkgs.lib.nixosSystem {
-            specialArgs = {
-              inherit (entry) username hostName systemTypes;
-            }
-            // inputs;
-            modules = [
-              ./hosts
-              ./modules
-              ./users
-            ];
-          };
-        }) systemInfo
-      );
+      nixosConfigurations = nixpkgs.lib.mapAttrs (
+        hostName: entry:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit hostName;
+          }
+          // entry
+          // inputs;
+          modules = [
+            ./hosts
+            ./modules
+            ./users
+          ];
+        }
+      ) systemInfo;
     };
 }
