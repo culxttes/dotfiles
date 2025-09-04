@@ -15,7 +15,7 @@
     enable = true;
     sddm = {
       enable = true;
-      theme = "catppuccin-mocha";
+      theme = "catppuccin-mocha-mauve";
       # Don't work somehow
       autoNumlock = true;
       wayland.enable = true;
