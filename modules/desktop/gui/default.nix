@@ -1,10 +1,9 @@
 {
   imports = [
     ./audio
-    ./chromium
+    ./browser
     ./discord
     ./filesystem
-    ./firefox
     ./graphics
     ./ledger
     ./math
