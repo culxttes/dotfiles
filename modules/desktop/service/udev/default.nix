@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 let
   lockScript = pkgs.writeShellScript "lock-all-sessions" ''
-    if [ -f /tmp/no-lock ]; then
+    if ${pkgs.custom.is-ctrl-pressed}/bin/is-ctrl-pressed; then
       exit 0
     fi
 
@@ -11,6 +11,10 @@ let
   '';
 in
 {
+  nixpkgs.overlays = [
+    (import ./overlay.nix)
+  ];
+
   services.udev.extraRules = ''
     ACTION=="remove", ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0407", RUN+="${lockScript}"
   '';
