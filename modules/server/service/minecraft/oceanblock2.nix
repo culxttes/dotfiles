@@ -26,7 +26,7 @@ let
 in
 {
   services.minecraft-servers.servers.oceanblock2 = {
-    enable = true;
+    enable = false;
     autoStart = true;
     restart = "always";
 
