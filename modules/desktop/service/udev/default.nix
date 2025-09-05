@@ -1,14 +1,24 @@
-{ pkgs, username, ... }:
+{ pkgs, ... }:
 let
-  lockScript = pkgs.writeShellScript "lock-all-sessions" ''
-    if ${pkgs.custom.is-ctrl-pressed}/bin/is-ctrl-pressed; then
-      exit 0
-    fi
+  lockScript = pkgs.writeShellApplication {
+    name = "lock-all-sessions";
 
-    for session in $(${pkgs.systemd}/bin/loginctl list-sessions --no-legend | ${pkgs.gawk}/bin/awk '$2 != "root" {print $1}'); do
-      ${pkgs.systemd}/bin/loginctl lock-session "$session"
-    done
-  '';
+    runtimeInputs = with pkgs; [
+      jq
+      systemd
+      custom.is-ctrl-pressed
+    ];
+
+    text = ''
+      if is-ctrl-pressed; then
+        exit 0
+      fi
+
+      for session in $(loginctl list-sessions -j | jq -r '.[] | select(.user != "root") | .session'); do
+        loginctl lock-session "$session"
+      done
+    '';
+  };
 in
 {
   nixpkgs.overlays = [
@@ -16,6 +26,6 @@ in
   ];
 
   services.udev.extraRules = ''
-    ACTION=="remove", ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0407", RUN+="${lockScript}"
+    ACTION=="remove", ATTRS{idVendor}=="1050", ATTRS{idProduct}=="0407", RUN+="${lockScript}/bin/lock-all-sessions"
   '';
 }
