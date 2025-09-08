@@ -132,10 +132,6 @@ in
       backend backend_neo4j
         mode http
         server server1 ${config.services.neo4j.http.listenAddress} check
-
-      backend backend_mc_oceanblock2
-        mode tcp
-        server server1 127.0.0.1:25567 check
     '';
   };
 
@@ -166,9 +162,7 @@ in
     };
 
     "haproxy/minecraft.map" = {
-      text = ''
-        oceanblock2.sagbot.com backend_mc_oceanblock2
-      '';
+      text = '''';
     };
 
     "haproxy/domain.map" = {
