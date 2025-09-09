@@ -5,16 +5,8 @@
     # Console log level (0 = disabled)
     consoleLogLevel = 0;
 
-    loader = {
-      # Enable systemd-boot as the bootloader
-      systemd-boot.enable = true;
-
-      # Allow modifying EFI variables
-      efi.canTouchEfiVariables = true;
-
-      # Set a timeout of 0 seconds before booting the system
-      timeout = 0;
-    };
+    # Set a timeout of 0 seconds before booting the system
+    loader.timeout = 0;
 
     kernelParams = [
       # Reduce kernel output during boot
