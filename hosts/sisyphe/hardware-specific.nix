@@ -10,6 +10,11 @@
     '';
   };
 
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
+
   networking.interfaces.enp6s0.ipv6 = {
     routes = [
       {
