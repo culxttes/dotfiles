@@ -81,6 +81,13 @@
             "server"
           ];
         };
+        icare = {
+          username = "culottes";
+          groups = [
+            "additional"
+            "server"
+          ];
+        };
       };
 
       eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
