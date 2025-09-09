@@ -105,6 +105,7 @@
         nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit hostName;
+            inherit systemInfo;
           }
           // entry
           // inputs;
