@@ -17,7 +17,7 @@ let
     ${name} )
       nixos-rebuild switch \
         --flake ~/git/dotfiles#${name} \
-        --build-host ${username}@${name}.sagbot.com \
+        --build-host ${username}@sisyphe.sagbot.com \
         --target-host ${username}@${name}.sagbot.com \
         --sudo \
         --ask-sudo-password
