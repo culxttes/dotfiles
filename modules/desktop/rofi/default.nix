@@ -19,7 +19,7 @@
     home.file.".config/networkmanager-dmenu/config.ini" = {
       text = ''
         [dmenu]
-        dmenu_command = ${pkgs.rofi-wayland}/bin/rofi -show drun -password
+        dmenu_command = ${pkgs.rofi}/bin/rofi -show drun -password
         active_chars = ✅
         compact = True
         wifi_chars = ▂▄▆█
@@ -27,7 +27,6 @@
     };
 
     programs.rofi = {
-      package = pkgs.rofi-wayland;
       enable = true;
 
       extraConfig = {
