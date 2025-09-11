@@ -1,10 +1,14 @@
-{ username, ... }:
+{ pkgs, username, ... }:
 /*
   Hyprpanel, a customizable Wayland panel built specifically for Hyprland. It
   provides a status bar that can display workspaces, system info  (like CPU,
   RAM, battery), notifications, and more.
 */
 {
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono # JetBrains Mono Nerd Font
+  ];
+
   home-manager.users.${username} = {
     programs.hyprpanel = {
       enable = true;
