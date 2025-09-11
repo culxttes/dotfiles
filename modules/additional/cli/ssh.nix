@@ -13,9 +13,19 @@
         "*" = {
           addKeysToAgent = "yes";
         };
+        "github.com" = {
+          user = username;
+          identityFile = "~/.ssh/github";
+          identitiesOnly = true;
+        };
         "sisyphe.sagbot.com" = {
           user = username;
           identityFile = "~/.ssh/sisyphe";
+          identitiesOnly = true;
+        };
+        "icare.sagbot.com" = {
+          user = username;
+          identityFile = "~/.ssh/icare";
           identitiesOnly = true;
         };
       };
