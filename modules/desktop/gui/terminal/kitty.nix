@@ -1,10 +1,14 @@
-{ username, ... }:
+{ pkgs, username, ... }:
 /*
   Kitty terminal emulator for the user.Kitty is a fast, GPU-accelerated
   terminal with advanced features like ligature support, image display, tabs,
   and extensive customization options.
 */
 {
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono # JetBrains Mono Nerd Font
+  ];
+
   home-manager.users.${username} = {
     programs.kitty = {
       enable = true;
