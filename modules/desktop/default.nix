@@ -4,7 +4,6 @@
     ./service
     ./security
     ./bluetooth
-    # ./waybar
     ./hypr
     ./rofi
     ./cli
