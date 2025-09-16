@@ -6,11 +6,8 @@
     ./processor
     ./git
     ./monitoring
-    ./steganography
     ./filesystem
     ./analyzer
-    ./benchmark
-    ./terminal
     ./gpg.nix
     ./ssh.nix
   ];
