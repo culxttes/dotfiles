@@ -7,6 +7,7 @@
     ./rebuild.nix
     ./zoxide.nix
     ./eza.nix
+    ./git.nix
     ./bat.nix
   ];
 }
