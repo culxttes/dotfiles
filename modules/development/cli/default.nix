@@ -1,7 +1,5 @@
 {
   imports = [
     ./git
-    ./toolchain
-    ./docs
   ];
 }
