@@ -12,6 +12,8 @@
   home-manager.users.${username} = {
     services.udiskie = {
       enable = true;
+
+      tray = "never";
     };
   };
 }
