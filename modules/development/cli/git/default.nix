@@ -1,6 +1,13 @@
+{ pkgs, username, ... }:
+
 {
-  imports = [
-    ./git.nix
-    ./opencommit.nix
-  ];
+  home-manager.users.${username} = {
+    programs.git = {
+      extraConfig = {
+        commit = {
+          gpgSign = true;
+        };
+      };
+    };
+  };
 }
