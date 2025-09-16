@@ -1,5 +1,6 @@
 {
   imports = [
+    ./agent
     ./service
     ./security
     ./bluetooth
