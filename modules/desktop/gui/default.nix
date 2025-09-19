@@ -3,6 +3,7 @@
     ./audio
     ./browser
     ./discord
+    ./email
     ./filesystem
     ./graphics
     ./ledger
