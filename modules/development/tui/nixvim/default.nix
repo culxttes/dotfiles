@@ -3,6 +3,7 @@
 {
   imports = [
     ./plugins
+    ./secrets
   ];
 
   home-manager.users.${username}.programs.nixvim = {
