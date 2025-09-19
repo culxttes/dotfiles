@@ -1,9 +1,9 @@
 {
   imports = [
     ./nix
+    ./update
     ./cachix.nix
     ./sops.nix
-    ./update.nix
     ./rebuild.nix
     ./zoxide.nix
     ./eza.nix
