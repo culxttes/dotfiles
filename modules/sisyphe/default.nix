@@ -1,6 +1,5 @@
 {
   imports = [
-    ./secrets
     ./service
     ./virtualisation
   ];

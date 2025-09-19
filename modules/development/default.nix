@@ -3,7 +3,6 @@
     ./gui
     ./cli
     ./tui
-    ./secrets
     ./virtualisation
   ];
 }
