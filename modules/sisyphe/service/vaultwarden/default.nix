@@ -1,6 +1,10 @@
 { config, ... }:
 
 {
+  imports = [
+    ./secrets
+  ];
+
   services.vaultwarden = {
     enable = true;
     config = {
