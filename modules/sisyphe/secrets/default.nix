@@ -13,11 +13,4 @@ in
       "${home}/.ssh/nixos-${hostName}"
     ];
   };
-
-  sops.secrets."cloudflare/dns-api-token" = {
-    sopsFile = ./secrets.yaml;
-  };
-  sops.secrets."vaultwarden/env" = {
-    sopsFile = ./secrets.yaml;
-  };
 }
