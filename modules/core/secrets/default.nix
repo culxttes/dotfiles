@@ -17,10 +17,7 @@ in
 
   sops.age = {
     sshKeyPaths = [
-      "${home}/.ssh/nixos"
+      "${home}/.ssh/nixos-core"
     ];
   };
-
-  sops.secrets."github/token/readonly" = { };
-  sops.secrets."github/token/dotfiles-rw" = { };
 }

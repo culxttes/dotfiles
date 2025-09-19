@@ -6,6 +6,10 @@
 }:
 
 {
+  imports = [
+    ./secrets
+  ];
+
   home-manager.users.${username} = {
     home.packages = [
       (pkgs.writeShellScriptBin "update" ''
@@ -15,7 +19,7 @@
 
         case "''\${1-}" in
           "" )
-            NIX_CONFIG="access-tokens = github.com=$(sudo cat ${
+            NIX_CONFIG="access-tokens = github.com=$(cat ${
               config.sops.secrets."github/token/readonly".path
             })" nix flake update --flake ~/git/dotfiles/
             ;;
