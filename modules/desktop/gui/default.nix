@@ -9,7 +9,6 @@
     ./ledger
     ./math
     ./network-manager
-    ./office
     ./record
     ./spotify
     ./terminal
