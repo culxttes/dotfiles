@@ -1,7 +1,7 @@
 { groups, hostName, ... }:
 
 {
-  imports = map (type: ./. + "/${type}") groups ++ [
+  imports = map (group: ./. + "/${group}") groups ++ [
     ./core
     ./${hostName}
   ];

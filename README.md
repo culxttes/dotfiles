@@ -22,10 +22,8 @@ This repository contains my personal NixOS configuration files, structured to fa
 
 * `flake.nix` & `flake.lock`: Define the Nix Flake entry point and lock dependencies.
 * `hosts/`: Contains host-specific configurations.
-* `users/`: Defines user-specific settings and packages.
 * `modules/`: Houses custom NixOS and Home Manager modules.
 * `devshells/`: Sets up development environments with necessary tools and dependencies.
-* `secrets/`: Encrypted secrets managed via sops.
 * `.github/workflows/`: CI workflows for automated checks and builds.
 * `treefmt.nix`: Defines formatting standards for the codebase.
 ## Getting Started
@@ -48,7 +46,7 @@ This repository contains my personal NixOS configuration files, structured to fa
 
 2. **Review and Customize**:
 
-   Inspect the `hosts/` and `users/` directories to understand the configurations. Modify them as needed to suit your environment.
+   Inspect the `hosts/` and `modules/` directories to understand the configurations. Modify them as needed to suit your environment.
 
 3. **Apply Configuration**:
 
@@ -58,18 +56,6 @@ This repository contains my personal NixOS configuration files, structured to fa
    sudo nixos-rebuild switch --flake
    ```
 
-
-
-
-## Secrets Management
-
-Sensitive information is managed using sops. Ensure you have the necessary GPG/SSH keys to decrypt the secrets.
-
-To edit a secret:
-
-```bash
-sops secrets/secrets.yaml
-```
 
 
 
