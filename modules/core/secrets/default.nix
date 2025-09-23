@@ -1,14 +1,13 @@
 {
   config,
-  systemInfo,
   hostName,
   username,
+  groups,
   sops-nix,
   ...
 }:
 let
   home = config.users.users.${username}.home;
-  groups = systemInfo.${hostName}.groups;
 in
 {
   imports = [
