@@ -112,7 +112,6 @@
           modules = [
             ./hosts
             ./modules
-            ./users
           ];
         }
       ) systemInfo;

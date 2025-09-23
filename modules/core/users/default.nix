@@ -1,6 +1,10 @@
 { username, ... }:
 
 {
+  imports = [
+    ./secrets
+  ];
+
   users.users.${username} = {
     isNormalUser = true;
     extraGroups = [

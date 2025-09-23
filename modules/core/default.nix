@@ -11,5 +11,6 @@
     ./home-manager
     ./nur
     ./secrets
+    ./users
   ];
 }
