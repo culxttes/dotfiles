@@ -27,9 +27,6 @@ jobs:
           git config --global user.signingkey "$KEY_ID"
           git config --global commit.gpgsign true
 
-      - name: Install Nix
-        uses: cachix/install-nix-action@v26
-
       - name: Make update scripts executable
         run: |
           chmod +x ci/update.sh
