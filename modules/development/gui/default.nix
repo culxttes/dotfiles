@@ -1,7 +1,6 @@
 {
   imports = [
     ./decompiler
-    ./ide
     ./request
   ];
 }
