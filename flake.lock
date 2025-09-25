@@ -727,15 +727,15 @@
         "systems": "systems_7"
       },
       "locked": {
-        "lastModified": 1758718199,
-        "narHash": "sha256-xbkAs3NM9K2sPEhz0MB9kDfDPBXNkkEDueKpPkZzzSc=",
-        "owner": "nix-community",
+        "lastModified": 1758764969,
+        "narHash": "sha256-4WouhrXfPzZPx9Oc1LEUOWqJK+hwnNpUS7IQTCWCUx0=",
+        "owner": "will-lol",
         "repo": "nixvim",
-        "rev": "fd835f3dd13872841ef394e97be71276f75957b9",
+        "rev": "43bca632dc3bb80241df797ad75053d7198ae458",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
+        "owner": "will-lol",
         "repo": "nixvim",
         "type": "github"
       }

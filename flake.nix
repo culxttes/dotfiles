@@ -17,7 +17,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "github:nix-community/nixvim";
+      url = "github:will-lol/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
