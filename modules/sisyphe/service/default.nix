@@ -2,6 +2,7 @@
   imports = [
     ./acme
     ./atacc
+    ./github-runner
     ./grafana
     ./haproxy
     ./mailcow
