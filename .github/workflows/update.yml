@@ -22,6 +22,10 @@ jobs:
         run: |
           git config user.name "Culottes"
           git config user.email "culottes@sagbot.com"
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import
+          KEY_ID=$(gpg --list-secret-keys --with-colons | awk -F: '/^sec/ {print $5; exit}')
+          git config --global user.signingkey "$KEY_ID"
+          git config --global commit.gpgsign true
 
       - name: Install Nix
         uses: cachix/install-nix-action@v26
