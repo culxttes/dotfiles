@@ -8,7 +8,7 @@
   };
 
   services.open-webui = {
-    enable = false;
+    enable = true;
     port = 3380;
     host = "127.0.0.208";
   };
