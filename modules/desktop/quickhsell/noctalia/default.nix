@@ -1,6 +1,14 @@
 { noctalia, username, ... }:
 
 {
+  imports = [
+    noctalia.nixosModules.default
+  ];
+
+  services.noctalia-shell = {
+    enable = true;
+  };
+
   home-manager.users.${username} = {
     imports = [
       noctalia.homeModules.default
@@ -12,7 +20,7 @@
         settingsVersion = 6;
         bar = {
           position = "top";
-          backgroundOpacity = 1;
+          backgroundOpacity = 0;
           monitors = [ ];
           density = "default";
           showCapsule = true;
@@ -21,6 +29,9 @@
           marginHorizontal = 0.25;
           widgets = {
             left = [
+              {
+                id = "ControlCenter";
+              }
               {
                 id = "SystemMonitor";
               }
@@ -38,13 +49,7 @@
             ];
             right = [
               {
-                id = "ScreenRecorder";
-              }
-              {
                 id = "Tray";
-              }
-              {
-                id = "NotificationHistory";
               }
               {
                 id = "WiFi";
@@ -56,25 +61,25 @@
                 id = "Battery";
               }
               {
+                id = "Microphone";
+              }
+              {
                 id = "Volume";
               }
               {
                 id = "Brightness";
               }
               {
-                id = "NightLight";
-              }
-              {
                 id = "Clock";
               }
               {
-                id = "ControlCenter";
+                id = "NotificationHistory";
               }
             ];
           };
         };
         general = {
-          avatarImage = "";
+          avatarImage = ./assets/logo.jpg;
           dimDesktop = true;
           showScreenCorners = false;
           forceBlackScreenCorners = false;
@@ -83,13 +88,13 @@
           animationSpeed = 1;
         };
         location = {
-          name = "Tokyo";
+          name = "Rouen";
           useFahrenheit = false;
           use12hourFormat = false;
           showWeekNumberInCalendar = false;
         };
         screenRecorder = {
-          directory = "";
+          directory = "~/Videos";
           frameRate = 60;
           audioCodec = "opus";
           videoCodec = "h264";
@@ -100,8 +105,9 @@
           videoSource = "portal";
         };
         wallpaper = {
-          enabled = true;
-          directory = "";
+          enabled = false;
+
+          directory = null;
           enableMultiMonitorDirectories = false;
           setWallpaperOnAllMonitors = true;
           fillMode = "crop";
@@ -114,7 +120,7 @@
           monitors = [ ];
         };
         appLauncher = {
-          enableClipboardHistory = false;
+          enableClipboardHistory = true;
           position = "center";
           backgroundOpacity = 1;
           pinnedExecs = [ ];
@@ -165,7 +171,7 @@
         };
         colorSchemes = {
           useWallpaperColors = false;
-          predefinedScheme = "Noctalia (default)";
+          predefinedScheme = null;
           darkMode = true;
         };
         matugen = {
@@ -183,6 +189,7 @@
         };
         nightLight = {
           enabled = false;
+
           forced = false;
           autoSchedule = true;
           nightTemp = "4000";
@@ -192,9 +199,33 @@
         };
         hooks = {
           enabled = false;
+
           wallpaperChange = "";
           darkModeChange = "";
         };
+      };
+
+      colors = {
+        mOutline = "#C0C0C0";
+
+        mPrimary = "#FFFFFF";
+        mSecondary = "#C0C0C0";
+        mTertiary = "#FFFFFF";
+
+        mOnPrimary = "#000000";
+        mOnSecondary = "#000000";
+        mOnTertiary = "#000000";
+
+        mError = "#DDDDDD";
+
+        mOnError = "#C0C0C0";
+
+        mShadow = "#000000";
+        mSurface = "#000000";
+        mSurfaceVariant = "#000000";
+
+        mOnSurface = "#FFFFFF";
+        mOnSurfaceVariant = "#C0C0C0";
       };
     };
   };
