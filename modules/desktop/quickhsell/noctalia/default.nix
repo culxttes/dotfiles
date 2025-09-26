@@ -24,7 +24,7 @@
           monitors = [ ];
           density = "default";
           showCapsule = true;
-          floating = false;
+          floating = true;
           marginVertical = 0.25;
           marginHorizontal = 0.25;
           widgets = {
