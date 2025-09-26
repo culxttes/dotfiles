@@ -5,6 +5,7 @@
     ./security
     ./bluetooth
     ./hypr
+    ./quickhsell
     ./rofi
     ./cli
     ./gui
