@@ -10,6 +10,7 @@
     ./cli
     ./gui
     ./gtk
+    ./qt
     ./xdg
   ];
 }
