@@ -15,7 +15,9 @@
 */
 {
   imports = [
+    # keep-sorted start
     home-manager.nixosModules.home-manager
+    # keep-sorted end
   ];
 
   home-manager.useGlobalPkgs = true;

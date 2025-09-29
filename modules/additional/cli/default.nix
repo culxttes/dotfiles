@@ -1,5 +1,6 @@
 {
   imports = [
+    # keep-sorted start
     ./compress
     ./graphics
     ./pentest
@@ -10,5 +11,6 @@
     ./analyzer
     ./gpg.nix
     ./ssh.nix
+    # keep-sorted end
   ];
 }

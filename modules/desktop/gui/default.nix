@@ -1,5 +1,6 @@
 {
   imports = [
+    # keep-sorted start
     ./audio
     ./browser
     ./discord
@@ -14,5 +15,6 @@
     ./terminal
     ./viewers
     ./yubikey
+    # keep-sorted end
   ];
 }

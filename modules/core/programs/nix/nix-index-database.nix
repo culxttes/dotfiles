@@ -21,7 +21,9 @@
 {
   home-manager.users.${username} = {
     imports = [
+      # keep-sorted start
       nix-index-database.homeModules.nix-index
+      # keep-sorted end
     ];
 
     programs.nix-index-database = {

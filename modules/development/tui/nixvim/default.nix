@@ -2,8 +2,10 @@
 
 {
   imports = [
+    # keep-sorted start
     ./plugins
     ./secrets
+    # keep-sorted end
   ];
 
   home-manager.users.${username}.programs.nixvim = {

@@ -1,5 +1,6 @@
 {
   imports = [
+    # keep-sorted start
     ./nix
     ./update
     ./cachix.nix
@@ -8,5 +9,6 @@
     ./eza.nix
     ./git.nix
     ./bat.nix
+    # keep-sorted end
   ];
 }

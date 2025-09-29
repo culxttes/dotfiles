@@ -2,9 +2,11 @@
 
 {
   imports = [
-    nix-minecraft.nixosModules.minecraft-servers
-    ./skyfactory5.nix
+    # keep-sorted start
     ./oceanblock2.nix
+    ./skyfactory5.nix
+    nix-minecraft.nixosModules.minecraft-servers
+    # keep-sorted end
   ];
   nixpkgs.overlays = [
     nix-minecraft.overlay

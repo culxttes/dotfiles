@@ -2,7 +2,9 @@
 
 {
   imports = [
+    # keep-sorted start
     noctalia.nixosModules.default
+    # keep-sorted end
   ];
 
   services.noctalia-shell = {
@@ -11,7 +13,9 @@
 
   home-manager.users.${username} = {
     imports = [
+      # keep-sorted start
       noctalia.homeModules.default
+      # keep-sorted end
     ];
 
     programs.noctalia-shell = {

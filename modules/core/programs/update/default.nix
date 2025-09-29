@@ -7,7 +7,9 @@
 
 {
   imports = [
+    # keep-sorted start
     ./secrets
+    # keep-sorted end
   ];
 
   home-manager.users.${username} = {

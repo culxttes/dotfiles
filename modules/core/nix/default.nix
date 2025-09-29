@@ -1,7 +1,11 @@
 { username, ... }:
 
 {
-  imports = [ ./settings.nix ];
+  imports = [
+    # keep-sorted start
+    ./settings.nix
+    # keep-sorted end
+  ];
 
   system.stateVersion = "25.11";
 

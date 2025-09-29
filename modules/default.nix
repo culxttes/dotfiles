@@ -2,7 +2,9 @@
 
 {
   imports = map (group: ./. + "/${group}") groups ++ [
-    ./core
+    # keep-sorted start
     ./${hostName}
+    ./core
+    # keep-sorted end
   ];
 }

@@ -2,7 +2,9 @@
 
 {
   imports = [
+    # keep-sorted start
     ./secrets
+    # keep-sorted end
   ];
 
   security.acme = {

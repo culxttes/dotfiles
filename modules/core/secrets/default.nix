@@ -11,7 +11,9 @@ let
 in
 {
   imports = [
+    # keep-sorted start
     sops-nix.nixosModules.sops
+    # keep-sorted end
   ];
 
   sops.defaultSopsFormat = "yaml";

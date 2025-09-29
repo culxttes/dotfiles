@@ -10,7 +10,9 @@
 */
 {
   imports = [
+    # keep-sorted start
     ./wrapper
+    # keep-sorted end
   ];
 
   home-manager.users.${username} = {

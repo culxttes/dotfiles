@@ -11,8 +11,10 @@
 */
 {
   imports = [
+    # keep-sorted start
     ./networkmanager.nix
     ./bluetooth.nix
+    # keep-sorted end
   ];
 
   home-manager.users.${username} = {

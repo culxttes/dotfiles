@@ -11,12 +11,16 @@
 */
 {
   imports = [
+    # keep-sorted start
     ./plugins
+    # keep-sorted end
   ];
 
   home-manager.users.${username} = {
     imports = [
+      # keep-sorted start
       nixvim.homeModules.nixvim
+      # keep-sorted end
     ];
 
     programs.nixvim = {
@@ -65,7 +69,9 @@
       '';
 
       imports = [
+        # keep-sorted start
         ./keymaps.nix
+        # keep-sorted end
       ];
     };
 

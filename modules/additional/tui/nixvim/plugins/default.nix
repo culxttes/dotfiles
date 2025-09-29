@@ -1,5 +1,6 @@
 {
   imports = [
+    # keep-sorted start
     ./lualine.nix
     ./treesitter.nix
     ./which-key.nix
@@ -12,5 +13,6 @@
     ./mini.nix
     ./cmp.nix
     ./none-ls.nix
+    # keep-sorted end
   ];
 }

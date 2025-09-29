@@ -1,5 +1,6 @@
 {
   imports = [
+    # keep-sorted start
     ./nix
     ./programs
     ./agent
@@ -12,5 +13,6 @@
     ./nur
     ./secrets
     ./users
+    # keep-sorted end
   ];
 }

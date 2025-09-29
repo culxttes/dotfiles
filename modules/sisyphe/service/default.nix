@@ -1,5 +1,6 @@
 {
   imports = [
+    # keep-sorted start
     ./acme
     ./atacc
     ./github-runner
@@ -14,5 +15,6 @@
     ./prometheus
     ./sagedt
     ./vaultwarden
+    # keep-sorted end
   ];
 }
