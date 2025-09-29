@@ -1,8 +1,8 @@
 {
   imports = [
     # keep-sorted start
-    ./obs.nix
     ./focal.nix
+    ./obs.nix
     # keep-sorted end
   ];
 }

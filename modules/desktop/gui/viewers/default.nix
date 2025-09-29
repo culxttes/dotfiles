@@ -1,9 +1,9 @@
 {
   imports = [
     # keep-sorted start
-    ./zathura.nix
-    ./mpv.nix
     ./feh.nix
+    ./mpv.nix
+    ./zathura.nix
     # keep-sorted end
   ];
 }

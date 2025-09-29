@@ -1,8 +1,8 @@
 {
   imports = [
     # keep-sorted start
-    ./uncrustify
     ./nixfmt.nix
+    ./uncrustify
     # keep-sorted end
   ];
 }

@@ -1,8 +1,8 @@
 {
   imports = [
     # keep-sorted start
-    ./nix-ld.nix
     ./appimage.nix
+    ./nix-ld.nix
     # keep-sorted end
   ];
 }

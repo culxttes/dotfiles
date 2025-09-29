@@ -1,10 +1,10 @@
 {
   imports = [
     # keep-sorted start
-    ./udev
     ./displayManager.nix
     ./logind.nix
     ./network-manager-applet.nix
+    ./udev
     ./upower.nix
     # keep-sorted end
   ];

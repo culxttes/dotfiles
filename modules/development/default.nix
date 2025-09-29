@@ -1,8 +1,8 @@
 {
   imports = [
     # keep-sorted start
-    ./gui
     ./cli
+    ./gui
     ./tui
     ./virtualisation
     # keep-sorted end

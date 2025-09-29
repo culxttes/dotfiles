@@ -1,8 +1,8 @@
 {
   imports = [
     # keep-sorted start
-    ./jq.nix
     ./fq.nix
+    ./jq.nix
     # keep-sorted end
   ];
 }

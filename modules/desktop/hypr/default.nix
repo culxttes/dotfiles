@@ -1,10 +1,10 @@
 {
   imports = [
     # keep-sorted start
-    ./hyprland.nix
-    ./hyprpaper.nix
     ./hypridle.nix
+    ./hyprland.nix
     ./hyprlock.nix
+    ./hyprpaper.nix
     # keep-sorted end
   ];
 }

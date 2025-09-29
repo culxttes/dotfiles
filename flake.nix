@@ -78,29 +78,37 @@
     }@inputs:
     let
       systemInfo = {
-        tantale = {
+        # keep-sorted start block=yes
+        icare = {
           username = "culottes";
           groups = [
+            # keep-sorted start
             "additional"
-            "development"
-            "desktop"
-            "hermux-test"
+            "server"
+            # keep-sorted end
           ];
         };
         sisyphe = {
           username = "culottes";
           groups = [
+            # keep-sorted start
             "additional"
             "server"
+            # keep-sorted end
           ];
         };
-        icare = {
+        tantale = {
           username = "culottes";
           groups = [
+            # keep-sorted start
             "additional"
-            "server"
+            "desktop"
+            "development"
+            "hermux-test"
+            # keep-sorted end
           ];
         };
+        # keep-sorted end
       };
 
       eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});

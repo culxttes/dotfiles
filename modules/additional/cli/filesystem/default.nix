@@ -1,10 +1,10 @@
 {
   imports = [
     # keep-sorted start
+    ./dua.nix
+    ./fd.nix
     ./file.nix
     ./tree.nix
-    ./fd.nix
-    ./dua.nix
     # keep-sorted end
   ];
 }

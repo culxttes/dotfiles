@@ -1,8 +1,8 @@
 {
   imports = [
     # keep-sorted start
-    ./netflix.nix
     ./chatgpt.nix
+    ./netflix.nix
     # keep-sorted end
   ];
 }

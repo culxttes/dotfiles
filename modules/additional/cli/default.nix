@@ -1,15 +1,15 @@
 {
   imports = [
     # keep-sorted start
+    ./analyzer
     ./compress
+    ./filesystem
+    ./git
+    ./gpg.nix
     ./graphics
+    ./monitoring
     ./pentest
     ./processor
-    ./git
-    ./monitoring
-    ./filesystem
-    ./analyzer
-    ./gpg.nix
     ./ssh.nix
     # keep-sorted end
   ];

@@ -1,17 +1,17 @@
 {
   imports = [
     # keep-sorted start
-    ./nix
-    ./programs
     ./agent
-    ./network
-    ./service
-    ./runtime
-    ./shell
     ./font
     ./home-manager
+    ./network
+    ./nix
     ./nur
+    ./programs
+    ./runtime
     ./secrets
+    ./service
+    ./shell
     ./users
     # keep-sorted end
   ];

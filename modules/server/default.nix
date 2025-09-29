@@ -1,8 +1,8 @@
 {
   imports = [
     # keep-sorted start
-    ./service
     ./networking
+    ./service
     # keep-sorted end
   ];
 }

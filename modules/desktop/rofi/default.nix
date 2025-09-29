@@ -12,8 +12,8 @@
 {
   imports = [
     # keep-sorted start
-    ./networkmanager.nix
     ./bluetooth.nix
+    ./networkmanager.nix
     # keep-sorted end
   ];
 

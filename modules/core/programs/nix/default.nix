@@ -1,9 +1,9 @@
 {
   imports = [
     # keep-sorted start
-    ./nix-index.nix
-    ./nix-index-database.nix
     ./nh.nix
+    ./nix-index-database.nix
+    ./nix-index.nix
     ./nix-output-monitor.nix
     # keep-sorted end
   ];

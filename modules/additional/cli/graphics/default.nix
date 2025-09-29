@@ -1,8 +1,8 @@
 {
   imports = [
     # keep-sorted start
-    ./imagemagick.nix
     ./ffmpeg.nix
+    ./imagemagick.nix
     # keep-sorted end
   ];
 }

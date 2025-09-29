@@ -1,18 +1,18 @@
 {
   imports = [
     # keep-sorted start
-    ./lualine.nix
-    ./treesitter.nix
-    ./which-key.nix
-    ./nvim-tree.nix
-    ./web-devicons.nix
-    ./virt-column.nix
     ./bufferline.nix
-    ./toggleterm.nix
-    ./telescope.nix
-    ./mini.nix
     ./cmp.nix
+    ./lualine.nix
+    ./mini.nix
     ./none-ls.nix
+    ./nvim-tree.nix
+    ./telescope.nix
+    ./toggleterm.nix
+    ./treesitter.nix
+    ./virt-column.nix
+    ./web-devicons.nix
+    ./which-key.nix
     # keep-sorted end
   ];
 }
