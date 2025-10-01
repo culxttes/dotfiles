@@ -2,7 +2,6 @@
   imports = [
     # keep-sorted start
     ./agent
-    ./bluetooth
     ./cli
     ./gtk
     ./gui

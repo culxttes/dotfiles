@@ -102,7 +102,8 @@
           groups = [
             # keep-sorted start
             "additional"
-            "desktop"
+            "workstation"
+            "laptop"
             "development"
             "hermux-test"
             # keep-sorted end
