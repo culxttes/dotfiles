@@ -33,6 +33,8 @@ jobs:
           chmod +x ci/script/*.sh || true
 
       - name: Run all update scripts
+        env:
+          NIX_CONFIG: "access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}"
         run: ./ci/update.sh
 
       - name: Check for changes
