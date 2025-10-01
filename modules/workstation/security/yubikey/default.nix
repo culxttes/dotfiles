@@ -1,4 +1,9 @@
-{ pkgs, username, ... }:
+{
+  pkgs,
+  username,
+  hostName,
+  ...
+}:
 
 {
   services.udev.packages = [
@@ -13,6 +18,6 @@
       pkgs.yubikey-manager
     ];
 
-    home.file.".config/Yubico/u2f_keys".source = ./assets/u2f_keys;
+    home.file.".config/Yubico/u2f_keys".source = ./assets/${hostName};
   };
 }
