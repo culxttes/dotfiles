@@ -18,10 +18,7 @@ let
         --build-host ${username}@sisyphe.sagbot.com \
         --target-host ${username}@${name}.sagbot.com \
         --sudo \
-        --ask-sudo-password \
-        --log-format internal-json \
-        --verbose \
-      |& nom --json
+        --ask-sudo-password
       ;;
   '';
 in
@@ -35,19 +32,13 @@ in
             "" )
               nixos-rebuild switch \
                 --flake ~/git/dotfiles/ \
-                --sudo \
-                --log-format internal-json \
-                --verbose \
-              |& nom --json
+                --sudo
               ;;
             remote )
               nixos-rebuild switch \
                 --flake ~/git/dotfiles/ \
                 --build-host ${username}@sisyphe.sagbot.com \
-                --sudo \
-                --log-format internal-json \
-                --verbose \
-              |& nom --json
+                --sudo
               ;;
             ${concatStringsSep "" (map genCase serverHosts)}
             * )
