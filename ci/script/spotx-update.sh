@@ -7,7 +7,7 @@ URL="https://raw.githubusercontent.com/SpotX-Official/SpotX-Bash/refs/heads/main
 # Get the absolute path to the directory of this script
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 
-OVERLAY_PATH=$(readlink -f "$SCRIPT_DIR/../../modules/desktop/gui/spotify/spotx.nix")
+OVERLAY_PATH=$(readlink -f "$SCRIPT_DIR/../../modules/workstation/gui/spotify/spotx.nix")
 
 echo "  Fetching new hash for: $URL"
 HASH_RAW=$(nix-prefetch-url "$URL" 2> /dev/null)

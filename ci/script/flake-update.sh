@@ -8,6 +8,6 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 FLAKE_URL=$(readlink -f "$SCRIPT_DIR/../../")
 
 echo "  Running flake update"
-nix flake update --flake "$FLAKE_URL" 2> /dev/null
+nix flake update --flake "$FLAKE_URL"
 echo "  Flake update completed"
 
