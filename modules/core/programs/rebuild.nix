@@ -7,11 +7,9 @@
 }:
 with lib;
 let
-  serverHosts =
-    let
-      names = builtins.attrNames systemInfo;
-    in
-    builtins.filter (name: builtins.elem "server" systemInfo.${name}.groups) names;
+  serverHosts = builtins.filter (name: builtins.elem "server" systemInfo.${name}.groups) (
+    builtins.attrNames systemInfo
+  );
 
   genCase = name: ''
     ${name} )
@@ -23,7 +21,7 @@ let
         --ask-sudo-password \
         --log-format internal-json \
         --verbose \
-      |& nom
+      |& nom --json
       ;;
   '';
 in
@@ -40,7 +38,7 @@ in
                 --sudo \
                 --log-format internal-json \
                 --verbose \
-              |& nom
+              |& nom --json
               ;;
             remote )
               nixos-rebuild switch \
@@ -49,7 +47,7 @@ in
                 --sudo \
                 --log-format internal-json \
                 --verbose \
-              |& nom
+              |& nom --json
               ;;
             ${concatStringsSep "" (map genCase serverHosts)}
             * )
