@@ -5,7 +5,7 @@
   systemInfo,
   ...
 }:
-
+with lib;
 let
   serverHosts =
     let
@@ -20,7 +20,10 @@ let
         --build-host ${username}@sisyphe.sagbot.com \
         --target-host ${username}@${name}.sagbot.com \
         --sudo \
-        --ask-sudo-password
+        --ask-sudo-password \
+        --log-format internal-json \
+        --verbose \
+      |& nom
       ;;
   '';
 in
@@ -34,17 +37,23 @@ in
             "" )
               nixos-rebuild switch \
                 --flake ~/git/dotfiles/ \
-                --sudo
+                --sudo \
+                --log-format internal-json \
+                --verbose \
+              |& nom
               ;;
             remote )
               nixos-rebuild switch \
                 --flake ~/git/dotfiles/ \
                 --build-host ${username}@sisyphe.sagbot.com \
-                --sudo
+                --sudo \
+                --log-format internal-json \
+                --verbose \
+              |& nom
               ;;
-            ${lib.concatStringsSep "" (map genCase serverHosts)}
+            ${concatStringsSep "" (map genCase serverHosts)}
             * )
-              echo "Usage: $0 [remote|${lib.concatStringsSep "|" serverHosts}]"
+              echo "Usage: $0 [remote|${concatStringsSep "|" serverHosts}]"
               exit 1
               ;;
           esac
