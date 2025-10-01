@@ -4,7 +4,6 @@ let
     name = "lock-all-sessions";
 
     runtimeInputs = with pkgs; [
-      jq
       systemd
       custom.is-ctrl-pressed
     ];
@@ -14,9 +13,7 @@ let
         exit 0
       fi
 
-      for session in $(loginctl list-sessions -j | jq -r '.[] | select(.user != "root") | .session'); do
-        loginctl lock-session "$session"
-      done
+      loginctl lock-sessions
     '';
   };
 in
