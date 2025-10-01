@@ -88,6 +88,16 @@
             # keep-sorted end
           ];
         };
+        niobe = {
+          username = "culottes";
+          groups = [
+            # keep-sorted start
+            "additional"
+            "development"
+            "workstation"
+            # keep-sorted end
+          ];
+        };
         sisyphe = {
           username = "culottes";
           groups = [
@@ -102,10 +112,10 @@
           groups = [
             # keep-sorted start
             "additional"
-            "workstation"
-            "laptop"
             "development"
             "hermux-test"
+            "laptop"
+            "workstation"
             # keep-sorted end
           ];
         };
