@@ -18,6 +18,7 @@
       pkgs.yubikey-manager
     ];
 
+    # pamu2fcfg -u `whoami` -opam://`hostname` -ipam://`hostname`
     home.file.".config/Yubico/u2f_keys".source = ./assets/${hostName};
   };
 }
