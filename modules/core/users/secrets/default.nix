@@ -2,6 +2,6 @@
 
 {
   sops.secrets."hashedPassword" = {
-    sopsFile = ./passwordHash.yaml;
+    sopsFile = ./hashedPassword.yaml;
   };
 }
