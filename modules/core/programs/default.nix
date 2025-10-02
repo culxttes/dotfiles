@@ -6,6 +6,7 @@
     ./eza.nix
     ./git.nix
     ./nix
+    ./nix-search-tv.nix
     ./rebuild.nix
     ./update
     ./zoxide.nix
