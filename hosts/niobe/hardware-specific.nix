@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  username,
+  ...
+}:
 
 {
   boot.loader = {
@@ -45,5 +50,17 @@
     # Optionally, you may need to select the appropriate driver version for
     # your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  home-manager.users.${username} = {
+    wayland.windowManager.hyprland = {
+      settings = {
+        monitor = [
+          "DP-1,1920x1080@60,-1920x0,1"
+          "HDMI-A-1,1920x1080@60,0x0,1"
+          "eDP-1,1920x1080@60,1920x0,1"
+        ];
+      };
+    };
   };
 }
