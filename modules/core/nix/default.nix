@@ -3,6 +3,7 @@
 {
   imports = [
     # keep-sorted start
+    ./nix-deamon.nix
     ./settings.nix
     # keep-sorted end
   ];
