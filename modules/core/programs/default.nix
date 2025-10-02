@@ -7,6 +7,7 @@
     ./git.nix
     ./nix
     ./nix-search-tv.nix
+    ./nixpkgs-review.nix
     ./rebuild.nix
     ./update
     ./zoxide.nix
