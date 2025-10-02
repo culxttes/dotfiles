@@ -1,9 +1,11 @@
-{ nvf, ... }:
+{ nvf, username, ... }:
 
 {
-  imports = [
-    # keep-sorted start
-    nvf.homeManagerModules.default
-    # keep-sorted end
-  ];
+  home-manager.users.${username} = {
+    imports = [
+      # keep-sorted start
+      nvf.homeManagerModules.default
+      # keep-sorted end
+    ];
+  };
 }
