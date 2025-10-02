@@ -1,8 +1,9 @@
+{ nvf, ... }:
+
 {
   imports = [
     # keep-sorted start
-    ./nixvim
-    ./nvf
+    nvf.homeManagerModules.default
     # keep-sorted end
   ];
 }
