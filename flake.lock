@@ -871,11 +871,11 @@
         "systems": "systems_9"
       },
       "locked": {
-        "lastModified": 1758271661,
-        "narHash": "sha256-ENqd2/33uP5vB44ClDjjAV+J78oF8q1er4QUZuT8Z7g=",
+        "lastModified": 1759433409,
+        "narHash": "sha256-AXTSlYejisfsIzn31F71ROTfkb6e/qWH4O2Xi9QbxLU=",
         "owner": "NotAShelf",
         "repo": "nvf",
-        "rev": "b7571df4d6e9ac08506a738ddceeec0b141751b0",
+        "rev": "8e73e98f56ce007284bb83b23b8a4b2a5c72765b",
         "type": "github"
       },
       "original": {
