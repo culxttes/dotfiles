@@ -1,11 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./cli
-    ./gui
-    ./hypr
-    ./services
-    ./virtualisation
+    ./adb
     # keep-sorted end
   ];
 }
