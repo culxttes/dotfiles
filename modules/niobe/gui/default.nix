@@ -1,9 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./gui
-    ./hypr
-    ./services
+    ./streamdeck
     # keep-sorted end
   ];
 }

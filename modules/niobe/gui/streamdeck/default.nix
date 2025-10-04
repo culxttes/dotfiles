@@ -1,9 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./gui
-    ./hypr
-    ./services
+    ./streamcontroller.nix
     # keep-sorted end
   ];
 }
