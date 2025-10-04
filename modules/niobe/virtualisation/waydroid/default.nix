@@ -9,6 +9,7 @@
 
   environment.systemPackages = [
     pkgs.wl-clipboard
+    pkgs.nur.repos.ataraxiasjel.waydroid-script
   ];
 
   networking.firewall = {
