@@ -1,8 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./hypr
-    ./services
+    ./user
     # keep-sorted end
   ];
 }

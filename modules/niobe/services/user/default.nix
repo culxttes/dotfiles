@@ -1,8 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./hypr
-    ./services
+    ./mic-loopback
     # keep-sorted end
   ];
 }
