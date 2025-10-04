@@ -1,10 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./gui
-    ./hypr
-    ./services
-    ./virtualisation
+    ./waydroid
     # keep-sorted end
   ];
 }
