@@ -803,11 +803,11 @@
         "systems": "systems_8"
       },
       "locked": {
-        "lastModified": 1759592042,
-        "narHash": "sha256-ojrIDJO/J1P+JmXZFXhmsmtL30eTFPUh5JUvIww7lgQ=",
+        "lastModified": 1759592592,
+        "narHash": "sha256-BornMID9UFh0RJSOeR/Y3zHVal6Lkqyq+UBgXRzM6mk=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "bc2fbfbd83702cfb545a8dcb7ec09d0742584bfa",
+        "rev": "c212fd411e0fc90ff58c24590d1f4fcf0f486d23",
         "type": "github"
       },
       "original": {
