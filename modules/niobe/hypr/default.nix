@@ -1,7 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./hypr
+    ./hyprland.nix
     # keep-sorted end
   ];
 }
