@@ -7,6 +7,8 @@
     ./git.nix
     ./nix
     ./rebuild.nix
+    ./runtime
+    ./shell
     ./update
     ./zoxide.nix
     # keep-sorted end
