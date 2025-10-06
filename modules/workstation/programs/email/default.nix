@@ -8,6 +8,6 @@
   ];
 
   home-manager.users.${username} = {
-    accounts.email.accounts = secrets.accounts.email.accounts;
+    accounts.email.accounts = secrets.config.accounts.email.accounts;
   };
 }
