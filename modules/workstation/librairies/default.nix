@@ -1,7 +1,8 @@
 {
   imports = [
     # keep-sorted start
-    ./git
+    ./gtk
+    ./qt
     # keep-sorted end
   ];
 }

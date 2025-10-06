@@ -1,16 +1,10 @@
 {
   imports = [
     # keep-sorted start
-    ./agent
-    ./cli
-    ./gtk
-    ./gui
-    ./hypr
-    ./qt
-    ./quickhsell
-    ./rofi
+    ./librairies
+    ./programs
     ./security
-    ./service
+    ./services
     ./xdg
     # keep-sorted end
   ];

@@ -3,7 +3,7 @@
     # keep-sorted start
     ./fonts
     ./home-manager
-    ./network
+    ./networking
     ./nix
     ./nur
     ./programs

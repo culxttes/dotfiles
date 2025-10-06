@@ -1,9 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./cli
-    ./gui
-    ./hypr
+    ./programs
     ./services
     ./virtualisation
     # keep-sorted end

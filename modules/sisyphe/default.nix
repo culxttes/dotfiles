@@ -1,7 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./service
+    ./services
     ./virtualisation
     # keep-sorted end
   ];

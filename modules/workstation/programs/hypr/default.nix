@@ -1,7 +1,8 @@
 {
   imports = [
     # keep-sorted start
-    ./mic-loopback
+    ./hyprland.nix
+    ./hyprlock.nix
     # keep-sorted end
   ];
 }

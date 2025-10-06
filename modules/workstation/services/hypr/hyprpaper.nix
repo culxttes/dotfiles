@@ -10,10 +10,10 @@
       enable = true;
       settings = {
         preload = [
-          "${./assets/background.jpg}"
+          "${../../assets/background.jpg}"
         ];
         wallpaper = [
-          ",${./assets/background.jpg}"
+          ",${../../assets/background.jpg}"
         ];
         splash = false;
         ipc = "off";

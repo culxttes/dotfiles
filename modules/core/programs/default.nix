@@ -1,16 +1,15 @@
 {
   imports = [
     # keep-sorted start
-    ./bat.nix
-    ./cachix.nix
-    ./eza.nix
-    ./git.nix
+    ./bat
+    ./eza
+    ./git
     ./nix
-    ./rebuild.nix
+    ./rebuild
     ./runtime
     ./shell
     ./update
-    ./zoxide.nix
+    ./zoxide
     # keep-sorted end
   ];
 }

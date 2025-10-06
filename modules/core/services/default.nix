@@ -2,8 +2,9 @@
   imports = [
     # keep-sorted start
     ./agents
-    ./udiskie.nix
-    ./udisks2.nix
+    ./nix-deamon
+    ./udiskie
+    ./udisks2
     # keep-sorted end
   ];
 }

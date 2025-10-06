@@ -2,7 +2,7 @@
   imports = [
     # keep-sorted start
     ./networking
-    ./service
+    ./services
     # keep-sorted end
   ];
 }

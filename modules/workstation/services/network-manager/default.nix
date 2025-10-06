@@ -1,7 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./adb
+    ./network-manager-applet.nix
     # keep-sorted end
   ];
 }

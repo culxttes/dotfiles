@@ -7,13 +7,16 @@
     ./email
     ./filesystem
     ./graphics
+    ./hypr
     ./ledger
     ./math
     ./network-manager
     ./record
+    ./rofi
     ./spotify
     ./terminal
     ./viewers
+    ./wayland
     ./yubikey
     # keep-sorted end
   ];

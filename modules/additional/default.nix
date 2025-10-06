@@ -1,8 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./cli
-    ./tui
+    ./programs
     # keep-sorted end
   ];
 }

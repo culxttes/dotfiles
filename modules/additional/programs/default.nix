@@ -5,12 +5,13 @@
     ./compress
     ./filesystem
     ./git
-    ./gpg.nix
+    ./gpg
     ./graphics
     ./monitoring
     ./pentest
     ./processor
-    ./ssh.nix
+    ./ssh
+    ./vim
     # keep-sorted end
   ];
 }

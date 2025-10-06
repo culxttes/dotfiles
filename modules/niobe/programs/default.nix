@@ -1,8 +1,9 @@
 {
   imports = [
     # keep-sorted start
-    ./programs
-    ./virtualisation
+    ./adb
+    ./hypr
+    ./streamdeck
     # keep-sorted end
   ];
 }

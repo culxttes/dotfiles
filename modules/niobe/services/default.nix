@@ -1,7 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./user
+    ./mic-loopback
     # keep-sorted end
   ];
 }

@@ -2,7 +2,7 @@
   imports = [
     # keep-sorted start
     ./bluetooth
-    ./network
+    ./networking
     # keep-sorted end
   ];
 }
