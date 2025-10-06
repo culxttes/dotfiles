@@ -9,12 +9,6 @@
   as enabling policies, setting preferences, or customizing profiles.
 */
 {
-  imports = [
-    # keep-sorted start
-    ./wrapper
-    # keep-sorted end
-  ];
-
   home-manager.users.${username} = {
     programs.firefox = {
       enable = true;
