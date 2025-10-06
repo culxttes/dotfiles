@@ -943,6 +943,7 @@
         "nur": "nur",
         "nvf": "nvf",
         "quickshell": "quickshell",
+        "secrets": "secrets",
         "sops-nix": "sops-nix",
         "systems": "systems_10",
         "treefmt-nix": "treefmt-nix"
@@ -962,6 +963,21 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
+        "type": "github"
+      }
+    },
+    "secrets": {
+      "locked": {
+        "lastModified": 1759755320,
+        "narHash": "sha256-QMGC1jYGnbg0IBXRhylu3U5BjuWEbnEAs1wN5s/44bk=",
+        "owner": "culxttes",
+        "repo": "dotfiles-secrets",
+        "rev": "cfb417bdc560d0c25a129adcb4b46475033f320b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "culxttes",
+        "repo": "dotfiles-secrets",
         "type": "github"
       }
     },
