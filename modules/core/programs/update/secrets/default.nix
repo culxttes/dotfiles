@@ -1,7 +1,7 @@
 { username, ... }:
 
 {
-  sops.secrets."github/token/readonly" = {
+  sops.secrets."github/token/readwrite" = {
     sopsFile = ./secrets.yaml;
     owner = username;
   };

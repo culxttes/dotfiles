@@ -22,7 +22,7 @@
         case "''\${1-}" in
           "" )
             NIX_CONFIG="access-tokens = github.com=$(cat ${
-              config.sops.secrets."github/token/readonly".path
+              config.sops.secrets."github/token/readwrite".path
             })" nix flake update --flake ~/git/dotfiles/
             ;;
           commit )
