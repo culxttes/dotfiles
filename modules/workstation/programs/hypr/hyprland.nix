@@ -28,7 +28,7 @@
   home-manager.users.${username} = {
     home.packages = [
       pkgs.brightnessctl
-      # pkgs.pamixer
+      pkgs.pamixer
       pkgs.galculator
     ];
 
