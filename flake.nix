@@ -69,9 +69,6 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    secrets = {
-      url = "github:culxttes/dotfiles-secrets";
-    };
     # keep-sorted end
   };
 

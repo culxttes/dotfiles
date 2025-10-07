@@ -13,6 +13,14 @@
         settings = {
           "extensions.activeThemeID" = "thunderbird-compact-dark@mozilla.org";
           "extensions.autoDisableScopes" = 0;
+
+          "mail.default_send_format" = 1;
+          "mail.identity.default.compose_html" = false;
+          "mailnews.display.html_as" = 1;
+          "mailnews.display.prefer_plaintext" = false;
+          "mailnews.send_plaintext_flowed" = false;
+
+          "network.cookie.cookieBehavior" = 2;
         };
 
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [

@@ -1,13 +1,9 @@
-{ secrets, username, ... }:
-
 {
   imports = [
     # keep-sorted start
+    ./accounts
     ./thunderbird.nix
+    ./neomutt.nix
     # keep-sorted end
   ];
-
-  home-manager.users.${username} = {
-    accounts.email.accounts = secrets.config.accounts.email.accounts;
-  };
 }
