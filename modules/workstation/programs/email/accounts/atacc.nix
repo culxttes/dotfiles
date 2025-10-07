@@ -15,9 +15,6 @@
       thunderbird = {
         enable = true;
       };
-      neomutt = {
-        enable = true;
-      };
     };
   };
 }
