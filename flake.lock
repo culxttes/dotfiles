@@ -987,11 +987,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1759768906,
-        "narHash": "sha256-iMwdONvd9cxshaSSIQDLMIZxuev0qQtPlSUmlUedA+I=",
+        "lastModified": 1759817348,
+        "narHash": "sha256-jQIz0NKX4B7FEZxmrBxzl/oH0TLrUCKdX9FiICl/WlM=",
         "owner": "culxttes",
         "repo": "dotfiles-secrets",
-        "rev": "ab1f9ac1d28fe6cef3f9cbdf1870266111976fea",
+        "rev": "64991c8490d96cb522461c51bd5ff63d4ad98f68",
         "type": "github"
       },
       "original": {
