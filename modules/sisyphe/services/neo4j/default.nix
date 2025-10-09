@@ -2,9 +2,16 @@
   services.neo4j = {
     enable = true;
 
-    https.enable = false;
+    https = {
+      enable = false;
+      listenAddress = "0.0.0.0:7473";
+      advertisedAddress = "neo4j.sagbot.com";
+
+    };
+
     http = {
-      listenAddress = "127.0.0.1:7474";
+      enable = true;
+      listenAddress = "0.0.0.0:7474";
       advertisedAddress = "neo4j.sagbot.com";
     };
 
@@ -20,6 +27,10 @@
       privateKey = "/var/lib/acme/sagbot/key.pem";
       publicCertificate = "/var/lib/acme/sagbot/cert.pem";
     };
+
+    extraServerConfig = ''
+      dbms.ssl.policy.bolt.enable=true
+    '';
   };
 
   users.groups.acme.members = [
