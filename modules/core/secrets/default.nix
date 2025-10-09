@@ -16,6 +16,8 @@ in
     # keep-sorted end
   ];
 
+  # , sops -a "$(cat key.pub | , ssh-to-age)" file.toml
+
   sops.defaultSopsFormat = "yaml";
 
   sops.age = {
