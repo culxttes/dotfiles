@@ -1,25 +1,36 @@
 {
   pkgs,
+  lib,
   config,
   hostName,
   ...
 }:
 let
-  wireconf = import ./assets/${hostName}.nix;
+  wireconf = import ./assets/servers/${hostName}.nix;
+
+  genPeers = builtins.map (
+    file:
+    let
+      conf = import file;
+    in
+    {
+      publicKey = conf.publicKey;
+      allowedIPs = [
+        "${wireconf.address.ipv6}${conf.suffix}/128"
+        "${wireconf.address.ipv4}${conf.suffix}/32"
+      ];
+    }
+  );
 in
 {
-  imports = [
-    # keep-sorted start
-    ./secrets
-    # keep-sorted end
-  ];
-
   networking = {
     nat = {
       enable = true;
       enableIPv6 = true;
       externalInterface = wireconf.publicNetworkInterface;
-      internalInterfaces = [ "wg0" ];
+      internalInterfaces = [
+        "wg0"
+      ];
     };
 
     firewall.allowedUDPPorts = [
@@ -29,8 +40,8 @@ in
     wg-quick.interfaces = {
       wg0 = {
         address = [
-          (wireconf.address.ipv6 + "1/64")
-          (wireconf.address.ipv4 + "1/32")
+          "${wireconf.address.ipv6}1/64"
+          "${wireconf.address.ipv4}1/32"
         ];
 
         listenPort = 51820;
@@ -51,14 +62,12 @@ in
           ${pkgs.iptables}/bin/ip6tables -t nat -D POSTROUTING -s ${wireconf.address.ipv6}1/64 -o ${wireconf.publicNetworkInterface} -j MASQUERADE
         '';
 
-        peers = [
-          {
-            publicKey = "eG11wyEjN2ptw14A6JESnv0CSTcA6QCT3L4gnr0Tbk4=";
-            allowedIPs = [
-              (wireconf.address.ipv6 + "2/128")
-              (wireconf.address.ipv4 + "2/32")
-            ];
-          }
+        peers = genPeers [
+          # keep-sorted start
+          ./assets/users/dedale.nix
+          ./assets/users/niobe.nix
+          ./assets/users/tantale.nix
+          # keep-sorted end
         ];
       };
     };

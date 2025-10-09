@@ -89,6 +89,7 @@
             # keep-sorted start
             "additional"
             "server"
+            "vpn"
             # keep-sorted end
           ];
         };
@@ -98,6 +99,7 @@
             # keep-sorted start
             "additional"
             "development"
+            "vpn"
             "workstation"
             # keep-sorted end
           ];
@@ -108,6 +110,7 @@
             # keep-sorted start
             "additional"
             "server"
+            "vpn"
             # keep-sorted end
           ];
         };
@@ -119,6 +122,7 @@
             "development"
             "hermux-test"
             "laptop"
+            "vpn"
             "workstation"
             # keep-sorted end
           ];
