@@ -33,6 +33,18 @@
           "extensions.autoDisableScopes" = 0;
           "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
 
+          "privacy.trackingprotection.enabled" = true;
+          "privacy.resistFingerprinting" = true;
+
+          "general.platform.override" = "Win32";
+
+          "media.peerconnection.ice.default_address_only" = true;
+          "media.peerconnection.enabled" = false;
+
+          "geo.enabled" = false;
+
+          "toolkit.telemetry.enabled" = true;
+
           "browser.privatebrowsing.autostart" = true;
           "browser.translations.automaticallyPopup" = false;
           "browser.chrome.toolbar_tips" = false;
