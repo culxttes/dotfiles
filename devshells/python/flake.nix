@@ -1,45 +1,108 @@
 {
-  description = "Python devshell with requests";
+  description = "Application using uv2nix";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs";
-    flake-utils = {
-      url = "github:numtide/flake-utils";
+    nixpkgs.url = "github:nixos/nixpkgs/master";
+
+    pyproject-nix = {
+      url = "github:pyproject-nix/pyproject.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    uv2nix = {
+      url = "github:pyproject-nix/uv2nix";
+      inputs.pyproject-nix.follows = "pyproject-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    pyproject-build-systems = {
+      url = "github:pyproject-nix/build-system-pkgs";
+      inputs.pyproject-nix.follows = "pyproject-nix";
+      inputs.uv2nix.follows = "uv2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs =
     {
-      self,
       nixpkgs,
-      flake-utils,
+      pyproject-nix,
+      uv2nix,
+      pyproject-build-systems,
       ...
     }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-        };
+    let
+      inherit (nixpkgs) lib;
+      forAllSystems = lib.genAttrs lib.systems.flakeExposed;
 
-        # nix run github:nix-community/pip2nix -- generate -r requirements.txt
-        # nix run github:nix-community/pip2nix -- generate panda
-        packageOverrides = pkgs.callPackage ./python-packages.nix { };
-        python = pkgs.python3.override {
-          inherit packageOverrides;
-        };
-      in
-      {
-        devShells.default = pkgs.mkShell {
-          packages = [
-            (python.withPackages (
-              ps: with ps; [
-                # packages
-              ]
-            ))
-          ];
-        };
-      }
-    );
+      workspace = uv2nix.lib.workspace.loadWorkspace { workspaceRoot = ./.; };
+
+      overlay = workspace.mkPyprojectOverlay {
+        sourcePreference = "wheel";
+      };
+
+      editableOverlay = workspace.mkEditablePyprojectOverlay {
+        root = "$REPO_ROOT";
+      };
+
+      pythonSets = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          python = pkgs.python3;
+        in
+        (pkgs.callPackage pyproject-nix.build.packages {
+          inherit python;
+        }).overrideScope
+          (
+            lib.composeManyExtensions [
+              pyproject-build-systems.overlays.wheel
+              overlay
+            ]
+          )
+      );
+
+      name = "";
+
+      # nix shell nixpkgs#python nixpkgs#uv
+      # uv init --app --name <name> --packages
+      # uv add numpy ...
+      # uv lock
+      # exit
+      # nix develop
+      # uv run <name>
+
+    in
+    {
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+          pythonSet = pythonSets.${system}.overrideScope editableOverlay;
+          virtualenv = pythonSet.mkVirtualEnv "${name}-dev-env" workspace.deps.all;
+        in
+        {
+          default = pkgs.mkShell {
+            packages = [
+              virtualenv
+              pkgs.uv
+            ];
+            env = {
+              UV_NO_CACHE = "1";
+              UV_NO_SYNC = "1";
+              UV_PYTHON = pythonSet.python.interpreter;
+              UV_PYTHON_DOWNLOADS = "never";
+            };
+            shellHook = ''
+              unset PYTHONPATH
+              export REPO_ROOT=$(git rev-parse --show-toplevel)
+            '';
+          };
+        }
+      );
+
+      packages = forAllSystems (system: {
+        default = pythonSets.${system}.mkVirtualEnv "${name}-env" workspace.deps.default;
+      });
+    };
 }
