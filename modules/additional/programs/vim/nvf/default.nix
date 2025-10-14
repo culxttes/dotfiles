@@ -1,6 +1,14 @@
 { nvf, username, ... }:
 
 {
+  imports = [
+    # keep-sorted start
+    ./binds
+    ./keymaps
+    ./languages
+    # keep-sorted end
+  ];
+
   home-manager.users.${username} = {
     imports = [
       # keep-sorted start
@@ -9,17 +17,57 @@
     ];
 
     programs.nvf = {
-      enable = false;
+      enable = true;
 
       enableManpages = true;
 
       settings = {
-        vim.viAlias = false;
-        vim.vimAlias = true;
-        vim.lsp = {
-          enable = true;
-          formatOnSave = false;
-          lspconfig.enable = true;
+        vim = {
+          viAlias = true;
+          vimAlias = true;
+
+          globals = {
+            mapleader = " ";
+            maplocalleader = ",";
+          };
+
+          clipboard = {
+            enable = true;
+
+            providers.wl-copy = {
+              enable = true;
+            };
+
+            registers = "unnamedplus";
+          };
+
+          options = {
+            expandtab = true;
+            shiftwidth = 2;
+            tabstop = 2;
+            softtabstop = 2;
+            smartindent = true;
+          };
+
+          lsp = {
+            enable = true;
+
+            formatOnSave = true;
+
+            lspconfig = {
+              enable = true;
+            };
+          };
+
+          treesitter = {
+            enable = true;
+          };
+
+          filetree = {
+            neo-tree = {
+              enable = true;
+            };
+          };
         };
       };
     };
