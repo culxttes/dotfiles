@@ -28,7 +28,7 @@
         pkgs.wl-clipboard
       ];
 
-      enable = true;
+      enable = false;
 
       colorschemes.catppuccin = {
         enable = true;

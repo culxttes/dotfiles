@@ -3,9 +3,18 @@
 {
   imports = [
     # keep-sorted start
+    ./autocomplete
     ./binds
+    ./clipboard
+    ./filetree
     ./keymaps
     ./languages
+    ./lsp
+    ./options
+    ./tabline
+    ./telescope
+    ./theme
+    ./treesitter
     # keep-sorted end
   ];
 
@@ -26,47 +35,11 @@
           viAlias = true;
           vimAlias = true;
 
+          syntaxHighlighting = true;
+
           globals = {
             mapleader = " ";
             maplocalleader = ",";
-          };
-
-          clipboard = {
-            enable = true;
-
-            providers.wl-copy = {
-              enable = true;
-            };
-
-            registers = "unnamedplus";
-          };
-
-          options = {
-            expandtab = true;
-            shiftwidth = 2;
-            tabstop = 2;
-            softtabstop = 2;
-            smartindent = true;
-          };
-
-          lsp = {
-            enable = true;
-
-            formatOnSave = true;
-
-            lspconfig = {
-              enable = true;
-            };
-          };
-
-          treesitter = {
-            enable = true;
-          };
-
-          filetree = {
-            neo-tree = {
-              enable = true;
-            };
           };
         };
       };
