@@ -63,11 +63,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760483698,
-        "narHash": "sha256-WamDEis1bBChrZaoLAyAtSpsoe9URNEZ6yZryFWRKDs=",
+        "lastModified": 1760491064,
+        "narHash": "sha256-AWhUpccnaV+caxHDp5UMBvdTlPQ3MisdIT8qn4Lq2cg=",
         "owner": "nix-community",
         "repo": "flake-firefox-nightly",
-        "rev": "d7f5e9e9b60d702aa402f737615df24799cb8bfc",
+        "rev": "25885fcf3cb83c7617b8960198445d673ad8f1a3",
         "type": "github"
       },
       "original": {
@@ -711,11 +711,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760486015,
-        "narHash": "sha256-d4Og9wuM9/Zt/5C5Y/a5S5ByPc/oheuIwWBb9WVx1gY=",
+        "lastModified": 1760493654,
+        "narHash": "sha256-DRJZnMoBw+p6o0XjaAOfAJjwr4s93d1+eCsCRsAP/jY=",
         "owner": "Infinidoge",
         "repo": "nix-minecraft",
-        "rev": "c2b0394c432acfc15a0d957a77237645bd1fcee7",
+        "rev": "4ca5164f23948b4b5429d8fdcddc142079c6aa6b",
         "type": "github"
       },
       "original": {
@@ -726,11 +726,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1760489810,
-        "narHash": "sha256-vOe1i6qik166X+PcetwK3cAG0sKEUjm8V8i4EPn+1h0=",
+        "lastModified": 1760494841,
+        "narHash": "sha256-d0FUGXXuYAESX3KYcXj+hYLTMFB89vb5vP2qMH7opaw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b882aa2475307b06585085c70e9c5a2a7928c2af",
+        "rev": "80a7af04089f3b50c3ad9bec4f943d21217de7de",
         "type": "github"
       },
       "original": {
@@ -824,11 +824,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760489512,
-        "narHash": "sha256-qXVEVWS+XpYtf6g5cgBzmP2qXEOkG0LgnA3gxFGPubI=",
+        "lastModified": 1760495528,
+        "narHash": "sha256-ZQVZkc24VQGau20hPea3g2g11NZJza7ppZ2F65lAIpg=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "122b6187f7bc1163c3c406d6a88d53d1e3dfe39e",
+        "rev": "c0a21c084829d866b1a356617f12aefee103aed5",
         "type": "github"
       },
       "original": {
