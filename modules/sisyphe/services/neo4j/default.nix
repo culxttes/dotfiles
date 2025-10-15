@@ -24,12 +24,14 @@
     };
 
     ssl.policies.bolt = {
+      clientAuth = "OPTIONAL";
+
       privateKey = "/var/lib/acme/sagbot/key.pem";
       publicCertificate = "/var/lib/acme/sagbot/cert.pem";
     };
 
     extraServerConfig = ''
-      dbms.ssl.policy.bolt.enable=true
+      dbms.ssl.policy.bolt.enabled=true
     '';
   };
 
