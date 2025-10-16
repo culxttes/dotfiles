@@ -1,8 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./nixvim
-    ./nvf
+    ./latex
     # keep-sorted end
   ];
 }
