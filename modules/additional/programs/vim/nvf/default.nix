@@ -11,6 +11,7 @@
     ./languages
     ./lsp
     ./options
+    ./plugins
     ./tabline
     ./telescope
     ./theme
