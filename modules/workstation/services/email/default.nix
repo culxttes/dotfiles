@@ -1,11 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./accounts
     ./mbsync.nix
-    ./msmtp.nix
-    ./neomutt.nix
-    ./thunderbird.nix
     # keep-sorted end
   ];
 }

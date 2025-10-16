@@ -1,31 +1,49 @@
-{ username, ... }:
-
+{
+  config,
+  pkgs,
+  username,
+  ...
+}:
+let
+  inherit (config.users.users.${username}) home;
+in
 {
   home-manager.users.${username} = {
     accounts.email.accounts.sagbot = {
       enable = true;
 
-      realName = "SAGBOT";
-      address = "contact@sagbot.com";
+      realName = pkgs.lib.custom.decodeBase64 "U0FHQk9U";
+      address = pkgs.lib.custom.decodeBase64 "Y29udGFjdEBzYWdib3QuY29t";
+      passwordCommand = "${pkgs.openssl}/bin/openssl enc -aes-256-cbc -K $(cat ${home}/.ssh/nixos-email.key) -iv $(cat ${home}/.ssh/nixos-email.iv) -d -in ${
+        config.sops.secrets."email/sagbot/passwordEnc".path
+      }";
 
       primary = true;
 
-      userName = "contact@sagbot.com";
+      userName = pkgs.lib.custom.decodeBase64 "Y29udGFjdEBzYWdib3QuY29t";
 
       smtp = {
-        host = "mail.sagbot.com";
+        host = pkgs.lib.custom.decodeBase64 "bWFpbC5zYWdib3QuY29t";
         port = 465;
         tls.enable = true;
       };
 
       imap = {
-        host = "mail.sagbot.com";
+        host = pkgs.lib.custom.decodeBase64 "bWFpbC5zYWdib3QuY29t";
         port = 993;
         tls.enable = true;
       };
 
-      thunderbird = {
+      thunderbird.enable = true;
+      neomutt.enable = true;
+
+      msmtp.enable = true;
+      mbsync = {
         enable = true;
+
+        create = "both";
+        remove = "both";
+        expunge = "both";
       };
     };
   };

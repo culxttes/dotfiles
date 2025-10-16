@@ -1,31 +1,49 @@
-{ username, ... }:
-
+{
+  config,
+  pkgs,
+  username,
+  ...
+}:
+let
+  inherit (config.users.users.${username}) home;
+in
 {
   home-manager.users.${username} = {
     accounts.email.accounts.haddaed1 = {
       enable = true;
 
-      realName = "Edouard HADDAG";
-      address = "edouard.haddag1@univ-rouen.fr";
+      realName = pkgs.lib.custom.decodeBase64 "RWRvdWFyZCBIQUREQUc=";
+      address = pkgs.lib.custom.decodeBase64 "ZWRvdWFyZC5oYWRkYWcxQHVuaXYtcm91ZW4uZnI=";
+      passwordCommand = "${pkgs.openssl}/bin/openssl enc -aes-256-cbc -K $(cat ${home}/.ssh/nixos-email.key) -iv $(cat ${home}/.ssh/nixos-email.iv) -d -in ${
+        config.sops.secrets."email/haddaed1/passwordEnc".path
+      }";
 
       primary = false;
 
-      userName = "haddaed1";
+      userName = pkgs.lib.custom.decodeBase64 "aGFkZGFlZDEK";
 
       smtp = {
-        host = "smtp.univ-rouen.fr";
+        host = pkgs.lib.custom.decodeBase64 "c210cC51bml2LXJvdWVuLmZy";
         port = 465;
         tls.enable = true;
       };
 
       imap = {
-        host = "imap.univ-rouen.fr";
+        host = pkgs.lib.custom.decodeBase64 "aW1hcC51bml2LXJvdWVuLmZy";
         port = 993;
         tls.enable = true;
       };
 
-      thunderbird = {
+      thunderbird.enable = true;
+      neomutt.enable = true;
+
+      msmtp.enable = true;
+      mbsync = {
         enable = true;
+
+        create = "both";
+        remove = "both";
+        expunge = "both";
       };
     };
   };

@@ -5,6 +5,7 @@
     ./haddaed1.nix
     ./haddaedo.nix
     ./sagbot.nix
+    ./secrets
     # keep-sorted end
   ];
 }
