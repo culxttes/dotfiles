@@ -50,7 +50,8 @@
                 onOpenAndSave = true;
               };
 
-              latexFormatter = null;
+              latexFormatter = "tex-fmt";
+              bibtexFormatter = "tex-fmt";
             };
           };
         };
