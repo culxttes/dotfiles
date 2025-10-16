@@ -6,6 +6,7 @@
     ./networking
     ./nix
     ./nur
+    ./overlays
     ./programs
     ./secrets
     ./services
