@@ -1,7 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./mypy.nix
+    ./ltex
     # keep-sorted end
   ];
 }

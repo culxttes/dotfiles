@@ -42,6 +42,17 @@
           filetypes = [
             "tex"
           ];
+
+          settings = {
+            texlab = {
+              chktex = {
+                onEdit = true;
+                onOpenAndSave = true;
+              };
+
+              latexFormatter = null;
+            };
+          };
         };
       };
     };

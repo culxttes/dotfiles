@@ -11,6 +11,13 @@
         desc = "Open LSP diagnostics float";
         silent = true;
       }
+      {
+        mode = "n";
+        key = "<C-²>";
+        action = ":lua vim.lsp.buf.code_action()<CR>";
+        desc = "LSP Code Action";
+        silent = true;
+      }
     ];
   };
 }
