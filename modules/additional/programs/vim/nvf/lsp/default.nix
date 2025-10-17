@@ -10,6 +10,8 @@
       lspconfig = {
         enable = true;
       };
+
+      inlayHints.enable = true;
     };
   };
 }
