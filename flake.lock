@@ -801,11 +801,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1760315601,
-        "narHash": "sha256-cvguRikKX0yXZ7jaK4Gt3qB1I33T5TzYZQf0Ampx8ko=",
+        "lastModified": 1760822546,
+        "narHash": "sha256-cy3wJQQzQbZ/EYUfTDuMiP/haPOjkqGgWOPPl7K9oiM=",
         "owner": "outfoxxed",
         "repo": "quickshell",
-        "rev": "00858812f25b748d08b075a0d284093685fa3ffd",
+        "rev": "3e2ce40b18af943f9ba370ed73565e9f487663ef",
         "type": "github"
       },
       "original": {
