@@ -35,7 +35,11 @@ in
       };
 
       thunderbird.enable = true;
-      neomutt.enable = true;
+      neomutt = {
+        enable = true;
+
+        mailboxName = "haddaedo";
+      };
 
       msmtp.enable = true;
       mbsync = {
@@ -44,6 +48,11 @@ in
         create = "both";
         remove = "both";
         expunge = "both";
+      };
+      notmuch = {
+        enable = true;
+
+        neomutt.enable = true;
       };
     };
   };

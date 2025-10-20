@@ -23,7 +23,11 @@ in
       flavor = pkgs.lib.custom.decodeBase64 "Z21haWwuY29t";
 
       thunderbird.enable = true;
-      neomutt.enable = true;
+      neomutt = {
+        enable = true;
+
+        mailboxName = "atacc";
+      };
 
       msmtp.enable = true;
       mbsync = {
@@ -32,6 +36,11 @@ in
         create = "both";
         remove = "both";
         expunge = "both";
+      };
+      notmuch = {
+        enable = true;
+
+        neomutt.enable = true;
       };
     };
   };
