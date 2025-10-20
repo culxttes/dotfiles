@@ -33,6 +33,11 @@
               additionalRules = {
                 enablePickyRules = true;
               };
+              disabledRules = {
+                fr = [
+                  "QB_NEW_FR"
+                ];
+              };
               motherTongue = "fr";
               languageToolHttpServerUri = "https://api.languagetoolplus.com/";
               languageToolOrg = {
