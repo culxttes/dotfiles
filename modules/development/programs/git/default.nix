@@ -1,9 +1,9 @@
-{ pkgs, username, ... }:
+{ username, ... }:
 
 {
   home-manager.users.${username} = {
     programs.git = {
-      extraConfig = {
+      settings = {
         commit = {
           gpgSign = true;
         };
