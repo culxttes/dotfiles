@@ -25,8 +25,10 @@ rustPlatform.buildRustPackage {
 
   meta = {
     description = "Utilities to determine if the control is pressed";
-    homepage = "https://github.com/culottes/dotfiles";
+    homepage = "https://github.com/c2fc2f/dotfiles";
     license = lib.licenses.mit;
-    maintainers = [ lib.maintainers.culxttes ];
+    maintainers = [
+      lib.maintainers.c2fc2f
+    ];
   };
 }
