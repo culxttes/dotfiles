@@ -170,6 +170,7 @@ in
         /var/lib/acme/sagbot/full.pem
         /var/lib/acme/atacc/full.pem
         /var/lib/acme/culottes/full.pem
+        /var/lib/acme/c2fc2f/full.pem
       '';
     };
   };

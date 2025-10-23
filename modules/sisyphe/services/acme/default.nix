@@ -42,6 +42,14 @@
         ];
         dnsProvider = "cloudflare";
       };
+
+      c2fc2f = {
+        domain = "c2fc2f.com";
+        extraDomainNames = [
+          "*.c2fc2f.com"
+        ];
+        dnsProvider = "cloudflare";
+      };
     };
   };
 }
