@@ -9,8 +9,8 @@
 
       settings = {
         user = {
-          name = "Culottes";
-          email = "culottes@sagbot.com";
+          name = "c2fc2f";
+          email = "contact@c2fc2f.com";
         };
 
         alias = {
