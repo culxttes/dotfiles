@@ -21,18 +21,17 @@
       "2606:4700:4700::1001"
     ];
 
-    defaultGateway = "54.37.86.254";
-    defaultGateway6 = "2001:41d0:0303:4eff:00ff:00ff:00ff:00ff";
+    defaultGateway = {
+      address = "54.37.86.254";
+      interface = "enp6s0";
+    };
+    defaultGateway6 = {
+      address = "2001:41d0:0303:4eff:00ff:00ff:00ff:00ff";
+      interface = "enp6s0";
+    };
 
     interfaces.enp6s0 = {
       ipv6 = {
-        routes = [
-          {
-            address = "::";
-            via = "2001:41d0:0303:4eff:00ff:00ff:00ff:00ff";
-            prefixLength = 0;
-          }
-        ];
         addresses = [
           {
             address = "2001:41d0:303:4ea4::";
@@ -42,13 +41,6 @@
       };
 
       ipv4 = {
-        routes = [
-          {
-            address = "0.0.0.0";
-            via = "54.37.86.254";
-            prefixLength = 0;
-          }
-        ];
         addresses = [
           {
             address = "54.37.86.164";
