@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ username, ... }:
 
 {
   home-manager.users.${username} = {
@@ -22,10 +22,6 @@
 
           "network.cookie.cookieBehavior" = 2;
         };
-
-        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-          languagetool
-        ];
       };
     };
 

@@ -1,12 +1,5 @@
-{
-  config,
-  pkgs,
-  username,
-  ...
-}:
-let
-  inherit (config.users.users.${username}) home;
-in
+{ pkgs, username, ... }:
+
 {
   home-manager.users.${username} = {
     accounts.email.accounts.haddaedo = {
@@ -14,9 +7,6 @@ in
 
       realName = pkgs.lib.custom.decodeBase64 "RWRvdWFyZCBIQUREQUc=";
       address = pkgs.lib.custom.decodeBase64 "ZWRvdWFyZC5oYWRkYWdAdW5pdi1yb3Vlbi5mcg==";
-      passwordCommand = "${pkgs.openssl}/bin/openssl enc -aes-256-cbc -K $(cat ${home}/.ssh/nixos-email.key) -iv $(cat ${home}/.ssh/nixos-email.iv) -d -in ${
-        config.sops.secrets."email/haddaedo/passwordEnc".path
-      }";
 
       primary = false;
 
@@ -34,26 +24,9 @@ in
         tls.enable = true;
       };
 
+      gpg.key = "0B83 4004 F867 26EA 20AC  661C 938C 455B 4327 79F3";
+
       thunderbird.enable = true;
-      neomutt = {
-        enable = true;
-
-        mailboxName = "haddaedo";
-      };
-
-      msmtp.enable = true;
-      mbsync = {
-        enable = true;
-
-        create = "both";
-        remove = "both";
-        expunge = "both";
-      };
-      notmuch = {
-        enable = true;
-
-        neomutt.enable = true;
-      };
     };
   };
 }

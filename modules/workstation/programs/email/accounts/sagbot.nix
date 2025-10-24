@@ -1,12 +1,5 @@
-{
-  config,
-  pkgs,
-  username,
-  ...
-}:
-let
-  inherit (config.users.users.${username}) home;
-in
+{ pkgs, username, ... }:
+
 {
   home-manager.users.${username} = {
     accounts.email.accounts.sagbot = {
@@ -14,10 +7,6 @@ in
 
       realName = pkgs.lib.custom.decodeBase64 "U0FHQk9U";
       address = pkgs.lib.custom.decodeBase64 "Y29udGFjdEBzYWdib3QuY29t";
-      passwordCommand = "${pkgs.openssl}/bin/openssl enc -aes-256-cbc -K $(cat ${home}/.ssh/nixos-email.key) -iv $(cat ${home}/.ssh/nixos-email.iv) -d -in ${
-        config.sops.secrets."email/sagbot/passwordEnc".path
-      }";
-
       primary = true;
 
       userName = pkgs.lib.custom.decodeBase64 "Y29udGFjdEBzYWdib3QuY29t";
@@ -34,26 +23,9 @@ in
         tls.enable = true;
       };
 
+      gpg.key = "0B83 4004 F867 26EA 20AC  661C 938C 455B 4327 79F3";
+
       thunderbird.enable = true;
-      neomutt = {
-        enable = true;
-
-        mailboxName = "sagbot";
-      };
-
-      msmtp.enable = true;
-      mbsync = {
-        enable = true;
-
-        create = "both";
-        remove = "both";
-        expunge = "both";
-      };
-      notmuch = {
-        enable = true;
-
-        neomutt.enable = true;
-      };
     };
   };
 }

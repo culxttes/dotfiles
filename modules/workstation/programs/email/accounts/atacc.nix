@@ -1,12 +1,5 @@
-{
-  pkgs,
-  config,
-  username,
-  ...
-}:
-let
-  inherit (config.users.users.${username}) home;
-in
+{ pkgs, username, ... }:
+
 {
   home-manager.users.${username} = {
     accounts.email.accounts.atacc = {
@@ -14,34 +7,14 @@ in
 
       realName = pkgs.lib.custom.decodeBase64 "QVRBQ0M=";
       address = pkgs.lib.custom.decodeBase64 "YXNzb2NpYXRpb24uYXRhY2NAZ21haWwuY29t";
-      passwordCommand = "${pkgs.openssl}/bin/openssl enc -aes-256-cbc -K $(cat ${home}/.ssh/nixos-email.key) -iv $(cat ${home}/.ssh/nixos-email.iv) -d -in ${
-        config.sops.secrets."email/atacc/passwordEnc".path
-      }";
 
       primary = false;
 
       flavor = pkgs.lib.custom.decodeBase64 "Z21haWwuY29t";
 
+      gpg.key = "0B83 4004 F867 26EA 20AC  661C 938C 455B 4327 79F3";
+
       thunderbird.enable = true;
-      neomutt = {
-        enable = true;
-
-        mailboxName = "atacc";
-      };
-
-      msmtp.enable = true;
-      mbsync = {
-        enable = true;
-
-        create = "both";
-        remove = "both";
-        expunge = "both";
-      };
-      notmuch = {
-        enable = true;
-
-        neomutt.enable = true;
-      };
     };
   };
 }
