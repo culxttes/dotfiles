@@ -41,7 +41,8 @@
       url = "github:nixos/nixpkgs";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "git+file:///home/culottes/git/noctalia-shell/";
+      # url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.quickshell.follows = "quickshell";
     };
