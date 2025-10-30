@@ -713,17 +713,17 @@
         "systems": "systems_6"
       },
       "locked": {
-        "lastModified": 1761849117,
-        "narHash": "sha256-7CWZM1xkmVvyBFgvfC/+hl/NyA7aMwPsLLPpMpNZEzE=",
-        "ref": "refs/heads/rename-pkgs.system",
-        "rev": "e498cb43c9aaeb2ec382c4c1088fa4588adf447c",
-        "revCount": 3485,
-        "type": "git",
-        "url": "file:///home/culottes/git/noctalia-shell/"
+        "lastModified": 1761847880,
+        "narHash": "sha256-A3dLrf6KHDkD8NYP9/Ic80ruSvg4e08XfUF4mgwd0FU=",
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "rev": "e60e2b5eb191761b15e5dfc51180fd069c05c2d3",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/culottes/git/noctalia-shell/"
+        "owner": "noctalia-dev",
+        "repo": "noctalia-shell",
+        "type": "github"
       }
     },
     "nur": {
