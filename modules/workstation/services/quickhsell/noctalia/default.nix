@@ -132,6 +132,7 @@
           sortByMostUsed = true;
         };
         dock = {
+          enabled = false;
           autoHide = false;
           exclusive = false;
           backgroundOpacity = 1;
