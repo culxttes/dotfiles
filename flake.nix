@@ -16,7 +16,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hermux = {
-      url = "github:culxttes/hermux";
+      url = "github:c2fc2f/hermux";
       # url = "git+file:///home/culottes/git/hermes-mux/";
       inputs.nixpkgs.follows = "nixpkgs";
     };

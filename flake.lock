@@ -289,13 +289,13 @@
       "locked": {
         "lastModified": 1761844445,
         "narHash": "sha256-h5UT51d0GCh3j52WfZYkXwQGdHs8ayttaaMOnzoys48=",
-        "owner": "culxttes",
+        "owner": "c2fc2f",
         "repo": "hermux",
         "rev": "26412304e2a973c5bc6c52e54244327a51914f51",
         "type": "github"
       },
       "original": {
-        "owner": "culxttes",
+        "owner": "c2fc2f",
         "repo": "hermux",
         "type": "github"
       }
