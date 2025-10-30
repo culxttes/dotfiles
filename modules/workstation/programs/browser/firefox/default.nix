@@ -12,7 +12,7 @@
   home-manager.users.${username} = {
     programs.firefox = {
       enable = true;
-      package = firefox.packages.${pkgs.system}.firefox-nightly-bin;
+      package = firefox.packages.${pkgs.stdenv.hostPlatform.system}.firefox-nightly-bin;
 
       policies = {
         ExtensionSettings = {

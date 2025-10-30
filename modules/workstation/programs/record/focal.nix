@@ -22,7 +22,7 @@
 
   home-manager.users.${username} = {
     home.packages = [
-      focal.packages.${pkgs.system}.default
+      focal.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
   };
 }
