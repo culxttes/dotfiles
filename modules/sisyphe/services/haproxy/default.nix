@@ -134,7 +134,7 @@ in
         server server1 ${config.services.neo4j.http.listenAddress} check
       backend backend_hermux
         mode http
-        server server1 ${config.services.hermux.listen.address}:${config.services.hermux.listen.port} check
+        server server1 ${config.services.hermux.listen.address}:${toString config.services.hermux.listen.port} check
     '';
   };
 
