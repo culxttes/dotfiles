@@ -6,6 +6,7 @@
     ./github-runner
     ./grafana
     ./haproxy
+    ./hermux
     ./mailcow
     ./minecraft
     ./neo4j

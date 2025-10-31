@@ -117,7 +117,6 @@
             # keep-sorted start
             "additional"
             "development"
-            "hermux-test"
             "laptop"
             "vpn"
             "workstation"

@@ -132,6 +132,9 @@ in
       backend backend_neo4j
         mode http
         server server1 ${config.services.neo4j.http.listenAddress} check
+      backend backend_hermux
+        mode http
+        server server1 ${config.services.hermux.listen.address}:${config.services.hermux.listen.port} check
     '';
   };
 
@@ -158,6 +161,7 @@ in
         ai.sagbot.com backend_webui_ollama
         stats.sagbot.com backend_stats
         ${config.services.neo4j.http.advertisedAddress} backend_neo4j
+        openrouter.sagbot.com backend_hermux
       '';
     };
 
