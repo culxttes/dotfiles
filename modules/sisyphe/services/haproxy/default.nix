@@ -134,6 +134,7 @@ in
         server server1 ${config.services.neo4j.http.listenAddress} check
       backend backend_hermux
         mode http
+        timeout server          60m
         server server1 ${config.services.hermux.listen.address}:${toString config.services.hermux.listen.port} check
     '';
   };
