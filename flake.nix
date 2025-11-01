@@ -96,6 +96,7 @@
             # keep-sorted start
             "additional"
             "development"
+            "gaming"
             "vpn"
             "workstation"
             # keep-sorted end
