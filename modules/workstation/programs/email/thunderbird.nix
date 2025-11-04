@@ -19,8 +19,6 @@
           "mailnews.display.html_as" = 1;
           "mailnews.display.prefer_plaintext" = false;
           "mailnews.send_plaintext_flowed" = false;
-
-          "network.cookie.cookieBehavior" = 2;
         };
       };
     };
