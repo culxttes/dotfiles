@@ -287,11 +287,11 @@
         "systems": "systems_3"
       },
       "locked": {
-        "lastModified": 1762249367,
-        "narHash": "sha256-l3bjAwJPe6ZFMl/YPFh1Isa6/AHYfgVO2rXiCBQc/BU=",
+        "lastModified": 1762250130,
+        "narHash": "sha256-aBLCMpUb4ZCVaVkx6AQ7ulFDFbs5GE00Yq55H4SUMnw=",
         "owner": "c2fc2f",
         "repo": "hermux",
-        "rev": "0096deb64f956da07692375ec7c19c20f96c9882",
+        "rev": "a3278c0ec1b710522e087e32d8bb51c29a662a7c",
         "type": "github"
       },
       "original": {
