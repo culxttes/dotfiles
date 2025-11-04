@@ -114,16 +114,10 @@ in
         mode http
         server server1 127.0.0.1:8222 check
 
-      backend backend_ollama
+      backend backend_litellm
         mode http
-        timeout server          60m
-        http-request set-header Host localhost:11434
-        server server1 127.0.0.1:11434 check
-
-      backend backend_webui_ollama
-        mode http
-        server server1 127.0.0.208:3380 check
-        http-request set-header Host localhost:3380
+        timeout server 60m
+        server server1 ${config.services.litellm.host}:${toString config.services.litellm.port} check
 
       backend backend_stats
         mode http
@@ -132,10 +126,6 @@ in
       backend backend_neo4j
         mode http
         server server1 ${config.services.neo4j.http.listenAddress} check
-      backend backend_hermux
-        mode http
-        timeout server          60m
-        server server1 ${config.services.hermux.listen.address}:${toString config.services.hermux.listen.port} check
     '';
   };
 
@@ -158,11 +148,9 @@ in
         atacc.sagbot.com backend_atacc
         atacc-edu.org backend_atacc
         pass.sagbot.com backend_vaultwarden
-        ollama.sagbot.com backend_ollama
-        ai.sagbot.com backend_webui_ollama
+        ai.sagbot.com backend_litellm
         stats.sagbot.com backend_stats
         ${config.services.neo4j.http.advertisedAddress} backend_neo4j
-        openrouter.sagbot.com backend_hermux
       '';
     };
 

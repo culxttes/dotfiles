@@ -17,10 +17,5 @@
     };
 
     tokens = config.sops.secrets."hermux/tokens".path;
-
-    auth = {
-      enable = true;
-      allow = config.sops.secrets."hermux/allow".path;
-    };
   };
 }

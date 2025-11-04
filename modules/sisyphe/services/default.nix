@@ -2,16 +2,15 @@
   imports = [
     # keep-sorted start
     ./acme
+    ./ai
     ./atacc
+    ./databases
     ./github-runner
     ./grafana
     ./haproxy
-    ./hermux
     ./mailcow
     ./minecraft
-    ./neo4j
     ./nginx
-    ./ollama
     ./phpfpm
     ./prometheus
     ./sagedt
