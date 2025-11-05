@@ -8,7 +8,6 @@
     ./filesystem
     ./graphics
     ./hypr
-    ./ledger
     ./math
     ./network-manager
     ./record
