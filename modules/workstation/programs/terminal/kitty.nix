@@ -43,7 +43,6 @@
     };
 
     programs.zsh.shellAliases = {
-      ssh = "kitten ssh";
       icat = "kitten icat";
       clipboard = "kitten clipboard";
     };
