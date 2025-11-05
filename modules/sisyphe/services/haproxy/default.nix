@@ -114,11 +114,6 @@ in
         mode http
         server server1 127.0.0.1:8222 check
 
-      backend backend_litellm
-        mode http
-        timeout server 60m
-        server server1 ${config.services.litellm.host}:${toString config.services.litellm.port} check
-
       backend backend_stats
         mode http
         server server1 127.0.0.27:2701 check
@@ -148,7 +143,6 @@ in
         atacc.sagbot.com backend_atacc
         atacc-edu.org backend_atacc
         pass.sagbot.com backend_vaultwarden
-        ai.sagbot.com backend_litellm
         stats.sagbot.com backend_stats
         ${config.services.neo4j.http.advertisedAddress} backend_neo4j
       '';
