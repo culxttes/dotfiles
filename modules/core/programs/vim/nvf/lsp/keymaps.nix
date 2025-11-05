@@ -18,6 +18,13 @@
         desc = "LSP Code Action";
         silent = true;
       }
+      {
+        mode = "n";
+        key = "<A-²>";
+        action = ":lua vim.lsp.buf.hover()<CR>";
+        desc = "LSP Code Action";
+        silent = true;
+      }
     ];
   };
 }
