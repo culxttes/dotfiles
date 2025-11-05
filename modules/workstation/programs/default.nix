@@ -17,7 +17,6 @@
     ./terminal
     ./viewers
     ./wayland
-    ./yubikey
     # keep-sorted end
   ];
 }
