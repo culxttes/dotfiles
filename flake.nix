@@ -84,7 +84,6 @@
           username = "culottes";
           groups = [
             # keep-sorted start
-            "additional"
             "server"
             "vpn"
             # keep-sorted end
@@ -94,7 +93,6 @@
           username = "culottes";
           groups = [
             # keep-sorted start
-            "additional"
             "development"
             "gaming"
             "vpn"
@@ -106,7 +104,6 @@
           username = "culottes";
           groups = [
             # keep-sorted start
-            "additional"
             "server"
             "vpn"
             # keep-sorted end
@@ -116,7 +113,6 @@
           username = "culottes";
           groups = [
             # keep-sorted start
-            "additional"
             "development"
             "laptop"
             "vpn"

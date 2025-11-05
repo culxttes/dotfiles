@@ -1,7 +1,9 @@
 {
   imports = [
     # keep-sorted start
-    ./programs
+    ./bat.nix
+    ./fq.nix
+    ./jq.nix
     # keep-sorted end
   ];
 }
