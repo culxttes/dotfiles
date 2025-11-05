@@ -1,7 +1,6 @@
 {
   imports = [
     # keep-sorted start
-    ./decompiler
     ./git
     ./request
     ./vim
