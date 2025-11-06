@@ -12,7 +12,7 @@
 
       flavor = pkgs.lib.custom.decodeBase64 "Z21haWwuY29t";
 
-      gpg.key = "0x938C455B432779F33";
+      gpg.key = "938C455B432779F33";
 
       thunderbird.enable = true;
     };
