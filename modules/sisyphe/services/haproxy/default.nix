@@ -121,6 +121,10 @@ in
       backend backend_neo4j
         mode http
         server server1 ${config.services.neo4j.http.listenAddress} check
+
+      backend backend_keyclock
+        mode http
+        server server1 ${config.services.keycloak.settings.http-host}:${toString config.services.keycloak.settings.http-port} check
     '';
   };
 
@@ -145,6 +149,7 @@ in
         pass.sagbot.com backend_vaultwarden
         stats.sagbot.com backend_stats
         ${config.services.neo4j.http.advertisedAddress} backend_neo4j
+        auth.sagbot.com backend_keyclock
       '';
     };
 

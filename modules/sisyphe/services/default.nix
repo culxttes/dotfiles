@@ -8,6 +8,7 @@
     ./github-runner
     ./grafana
     ./haproxy
+    ./keycloak
     ./mailcow
     ./minecraft
     ./nginx
