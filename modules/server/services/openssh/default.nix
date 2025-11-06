@@ -13,6 +13,6 @@
   };
 
   users.users.${username}.openssh.authorizedKeys.keyFiles = [
-    ./assets/${hostName}.pub
+    ./assets/${username}.pub
   ];
 }

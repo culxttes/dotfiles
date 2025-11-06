@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ username, ... }:
 /*
   SSH client configuration for the user, allowing customization of SSH
   settings such as known hosts, identities, and connection preferences.
@@ -15,17 +15,17 @@
         };
         "github.com" = {
           user = username;
-          identityFile = "~/.ssh/github";
+          identityFile = "~/.ssh/${username}";
           identitiesOnly = true;
         };
         "sisyphe.sagbot.com" = {
           user = username;
-          identityFile = "~/.ssh/sisyphe";
+          identityFile = "~/.ssh/${username}";
           identitiesOnly = true;
         };
         "icare.sagbot.com" = {
           user = username;
-          identityFile = "~/.ssh/icare";
+          identityFile = "~/.ssh/${username}";
           identitiesOnly = true;
         };
       };
