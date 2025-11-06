@@ -37,9 +37,6 @@
 
           "general.platform.override" = "Win32";
 
-          "media.peerconnection.ice.default_address_only" = true;
-          "media.peerconnection.enabled" = false;
-
           "geo.enabled" = false;
 
           "toolkit.telemetry.enabled" = true;
