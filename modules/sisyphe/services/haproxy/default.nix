@@ -14,7 +14,9 @@ let
       sha256 = "0krznqcq1v7vqz473gyy1cbhgwpj9s7xbzzfqg4llrzdvpk6xrzp";
     };
 
-    patches = [ ./assets/haproxy_minecraft.patch ];
+    patches = [
+      ./assets/haproxy_minecraft.patch
+    ];
 
     unpackPhase = ''
       cp $src haproxy_minecraft.lua
@@ -29,6 +31,26 @@ let
       cp haproxy_minecraft.lua $out/
     '';
   };
+
+  httpMap = pkgs.writeText "haproxy_http.map" ''
+    sagbot.com/ backend_www.sagbot.com
+    mail.sagbot.com/ backend_mail.sagbot.com
+    api.sagbot.com/sagedt backend_api.sagbot.com.sagedt
+    atacc.sagbot.com backend_atacc
+    atacc-edu.org backend_atacc
+    pass.sagbot.com backend_vaultwarden
+    stats.sagbot.com backend_stats
+    ${config.services.neo4j.http.advertisedAddress} backend_neo4j
+    auth.sagbot.com backend_keyclock
+  '';
+
+  minecraftMap = pkgs.writeText "haproxy/minecraft.map" '''';
+
+  domainMap = pkgs.writeText "haproxy/domain.map" (
+    lib.strings.concatLines (
+      builtins.map (cert: cert.directory) (builtins.attrValues config.security.acme.certs)
+    )
+  );
 in
 {
   services.haproxy = {
@@ -72,14 +94,14 @@ in
         redirect scheme https code 301 if !{ ssl_fc }
 
       frontend https-in
-        bind :::443 v4v6 ssl crt-list /etc/haproxy/domain.map
+        bind :::443 v4v6 ssl crt-list ${domainMap}
         mode http
         option http-server-close
         option forwardfor
         http-request set-header X-Forwarded-Proto https if { ssl_fc }
         http-response set-header Strict-Transport-Security "max-age=16000000; includeSubDomains; preload;"
 
-        use_backend %[base,map_beg(/etc/haproxy/http.map,backend_www.sagbot.com)]
+        use_backend %[base,map_beg(${httpMap}.map,backend_www.sagbot.com)]
 
       frontend local_stats
         bind 127.0.0.84:8404
@@ -96,7 +118,7 @@ in
         tcp-request content accept if { var(txn.mc_proto) -m found }
         tcp-request content reject if WAIT_END
 
-        use_backend %[var(txn.mc_host),map_beg(/etc/haproxy/minecraft.map,close_connection)]
+        use_backend %[var(txn.mc_host),map_beg(${minecraftMap},close_connection)]
 
       backend backend_www.sagbot.com
         mode http
@@ -141,30 +163,6 @@ in
         user = "haproxy";
       };
     };
-  };
-
-  environment.etc = {
-    "haproxy/http.map" = {
-      text = ''
-        sagbot.com/ backend_www.sagbot.com
-        mail.sagbot.com/ backend_mail.sagbot.com
-        api.sagbot.com/sagedt backend_api.sagbot.com.sagedt
-        atacc.sagbot.com backend_atacc
-        atacc-edu.org backend_atacc
-        pass.sagbot.com backend_vaultwarden
-        stats.sagbot.com backend_stats
-        ${config.services.neo4j.http.advertisedAddress} backend_neo4j
-        auth.sagbot.com backend_keyclock
-      '';
-    };
-
-    "haproxy/minecraft.map" = {
-      text = '''';
-    };
-
-    "haproxy/domain.map".text = lib.strings.concatLines (
-      builtins.map (cert: cert.directory) (builtins.attrValues config.security.acme.certs)
-    );
   };
 
   users.groups.acme.members = [
