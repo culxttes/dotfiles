@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   haproxy_minecraft = pkgs.stdenv.mkDerivation {
     pname = "haproxy_minecraft-patch";
@@ -157,14 +162,9 @@ in
       text = '''';
     };
 
-    "haproxy/domain.map" = {
-      text = ''
-        /var/lib/acme/sagbot/full.pem
-        /var/lib/acme/atacc/full.pem
-        /var/lib/acme/culottes/full.pem
-        /var/lib/acme/c2fc2f/full.pem
-      '';
-    };
+    "haproxy/domain.map".text = lib.strings.concatLines (
+      builtins.map (cert: cert.directory) (builtins.attrValues config.security.acme.certs)
+    );
   };
 
   users.groups.acme.members = [

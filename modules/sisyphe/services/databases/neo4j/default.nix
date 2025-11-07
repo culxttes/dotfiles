@@ -1,3 +1,5 @@
+{ config, ... }:
+
 {
   services.neo4j = {
     enable = true;
@@ -23,12 +25,16 @@
       sslPolicy = "bolt";
     };
 
-    ssl.policies.bolt = {
-      clientAuth = "OPTIONAL";
+    ssl.policies.bolt =
+      let
+        certDir = config.security.acme.certs."sagbot".directory;
+      in
+      {
+        clientAuth = "OPTIONAL";
 
-      privateKey = "/var/lib/acme/sagbot/key.pem";
-      publicCertificate = "/var/lib/acme/sagbot/cert.pem";
-    };
+        privateKey = "${certDir}/key.pem";
+        publicCertificate = "${certDir}/cert.pem";
+      };
 
     extraServerConfig = ''
       dbms.ssl.policy.bolt.enabled=true
