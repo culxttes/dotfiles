@@ -11,9 +11,9 @@ echo "Running flake update"
 nix flake update --flake "$FLAKE_URL"
 echo "Flake update completed"
 
-if git diff --quiet "$FLAKE_URL/flake.nix" && git diff --cached --quiet "$FLAKE_URL/flake.nix"; then
+if git diff --quiet "$FLAKE_URL/flake.lock" && git diff --cached --quiet "$FLAKE_URL/flake.lock"; then
     exit 0
 fi
 
-git add "$FLAKE_URL/flake.nix"
+git add "$FLAKE_URL/flake.lock"
 git commit -m "chore(flake.lock): update dependencies"
