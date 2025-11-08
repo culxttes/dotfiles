@@ -31,7 +31,7 @@ for script in "$SCRIPTS_DIR"/*.sh; do
   [ -e "$script" ] || continue
   
   execute_script "$script"
-  ((total_executed++))
+  ((total_executed++)) || true
 done
 echo ""
 
