@@ -55,3 +55,5 @@ fi
 
 git add -A
 git commit -m "chore: auto-update scripts output"
+
+exit 0

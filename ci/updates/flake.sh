@@ -17,3 +17,5 @@ fi
 
 git add "$FLAKE_URL/flake.lock"
 git commit -m "chore(flake.lock): update dependencies"
+
+exit 0

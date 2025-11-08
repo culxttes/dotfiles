@@ -25,3 +25,5 @@ fi
 
 git add "$OVERLAY_PATH"
 git commit -m "chore(spotx): update to lastest version"
+
+exit 0
