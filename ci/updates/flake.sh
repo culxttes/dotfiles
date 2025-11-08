@@ -7,13 +7,13 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)"
 
 FLAKE_URL=$(readlink -f "$SCRIPT_DIR/../../")
 
-echo "  Running flake update"
+echo "Running flake update"
 nix flake update --flake "$FLAKE_URL"
-echo "  Flake update completed"
+echo "Flake update completed"
 
-if git diff --quiet "$FLAKE_URL/flake.nix" && git diff --cached --quiet "$TARGET_PATH/flake.nix"; then
+if git diff --quiet "$FLAKE_URL/flake.nix" && git diff --cached --quiet "$FLAKE_URL/flake.nix"; then
     exit 0
 fi
 
-git add "$TARGET_PATH/flake.nix"
+git add "$FLAKE_URL/flake.nix"
 git commit -m "chore(flake.lock): update dependencies"
