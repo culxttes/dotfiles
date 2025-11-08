@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ pkgs, ... }:
 /*
   Installs Spotify as a system-wide package, making it available to all users
   on the system. Useful for accessing the Spotify music streaming client
@@ -6,7 +6,7 @@
 */
 {
   nixpkgs.overlays = [
-    (import ./spotx.nix)
+    (import ./spotx)
   ];
 
   environment.systemPackages = [

@@ -30,25 +30,12 @@ jobs:
       - name: Make update scripts executable
         run: |
           chmod +x ci/update.sh
-          chmod +x ci/script/*.sh || true
 
       - name: Run all update scripts
         env:
           NIX_CONFIG: "access-tokens = github.com=${{ secrets.PERSONAL_TOKEN }}"
         run: ./ci/update.sh
 
-      - name: Check for changes
-        id: git_diff
+      - name: Push commits
         run: |
-          if git diff --quiet; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "changed=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Commit and push if needed
-        if: steps.git_diff.outputs.changed == 'true'
-        run: |
-          git add .
-          git commit -m "chore: auto-update scripts output"
           git push
