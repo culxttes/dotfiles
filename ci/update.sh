@@ -49,11 +49,5 @@ echo ""
 echo "[✅] All scripts completed successfully."
 echo "📊 Summary: $total_executed executed"
 
-if git diff --quiet && git diff --cached --quiet; then
-    exit 0
-fi
-
 git add -A
-git commit -m "chore: auto-update scripts output"
-
-exit 0
+git commit -m "chore: auto-update scripts output" || true

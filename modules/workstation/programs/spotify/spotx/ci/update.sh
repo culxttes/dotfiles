@@ -19,11 +19,5 @@ sed -i -E "s|sha256-[^\"]+|${NEW_HASH}|" "$OVERLAY_PATH"
 
 echo "  Hash updated in $OVERLAY_PATH"
 
-if git diff --quiet "$OVERLAY_PATH" && git diff --cached --quiet "$OVERLAY_PATH"; then
-    exit 0
-fi
-
 git add "$OVERLAY_PATH"
-git commit -m "chore(spotx): update to lastest version"
-
-exit 0
+git commit -m "chore(spotx): update to lastest version" || true
