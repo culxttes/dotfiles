@@ -2,9 +2,9 @@
   imports = [
     # keep-sorted start
     ./audio
-    ./browser
-    ./discord
-    ./email
+    ./browsers
+    ./chats
+    ./emails
     ./filesystem
     ./graphics
     ./hypr
