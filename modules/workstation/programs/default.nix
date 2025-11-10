@@ -8,12 +8,12 @@
     ./filesystem
     ./graphics
     ./hypr
-    ./math
+    ./maths
     ./network-manager
-    ./record
+    ./records
     ./rofi
     ./spotify
-    ./terminal
+    ./terminals
     ./viewers
     ./wayland
     # keep-sorted end
