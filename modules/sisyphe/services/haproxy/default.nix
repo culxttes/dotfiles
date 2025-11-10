@@ -53,9 +53,16 @@ let
   );
 in
 {
-  services.haproxy = {
+  imports = [
+    # keep-sorted start
+    ./nixos-module.nix
+    # keep-sorted end
+  ];
+
+  custom.services.haproxy = {
     enable = true;
-    config = ''
+
+    extraConfig = ''
       global
         user haproxy
         group haproxy
