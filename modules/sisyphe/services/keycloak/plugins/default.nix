@@ -2,6 +2,6 @@
 
 {
   plugins = [
-    (pkgs.callPackage ./tailcloakify.nix { })
+    (pkgs.callPackage ./tailcloakify { })
   ];
 }
