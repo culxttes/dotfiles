@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }:
@@ -31,26 +30,6 @@ let
       cp haproxy_minecraft.lua $out/
     '';
   };
-
-  httpMap = pkgs.writeText "haproxy-http.map" ''
-    sagbot.com/ backend_www.sagbot.com
-    mail.sagbot.com/ backend_mail.sagbot.com
-    api.sagbot.com/sagedt backend_api.sagbot.com.sagedt
-    atacc.sagbot.com backend_atacc
-    atacc-edu.org backend_atacc
-    pass.sagbot.com backend_vaultwarden
-    stats.sagbot.com backend_stats
-    ${config.services.neo4j.http.advertisedAddress} backend_neo4j
-    auth.sagbot.com backend_keyclock
-  '';
-
-  minecraftMap = pkgs.writeText "haproxy-minecraft.map" '''';
-
-  certMap = pkgs.writeText "haproxy-cert.map" (
-    lib.strings.concatLines (
-      builtins.map (cert: "${cert.directory}/full.pem") (builtins.attrValues config.security.acme.certs)
-    )
-  );
 in
 {
   imports = [
@@ -62,22 +41,25 @@ in
   custom.services.haproxy = {
     enable = true;
 
-    extraConfig = ''
-      global
-        user haproxy
-        group haproxy
-        maxconn 4000
-        daemon
+    global = {
+      maxconn = 4000;
+      daemon = true;
 
+      extraConfig = ''
         ssl-default-bind-options ssl-min-ver TLSv1.2 
         ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384
 
         tune.lua.bool-sample-conversion normal
         lua-load ${haproxy_minecraft}/haproxy_minecraft.lua
+      '';
+    };
 
-      defaults
-        log     global
-        option  dontlognull
+    defaults = {
+      maxconn = 4000;
+
+      extraConfig = ''
+        log                     global
+        option                  dontlognull
         option                  redispatch
         retries                 3
         timeout http-request    10s
@@ -87,89 +69,162 @@ in
         timeout server          1m
         timeout http-keep-alive 10s
         timeout check           10s
-        maxconn                 3000
+      '';
+    };
 
-      backend close_connection
-        mode tcp
-        timeout connect 1ms
-        timeout server 1ms
-        tcp-request content reject
+    defaultBackend = "sagbot.com";
 
-      frontend http-in
-        bind :::80 v4v6
-        mode http
-        redirect scheme https code 301 if !{ ssl_fc }
+    backends = [
+      {
+        name = "sagbot.com";
+        mode = "http";
+        servers = [
+          {
+            name = "server1";
+            addr = "127.0.0.80:3333";
+            check = true;
+          }
+        ];
+      }
+      {
+        name = "mail.sagbot.com";
+        mode = "http";
+        servers = [
+          {
+            name = "server1";
+            addr = "127.0.0.25:3380";
+            check = true;
+          }
+        ];
+      }
+      {
+        name = "api.sagbot.com.sagedt";
+        mode = "http";
+        servers = [
+          {
+            name = "server1";
+            addr = "127.0.0.3:11593";
+            check = true;
+          }
+        ];
+        extraConfig = "http-request set-path %[path,regsub(^/sagedt/?,/)]";
+      }
+      {
+        name = "atacc";
+        mode = "http";
+        servers = [
+          {
+            name = "server1";
+            addr = "127.0.0.1:3456";
+            check = true;
+          }
+        ];
+      }
+      {
+        name = "pass.sagbot.com";
+        mode = "http";
+        servers = [
+          {
+            name = "server1";
+            addr = "127.0.0.1:8222";
+            check = true;
+          }
+        ];
+      }
+      {
+        name = "stats.sagbot.com";
+        mode = "http";
+        servers = [
+          {
+            name = "server1";
+            addr = "127.0.0.27:2701";
+            check = true;
+          }
+        ];
+      }
+      {
+        name = "neo4j.sagbot.com";
+        mode = "http";
+        servers = [
+          {
+            name = "server1";
+            addr = config.services.neo4j.http.listenAddress;
+            check = true;
+          }
+        ];
+      }
+      {
+        name = "auth.sagbot.com";
+        mode = "http";
+        servers =
+          let
+            inherit (config.services.keycloak.settings) http-host http-port;
+          in
+          [
 
-      frontend https-in
-        bind :::443 v4v6 ssl crt-list ${certMap}
-        mode http
-        option http-server-close
-        option forwardfor
-        http-request set-header X-Forwarded-Proto https if { ssl_fc }
-        http-response set-header Strict-Transport-Security "max-age=16000000; includeSubDomains; preload;"
+            {
+              name = "server1";
+              addr = "${http-host}:${toString http-port}";
+              check = true;
+            }
+          ];
+      }
+    ];
 
-        use_backend %[base,map_beg(${httpMap},backend_www.sagbot.com)]
+    frontends = [
+      {
+        name = "local_stats";
+        bind = "127.0.0.84:8404";
+        mode = "http";
+        extraConfig = "http-request use-service prometheus-exporter";
+      }
+    ];
 
-      frontend local_stats
-        bind 127.0.0.84:8404
-        mode http
-        http-request use-service prometheus-exporter
+    maps = {
+      url = [
+        {
+          url = "sagbot.com";
+          backend = "sagbot.com";
+        }
+        {
+          url = "mail.sagbot.com";
+          backend = "mail.sagbot.com";
+        }
+        {
+          url = "api.sagbot.com/sagedt";
+          backend = "api.sagbot.com.sagedt";
+        }
+        {
+          url = "atacc.sagbot.com";
+          backend = "atacc";
+        }
+        {
+          url = "atacc-edu.org";
+          backend = "atacc";
+        }
+        {
+          url = "pass.sagbot.com";
+          backend = "pass.sagbot.com";
+        }
+        {
+          url = "stats.sagbot.com";
+          backend = "stats.sagbot.com";
+        }
+        {
+          url = config.services.neo4j.http.advertisedAddress;
+          backend = "neo4j.sagbot.com";
+        }
+        {
+          url = "auth.sagbot.com";
+          backend = "auth.sagbot.com";
+        }
+      ];
 
-      frontend minecraft
-        bind :::25565 v4v6
-        mode tcp
+      minecraft = [ ];
+    };
 
-        tcp-request inspect-delay 1s
-        tcp-request content lua.mc_handshake
-        tcp-request content reject if { var(txn.mc_proto) -m int 0 }
-        tcp-request content accept if { var(txn.mc_proto) -m found }
-        tcp-request content reject if WAIT_END
+    extraConfig = ''
 
-        use_backend %[var(txn.mc_host),map_beg(${minecraftMap},close_connection)]
-
-      backend backend_www.sagbot.com
-        mode http
-        server server1 127.0.0.80:3333 check
-
-      backend backend_mail.sagbot.com
-        mode http
-        server server1 127.0.0.25:3380 check
-
-      backend backend_api.sagbot.com.sagedt
-        mode http
-        http-request set-path %[path,regsub(^/sagedt/?,/)]
-        server server1 127.0.0.3:11593 check
-
-      backend backend_atacc
-        mode http
-        server server1 127.0.0.1:3456 check
-
-      backend backend_vaultwarden
-        mode http
-        server server1 127.0.0.1:8222 check
-
-      backend backend_stats
-        mode http
-        server server1 127.0.0.27:2701 check
-
-      backend backend_neo4j
-        mode http
-        server server1 ${config.services.neo4j.http.listenAddress} check
-
-      backend backend_keyclock
-        mode http
-        server server1 ${config.services.keycloak.settings.http-host}:${toString config.services.keycloak.settings.http-port} check
     '';
   };
-
-  users.groups.acme.members = [
-    config.services.haproxy.user
-  ];
-
-  networking.firewall.allowedTCPPorts = [
-    80
-    443
-
-    25565
-  ];
 }
