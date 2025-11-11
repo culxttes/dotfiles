@@ -19,23 +19,27 @@ let
       lib.strings.concatLines (builtins.map (e: "${e.url} ${e.backend}") map)
     );
 
-  frontendsConfig = lib.strings.concatLines (
-    builtins.map (e: ''
-      frontend ${e.name}
-        bind ${e.bind}
-        ${lib.optionalString (e.mode != null) "mode ${e.mode}"}
-      ${indent 2 e.extraConfig}
-    '') cfg.frontends
+  frontendsConfig = lib.removeSuffix "\n" (
+    lib.strings.concatLines (
+      builtins.map (e: ''
+        frontend ${e.name}
+          bind ${e.bind}
+          ${lib.optionalString (e.mode != null) "mode ${e.mode}"}
+        ${indent 2 e.extraConfig}
+      '') cfg.frontends
+    )
   );
 
-  backendsConfig = lib.strings.concatLines (
-    builtins.map (e: ''
-      backend ${e.name}
-        ${lib.optionalString (e.mode != null) "mode ${e.mode}"}
-        ${lib.optionalString (e.balance != null) "balance ${e.balance}"}
-      ${indent 2 e.extraConfig}
-      ${indent 2 (serversConfig e.servers)}
-    '') cfg.backends
+  backendsConfig = lib.removeSuffix "\n" (
+    lib.strings.concatLines (
+      builtins.map (e: ''
+        backend ${e.name}
+          ${lib.optionalString (e.mode != null) "mode ${e.mode}"}
+          ${lib.optionalString (e.balance != null) "balance ${e.balance}"}
+        ${indent 2 e.extraConfig}
+        ${indent 2 (serversConfig e.servers)}
+      '') cfg.backends
+    )
   );
 
   serversConfig =
@@ -252,6 +256,7 @@ in
           ${lib.optionalString (cfg.defaults.maxconn != null) "maxconn ${toString cfg.defaults.maxconn}"}
         ${indent 2 cfg.defaults.extraConfig}
 
+        # ============== DEFAULT FRONTEND ==+=============
         frontend http-in
           bind :::80 v4v6
           mode http
@@ -279,15 +284,20 @@ in
 
           use_backend %[var(txn.mc_host),map_beg(${makeMap cfg.maps.minecraft},close_connection)]
 
+        # =============== CUSTOM FRONTEND ================
+        ${frontendsConfig}
+
+        # =============== DEFAULT BACKEND ================
         backend close_connection
           mode tcp
           timeout connect 1ms
           timeout server 1ms
           tcp-request content reject
 
-        ${frontendsConfig}
+        # ================ CUSTOM BACK END ===============
         ${backendsConfig}
 
+        # ================= EXTRA CONFIG =================
         ${cfg.extraConfig}
       '';
     };
