@@ -66,7 +66,6 @@
                 "forward-button"
                 "urlbar-container"
                 "vertical-spacer"
-                "languagetool-webextension_languagetool_org-browser-action"
                 "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action"
                 "unified-extensions-button"
                 "firefox-view-button"
@@ -81,7 +80,6 @@
               "reset-pbm-toolbar-button"
               "profiler-button"
               "jid1-mnnxcxisbpnsxq_jetpack-browser-action"
-              "languagetool-webextension_languagetool_org-browser-action"
               "ublock0_raymondhill_net-browser-action"
               "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action"
               "sponsorblocker_ajay_app-browser-action"
@@ -124,7 +122,6 @@
             ublock-origin
             bitwarden
             sponsorblock
-            languagetool
           ];
         };
       };
