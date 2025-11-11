@@ -1,7 +1,6 @@
 {
   username,
   config,
-  lib,
   pkgs,
   ...
 }:
@@ -37,28 +36,17 @@
     "nginx"
   ];
 
-  custom.services.haproxy = {
-    backends = lib.mapAttrsToList (name: value: {
-      inherit name;
+  custom.services.haproxy.backends = [
+    {
+      name = "sagbot.com";
       mode = "http";
-      servers =
-        let
-          server = lib.head value.listen;
-        in
-        [
-          {
-            name = "server1";
-            addr = "${server.addr}:${toString server.port}";
-            check = true;
-          }
-        ];
-    }) config.services.nginx.virtualHosts;
-
-    maps.url = [
-      {
-        url = "sagbot.com";
-        backend = "sagbot.com";
-      }
-    ];
-  };
+      servers = [
+        {
+          name = "server1";
+          addr = "127.0.0.80:3333";
+          check = true;
+        }
+      ];
+    }
+  ];
 }

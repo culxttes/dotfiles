@@ -19,6 +19,33 @@ let
       lib.strings.concatLines (builtins.map (e: "${e.url} ${e.backend}") map)
     );
 
+  haproxy_minecraft = pkgs.stdenv.mkDerivation {
+    pname = "haproxy_minecraft-patch";
+    version = "1.0";
+
+    src = builtins.fetchurl {
+      url = "https://gist.githubusercontent.com/nathan818fr/a078e92604784ad56e84843ebf99e2e5/raw/3d9c74eec578aa0c0a177369d7106fe224b03efd/haproxy_minecraft.lua";
+      sha256 = "0krznqcq1v7vqz473gyy1cbhgwpj9s7xbzzfqg4llrzdvpk6xrzp";
+    };
+
+    patches = [
+      ./assets/haproxy_minecraft.patch
+    ];
+
+    unpackPhase = ''
+      cp $src haproxy_minecraft.lua
+    '';
+
+    patchPhase = ''
+      patch -p0 < ${./assets/haproxy_minecraft.patch}
+    '';
+
+    installPhase = ''
+      mkdir -p $out
+      cp haproxy_minecraft.lua $out/
+    '';
+  };
+
   frontendsConfig = lib.removeSuffix "\n" (
     lib.strings.concatLines (
       builtins.map (e: ''
@@ -250,6 +277,10 @@ in
           group ${cfg.group}
           ${lib.optionalString (cfg.global.maxconn != null) "maxconn ${toString cfg.global.maxconn}"}
           ${lib.optionalString cfg.global.daemon "daemon"}
+          ssl-default-bind-options ssl-min-ver TLSv1.2 
+          ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384
+          tune.lua.bool-sample-conversion normal
+          lua-load ${haproxy_minecraft}/haproxy_minecraft.lua
         ${indent 2 cfg.global.extraConfig}
 
         defaults

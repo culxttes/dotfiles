@@ -1,5 +1,7 @@
 { pkgs, config, ... }:
-
+let
+  domain = "auth.sagbot.com";
+in
 {
   imports = [
     # keep-sorted start
@@ -17,7 +19,7 @@
     database.passwordFile = config.sops.secrets."keycloak/passwordDB".path;
 
     settings = {
-      hostname = "https://auth.sagbot.com";
+      hostname = "https://${domain}";
       http-host = "127.0.0.38";
       http-port = 38080;
       http-enabled = true;
@@ -33,5 +35,35 @@
   systemd.services.keycloak.environment = {
     TAILCLOAKIFY_HEADER_LOGO_URL = "https://sagbot.com/sagbot_banner.png";
     TAILCLOAKIFY_FAVICON_URL = "https://sagbot.com/uwulock.png";
+  };
+
+  custom.services.haproxy = {
+    backends = [
+      {
+        name = "keycloak";
+        mode = "http";
+        servers =
+          let
+            inherit (config.services.keycloak.settings) http-host http-port;
+          in
+          [
+
+            {
+              name = "server1";
+              addr = "${http-host}:${toString http-port}";
+              check = true;
+            }
+          ];
+      }
+    ];
+
+    maps = {
+      url = [
+        {
+          url = domain;
+          backend = "keycloak";
+        }
+      ];
+    };
   };
 }

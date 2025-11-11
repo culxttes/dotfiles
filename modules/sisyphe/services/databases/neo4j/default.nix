@@ -48,4 +48,37 @@
   networking.firewall.allowedTCPPorts = [
     7687
   ];
+
+  custom.services.haproxy = {
+    backends = [
+      {
+        name = "neo4j";
+        mode = "http";
+        servers =
+          let
+            server = config.services.neo4j.http;
+          in
+          [
+            {
+              name = "server1";
+              addr = server.listenAddress;
+              check = true;
+            }
+          ];
+      }
+    ];
+
+    maps = {
+      url =
+        let
+          server = config.services.neo4j.http;
+        in
+        [
+          {
+            url = server.advertisedAddress;
+            backend = "neo4j";
+          }
+        ];
+    };
+  };
 }

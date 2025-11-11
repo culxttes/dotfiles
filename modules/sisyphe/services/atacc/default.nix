@@ -26,4 +26,33 @@
 
     wantedBy = [ "multi-user.target" ];
   };
+
+  custom.services.haproxy = {
+    backends = [
+      {
+        name = "atacc";
+        mode = "http";
+        servers = [
+          {
+            name = "server1";
+            addr = "127.0.0.1:3456";
+            check = true;
+          }
+        ];
+      }
+    ];
+
+    maps = {
+      url = [
+        {
+          url = "atacc.sagbot.com";
+          backend = "atacc";
+        }
+        {
+          url = "atacc-edu.org";
+          backend = "atacc";
+        }
+      ];
+    };
+  };
 }

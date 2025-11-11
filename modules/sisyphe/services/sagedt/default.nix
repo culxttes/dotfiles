@@ -21,4 +21,30 @@
 
     wantedBy = [ "multi-user.target" ];
   };
+
+  custom.services.haproxy = {
+    backends = [
+      {
+        name = "sagedt";
+        mode = "http";
+        servers = [
+          {
+            name = "server1";
+            addr = "127.0.0.3:11593";
+            check = true;
+          }
+        ];
+        extraConfig = "http-request set-path %[path,regsub(^/sagedt/?,/)]";
+      }
+    ];
+
+    maps = {
+      url = [
+        {
+          url = "api.sagbot.com/sagedt";
+          backend = "sagedt";
+        }
+      ];
+    };
+  };
 }
