@@ -4,6 +4,7 @@ in
 {
   services.prometheus = {
     enable = true;
+
     scrapeConfigs = [
       {
         job_name = "haproxy";

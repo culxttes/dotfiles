@@ -3,11 +3,26 @@
 {
   services.grafana = {
     enable = true;
+
     settings = {
       server = {
         http_addr = "127.0.0.27";
         http_port = 2701;
         domain = "stats.sagbot.com";
+      };
+    };
+
+    provision = {
+      datasources = {
+        settings = {
+          datasources = [
+            {
+              name = "Prometheus";
+              type = "Prometheus";
+              url = "http://localhost:${toString config.services.prometheus.port}";
+            }
+          ];
+        };
       };
     };
   };

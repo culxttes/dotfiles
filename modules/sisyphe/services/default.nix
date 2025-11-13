@@ -3,19 +3,15 @@
     # keep-sorted start
     ./acme
     ./ai
-    ./atacc
     ./databases
     ./github-runner
-    ./grafana
     ./haproxy
     ./keycloak
     ./mailcow
     ./minecraft
-    ./nginx
-    ./phpfpm
-    ./prometheus
-    ./sagedt
+    ./stats
     ./vaultwarden
+    ./webs
     # keep-sorted end
   ];
 }
