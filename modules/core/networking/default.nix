@@ -2,7 +2,7 @@
 
 {
   networking = {
-    hostName = hostName;
+    inherit hostName;
     enableIPv6 = true;
     networkmanager = {
       enable = true;
