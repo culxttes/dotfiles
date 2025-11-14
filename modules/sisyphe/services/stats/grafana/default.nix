@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -54,18 +54,35 @@
         };
     };
 
-    provision = {
+    provision = rec {
       datasources = {
-        settings = {
-          datasources = [
-            {
-              uid = "PBFA97CFB590B2093";
-              name = "Prometheus";
-              type = "prometheus";
-              url = "http://localhost:${toString config.services.prometheus.port}";
-            }
-          ];
-        };
+        settings.datasources = [
+          {
+            uid = "PBFA97CFB590B2093";
+            name = "Prometheus";
+            type = "prometheus";
+            url = "http://localhost:${toString config.services.prometheus.port}";
+          }
+        ];
+      };
+
+      dashboards = {
+        settings.providers = [
+          {
+            type = "file";
+            name = "Global Stats";
+            options.path = pkgs.writeText "grafana-global-dashboard.json" (
+              builtins.replaceStrings
+                [
+                  "$\{DS_PROMETHEUS}"
+                ]
+                [
+                  (builtins.elemAt datasources.settings.datasources 0).uid
+                ]
+                (builtins.readFile ./dashboards/global.json)
+            );
+          }
+        ];
       };
     };
   };
