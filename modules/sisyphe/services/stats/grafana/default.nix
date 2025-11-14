@@ -26,14 +26,12 @@
       "auth.generic_oauth" =
         let
           inherit (config.services.keycloak.settings) hostname;
-          client_id = "grafana-oauth";
-          roles = "resource_access.\"${client_id}\".roles[*]";
         in
-        {
+        rec {
           enabled = true;
           name = "Keycloak-OAuth";
           allow_sign_up = true;
-          inherit client_id;
+          client_id = "grafana-oauth";
           client_secret = "$__file{${config.sops.secrets."grafana/client/secret".path}}";
           scopes = "openid email profile offline_access roles";
           email_attribute_path = "email";
@@ -42,12 +40,16 @@
           auth_url = "${hostname}/realms/master/protocol/openid-connect/auth";
           token_url = "${hostname}/realms/master/protocol/openid-connect/token";
           api_url = "${hostname}/realms/master/protocol/openid-connect/userinfo";
-          role_attribute_path = builtins.replaceStrings [ "\n" ] [ "" ] ''
-            contains(${roles}, 'grafanaadmin') && 'GrafanaAdmin' 
-            || contains(${roles}, 'admin') && 'Admin' 
-            || contains(${roles}, 'editor') && 'Editor' 
-            || 'Viewer'
-          '';
+          role_attribute_path =
+            let
+              roles = "resource_access.\"${client_id}\".roles[*]";
+            in
+            builtins.replaceStrings [ "\n" ] [ "" ] ''
+                 contains(${roles}, 'grafanaadmin') && 'GrafanaAdmin' 
+              || contains(${roles}, 'admin')        && 'Admin' 
+              || contains(${roles}, 'editor')       && 'Editor' 
+              ||                                       'Viewer'
+            '';
           allow_assign_grafana_admin = true;
         };
     };
