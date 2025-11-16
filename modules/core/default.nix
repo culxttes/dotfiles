@@ -1,8 +1,10 @@
 {
   imports = [
     # keep-sorted start
+    ./boot
     ./fonts
     ./home-manager
+    ./locale
     ./networking
     ./nix
     ./nur

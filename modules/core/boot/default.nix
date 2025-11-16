@@ -1,6 +1,12 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    # keep-sorted start
+    ./plymouth.nix
+    # keep-sorted end
+  ];
+
   boot = {
     # Console log level (0 = disabled)
     consoleLogLevel = 0;
@@ -36,23 +42,6 @@
           /bin/setleds -D +num < $tty
         done
       '';
-    };
-
-    plymouth = {
-      # Enable Plymouth for graphical boot splash
-      enable = true;
-
-      # Set the Plymouth theme to "rings"
-      theme = "rings";
-
-      # Install the selected Plymouth theme
-      themePackages = with pkgs; [
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [
-            "rings"
-          ];
-        })
-      ];
     };
   };
 }

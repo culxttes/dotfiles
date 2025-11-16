@@ -1,7 +1,7 @@
-{ hostName, ... }:
+{ hostName, lib, ... }:
+
 {
-  imports = [
+  imports = lib.filter builtins.pathExists [
     ./${hostName}
-    ./common
   ];
 }

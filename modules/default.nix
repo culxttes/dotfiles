@@ -1,10 +1,16 @@
-{ groups, hostName, ... }:
+{
+  groups,
+  hostName,
+  lib,
+  ...
+}:
 
 {
-  imports = map (group: ./. + "/${group}") groups ++ [
-    # keep-sorted start
-    ./${hostName}
+  imports = [
     ./core
-    # keep-sorted end
+  ]
+  ++ map (group: ./${group}) groups
+  ++ lib.filter builtins.pathExists [
+    ./${hostName}
   ];
 }
