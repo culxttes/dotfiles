@@ -6,6 +6,7 @@
     ./chats
     ./emails
     ./filesystem
+    ./gparted
     ./graphics
     ./hypr
     ./maths
