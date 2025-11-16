@@ -6,6 +6,7 @@
     ./hypr
     ./logind
     ./network-manager
+    ./pipewire
     ./quickhsell
     ./udev
     ./upower
