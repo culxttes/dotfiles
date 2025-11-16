@@ -89,6 +89,24 @@
             # keep-sorted end
           ];
         };
+        iso-server = {
+          username = "culottes";
+          groups = [
+            # keep-sorted start
+            "iso"
+            "server"
+            # keep-sorted end
+          ];
+        };
+        iso-workstation = {
+          username = "culottes";
+          groups = [
+            # keep-sorted start
+            "iso"
+            "workstation"
+            # keep-sorted end
+          ];
+        };
         niobe = {
           username = "culottes";
           groups = [

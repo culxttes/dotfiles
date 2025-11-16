@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
@@ -12,7 +12,7 @@
     consoleLogLevel = 0;
 
     # Set a timeout of 0 seconds before booting the system
-    loader.timeout = 0;
+    loader.timeout = lib.mkDefault 0;
 
     kernelParams = [
       # Reduce kernel output during boot

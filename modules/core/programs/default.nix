@@ -8,6 +8,7 @@
     ./git
     ./gpg
     ./graphics
+    ./makeIso
     ./monitoring
     ./nix
     ./pentest
