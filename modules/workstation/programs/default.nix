@@ -6,11 +6,11 @@
     ./chats
     ./emails
     ./filesystem
-    ./gparted
     ./graphics
     ./hypr
     ./maths
     ./network-manager
+    ./partition-manager
     ./records
     ./rofi
     ./spotify
