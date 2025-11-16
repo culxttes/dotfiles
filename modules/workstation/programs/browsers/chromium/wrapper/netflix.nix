@@ -1,9 +1,16 @@
-{ pkgs, username, ... }:
+{
+  config,
+  pkgs,
+  username,
+  ...
+}:
 let
+  inherit (config.home-manager.users.${username}.xdg) configHome;
+
   netflixLauncher = pkgs.makeDesktopItem {
     name = "netflix";
     desktopName = "Netflix";
-    exec = "${pkgs.google-chrome}/bin/google-chrome-stable --user-data-dir=/home/${username}/.config/chromium-netflix --app=https://www.netflix.com";
+    exec = "${pkgs.brave}/bin/brave --user-data-dir=${configHome}/chromium-netflix --app=https://www.netflix.com";
     icon = "${./assets/netflix.png}";
     categories = [
       "Video"

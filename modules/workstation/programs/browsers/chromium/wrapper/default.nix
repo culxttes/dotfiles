@@ -6,6 +6,7 @@
     ./figma.nix
     ./gemini.nix
     ./netflix.nix
+    ./youtube.nix
     # keep-sorted end
   ];
 }
