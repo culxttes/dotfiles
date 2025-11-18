@@ -1,6 +1,7 @@
 {
   imports = [
     # keep-sorted start
+    ./arduino
     ./git
     ./request
     ./vim
