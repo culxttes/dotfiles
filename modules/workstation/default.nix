@@ -5,6 +5,7 @@
     ./programs
     ./security
     ./services
+    ./users
     ./xdg
     # keep-sorted end
   ];

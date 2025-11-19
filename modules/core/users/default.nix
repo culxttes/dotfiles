@@ -12,8 +12,6 @@
     uid = 1000;
     extraGroups = [
       "wheel"
-      "audio"
-      "video"
     ];
     hashedPasswordFile = config.sops.secrets.hashedPassword.path;
   };
