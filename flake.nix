@@ -44,7 +44,6 @@
       # url = "git+file:///home/culottes/git/noctalia-shell/";
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.quickshell.follows = "quickshell";
     };
     nur = {
       url = "github:nix-community/NUR";
