@@ -148,7 +148,7 @@
           }
         ];
 
-        windowrulev2 = "suppressevent maximize, class:.*";
+        windowrule = "match:class .*, suppress_event maximize fullscreen";
 
         "$mod" = "SUPER";
 
