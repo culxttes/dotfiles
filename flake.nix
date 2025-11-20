@@ -132,6 +132,7 @@
           groups = [
             # keep-sorted start
             "development"
+            "gravitee"
             "laptop"
             "vpn"
             "workstation"
