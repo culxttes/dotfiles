@@ -689,11 +689,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1763665627,
-        "narHash": "sha256-WAgeBpdSfMjx57yp4KIGk0in/Z63D3Iid82uPYzZtzg=",
+        "lastModified": 1763666426,
+        "narHash": "sha256-wykYcvvvQGW49hASyPfNK3NIEsvAkQJvRDwk8MTLukw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "91541ab4dc4f2a5be9a657e75be0fdada78e4456",
+        "rev": "6bea46b6c2b16063fc256d7bdcb11d5e9b410de5",
         "type": "github"
       },
       "original": {
@@ -736,15 +736,14 @@
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
-        ],
-        "systems": "systems_6"
+        ]
       },
       "locked": {
-        "lastModified": 1763664978,
-        "narHash": "sha256-Er3NXjVHJ//AZ7eDPOSAG35h8Tc8qa3Z6KpOAXM+CQk=",
+        "lastModified": 1763666374,
+        "narHash": "sha256-D2Hy2pba+269D6/g7z33DcoeS8albx2AoDw3x8p/+vE=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "1fc1fa36aa91872d3f8dc5b1daa90ac8c9f59963",
+        "rev": "b435d1f5880d646b2c3b9fc5a442489c6289213d",
         "type": "github"
       },
       "original": {
@@ -782,7 +781,7 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "systems": "systems_7"
+        "systems": "systems_6"
       },
       "locked": {
         "lastModified": 1762622004,
@@ -857,7 +856,7 @@
         "nvf": "nvf",
         "quickshell": "quickshell",
         "sops-nix": "sops-nix",
-        "systems": "systems_8",
+        "systems": "systems_7",
         "treefmt-nix": "treefmt-nix"
       }
     },
@@ -989,21 +988,6 @@
       }
     },
     "systems_7": {
-      "locked": {
-        "lastModified": 1681028828,
-        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
-        "owner": "nix-systems",
-        "repo": "default",
-        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default",
-        "type": "github"
-      }
-    },
-    "systems_8": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
