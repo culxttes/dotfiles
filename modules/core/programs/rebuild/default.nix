@@ -2,14 +2,18 @@
   pkgs,
   lib,
   username,
+  hostName,
   systemInfo,
   ...
 }:
 with lib;
 let
-  serverHosts = builtins.filter (name: builtins.elem "server" systemInfo.${name}.groups) (
-    builtins.attrNames systemInfo
-  );
+  serverHosts = filter (
+    name:
+    elem "server" systemInfo.${name}.groups
+    && !(elem "iso" systemInfo.${name}.groups)
+    && name != hostName
+  ) (attrNames systemInfo);
 
   genCase = name: ''
     ${name} )
@@ -28,21 +32,21 @@ in
       (pkgs.writeShellApplication {
         name = "rebuild";
         text = ''
-          case "''\${1-}" in
-            "" )
+          case "''${1-}" in
+            local )
               nixos-rebuild switch \
                 --flake ~/git/dotfiles/ \
                 --sudo
               ;;
-            remote )
+            ${hostName} )
               nixos-rebuild switch \
                 --flake ~/git/dotfiles/ \
                 --build-host ${username}@sisyphe.sagbot.com \
                 --sudo
               ;;
-            ${concatStringsSep "" (map genCase serverHosts)}
+          ${pkgs.lib.custom.indent 2 (concatStringsSep "" (map genCase serverHosts))}
             * )
-              echo "Usage: $0 [remote|${concatStringsSep "|" serverHosts}]"
+              echo "Usage: $0 [local|${hostName}|${concatStringsSep "|" serverHosts}]"
               exit 1
               ;;
           esac
