@@ -7,6 +7,8 @@
 let
   cfg = config.custom.services.haproxy;
 
+  inherit (pkgs.lib.custom) indent;
+
   certMap = pkgs.writeText "haproxy-cert.map" (
     lib.strings.concatLines (
       builtins.map (cert: "${cert.directory}/full.pem") (builtins.attrValues config.security.acme.certs)
@@ -107,15 +109,6 @@ let
     default = [ ];
     description = '''';
   };
-
-  indent =
-    n: text:
-    let
-      spaces = lib.concatStrings (lib.replicate n " ");
-      lines = lib.splitString "\n" text;
-      filteredLines = if lines != [ ] && lib.last lines == "" then lib.init lines else lines;
-    in
-    lib.concatMapStringsSep "\n" (line: spaces + line) filteredLines;
 in
 {
   options.custom.services.haproxy = {
