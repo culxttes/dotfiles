@@ -5,7 +5,6 @@
     ./browsers
     ./chats
     ./emails
-    ./filesystem
     ./graphics
     ./hypr
     ./maths
