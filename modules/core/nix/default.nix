@@ -7,7 +7,7 @@
     # keep-sorted end
   ];
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
