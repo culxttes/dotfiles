@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 
 {
   services.neo4j = {
@@ -38,8 +38,23 @@
 
     extraServerConfig = ''
       dbms.ssl.policy.bolt.enabled=true
+      server.unmanaged_extension_classes=n10s.endpoint=/rdf
     '';
   };
+
+  systemd.services.neo4j.preStart =
+    let
+      cfg = config.services.neo4j;
+    in
+    ''
+      rm ${cfg.directories.plugins}/*
+      ln -sf ${./apoc.conf} ${cfg.directories.home}/conf/apoc.conf
+    ''
+    + builtins.concatStringsSep "\n" (
+      builtins.map (plugin: "ln -s ${plugin}/* ${cfg.directories.plugins}") (
+        pkgs.callPackage ./plugins { }
+      )
+    );
 
   users.groups.acme.members = [
     "neo4j"
