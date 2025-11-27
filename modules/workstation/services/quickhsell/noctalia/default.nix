@@ -1,16 +1,11 @@
-{ noctalia, username, ... }:
+{
+  pkgs,
+  noctalia,
+  username,
+  ...
+}:
 
 {
-  imports = [
-    # keep-sorted start
-    noctalia.nixosModules.default
-    # keep-sorted end
-  ];
-
-  services.noctalia-shell = {
-    enable = true;
-  };
-
   home-manager.users.${username} = {
     imports = [
       # keep-sorted start
@@ -20,6 +15,10 @@
 
     programs.noctalia-shell = {
       enable = true;
+
+      package = noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default;
+      systemd.enable = true;
+
       settings = {
         settingsVersion = 6;
         bar = {
