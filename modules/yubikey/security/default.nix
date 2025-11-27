@@ -1,7 +1,7 @@
 {
   imports = [
     # keep-sorted start
-    ./polkit.nix
+    ./yubikey
     # keep-sorted end
   ];
 }
