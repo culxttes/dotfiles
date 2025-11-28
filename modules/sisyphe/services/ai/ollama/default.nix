@@ -13,7 +13,7 @@
       "qwen3:8b"
       "mistral:7b"
       "embeddinggemma:latest"
-      "qwen3-embedding:latest"
+      "deepseek-r1:32b"
     ];
   };
 }
