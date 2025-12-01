@@ -25,6 +25,14 @@ in
       description = "User account under which gravitee runs.";
     };
 
+    plugins = {
+      jdbc = lib.mkOption {
+        type = lib.types.listOf lib.types.path;
+        default = [ ];
+        description = "Path to database driver to use JDBC";
+      };
+    };
+
     group = lib.mkOption {
       type = lib.types.str;
       default = "gravitee";
@@ -57,23 +65,35 @@ in
 
         ExecStartPre =
           let
+            runDir = "/run/gravitee";
+
+            jdbcPluginCommands = lib.concatMapStringsSep "\n" (
+              plugin: "ln -sf '${plugin}' '${runDir}/plugins/ext/repository-jdbc/'"
+            ) cfg.plugins.jdbc;
+
             preStartScript = pkgs.writeShellScript "gravitee-prestart" ''
-              mkdir -p /run/gravitee/{config,lib,licence,logs,metrics,plugins}
+              set -euo pipefail
 
-              for file in ${cfg.package}/share/gravitee/plugins/*; do
-                ln -sf "$file" /run/gravitee/plugins/
+              mkdir -p "${runDir}"/{config,lib,licence,logs,metrics,plugins/ext/repository-jdbc}
+
+              for file in "${cfg.package}/share/gravitee/plugins"/*; do
+                if [ -f "$file" ]; then
+                  ln -sf "$file" "${runDir}/plugins/"
+                fi
               done
 
-              for file in ${cfg.package}/share/gravitee/lib/*; do
-                ln -sf "$file" /run/gravitee/lib/
+              for file in "${cfg.package}/share/gravitee/lib"/*; do
+                ln -sf "$file" "${runDir}/lib/"
               done
 
-              ln -sf ${graviteeConfig} /run/gravitee/config/gravitee.yml
+              ln -sf "${graviteeConfig}" "${runDir}/config/gravitee.yml"
+
+              ${jdbcPluginCommands}
             '';
           in
           "${preStartScript}";
         ExecStart = lib.getExe cfg.package;
-        Restart = "always";
+        # Restart = "always";
         RuntimeDirectory = "gravitee";
 
         NoNewPrivileges = true;

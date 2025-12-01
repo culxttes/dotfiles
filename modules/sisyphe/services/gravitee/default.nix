@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     # keep-sorted start
@@ -8,12 +10,24 @@
   custom.services.gravitee = {
     enable = true;
 
+    plugins = {
+      jdbc = [
+        (pkgs.fetchurl {
+          url = "https://jdbc.postgresql.org/download/postgresql-42.7.8.jar";
+          sha256 = "sha256-KjKp3LxC1npQrToN5e/RAsjSvkZyAEXyy9ZonxYKt8c=";
+        })
+        (pkgs.fetchurl {
+          url = "https://repo1.maven.org/maven2/org/postgresql/r2dbc-postgresql/1.0.2.RELEASE/r2dbc-postgresql-1.0.2.RELEASE.jar";
+          sha256 = "sha256-rERI9Y7CEy+l1YP/N1OkUsfIAIAp85ZlzvWju5eCOkg=";
+        })
+      ];
+    };
+
     settings = {
-      # Management repository configuration
       management = {
         type = "jdbc";
         jdbc = {
-          url = "jdbc:postgresql:///gravitee";
+          url = "jdbc:postgresql://localhost/gravitee?host=/run/postgresql/";
           username = "gravitee";
           pool = {
             autoCommit = true;
@@ -26,11 +40,10 @@
         };
       };
 
-      # Rate limit repository configuration
       ratelimit = {
         type = "jdbc";
         jdbc = {
-          url = "jdbc:postgresql:///gravitee";
+          url = "jdbc:postgresql://localhost/gravitee?host=/run/postgresql/";
           username = "gravitee";
           pool = {
             autoCommit = true;
@@ -43,7 +56,6 @@
         };
       };
 
-      # Analytics repository configuration
       analytics = {
         type = "elasticsearch";
         elasticsearch = {
@@ -53,7 +65,6 @@
         };
       };
 
-      # HTTP Server configuration (Merged with CORS section)
       http = {
         port = 8082;
         host = "127.0.0.82";
@@ -66,7 +77,6 @@
         instances = 0;
         requestTimeout = 30000;
 
-        # CORS configuration
         cors = {
           allow-origin = "*";
           allow-headers = "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With";
@@ -76,7 +86,6 @@
         };
       };
 
-      # Gateway configuration
       gateway = {
         sharding_tags = [
           # "tag1"
@@ -84,7 +93,6 @@
         ];
       };
 
-      # API properties encryption
       api = {
         properties = {
           encryption = {
@@ -93,7 +101,6 @@
         };
       };
 
-      # JWT configuration
       jwt = {
         secret = "your-jwt-secret-key-change-this-in-production";
         expire-after = 604800;
@@ -103,7 +110,6 @@
         cookie-secure = false;
       };
 
-      # Email configuration
       email = {
         enabled = false;
         host = "localhost";
@@ -112,12 +118,10 @@
         username = "gravitee@sagbot.com";
       };
 
-      # Swagger/OpenAPI configuration
       swagger = {
         scheme = "http";
       };
 
-      # Logging configuration
       logging = {
         level = {
           "io.gravitee" = "INFO";
@@ -129,12 +133,10 @@
         };
       };
 
-      # Plugins configuration
       plugins = {
         path = "\${gravitee.home}/plugins";
       };
 
-      # Services configuration
       services = {
         core = {
           http = {
@@ -151,13 +153,11 @@
         };
       };
 
-      # Portal configuration
       portal = {
         url = "http://127.0.0.82:8085";
         entrypoint = "/portal";
       };
 
-      # Console (Management UI) configuration
       console = {
         url = "http://127.0.0.82:3000";
       };
