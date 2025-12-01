@@ -13,9 +13,8 @@
       management = {
         type = "jdbc";
         jdbc = {
-          url = "jdbc:postgresql://localhost:5432/gravitee";
+          url = "jdbc:postgresql:///gravitee";
           username = "gravitee";
-          password = "gravitee_password"; # WARNING: Do not store plain text passwords in the Nix store
           pool = {
             autoCommit = true;
             connectionTimeout = 10000;
@@ -31,9 +30,8 @@
       ratelimit = {
         type = "jdbc";
         jdbc = {
-          url = "jdbc:postgresql://localhost:5432/gravitee";
+          url = "jdbc:postgresql:///gravitee";
           username = "gravitee";
-          password = "gravitee_password";
           pool = {
             autoCommit = true;
             connectionTimeout = 10000;
@@ -58,7 +56,7 @@
       # HTTP Server configuration (Merged with CORS section)
       http = {
         port = 8082;
-        host = "0.0.0.0";
+        host = "127.0.0.82";
         idleTimeout = 30000;
         tcpKeepAlive = true;
         compressionSupported = false;
@@ -101,18 +99,17 @@
         expire-after = 604800;
         issuer = "gravitee-management-auth";
         cookie-path = "/";
-        cookie-domain = "localhost";
+        cookie-domain = "sagbot.com";
         cookie-secure = false;
       };
 
       # Email configuration
       email = {
         enabled = false;
-        host = "smtp.example.com";
-        port = 587;
-        from = "noreply@gravitee.io";
-        username = "smtp_username";
-        password = "smtp_password";
+        host = "localhost";
+        port = 25;
+        from = "gravitee@sagbot.com";
+        username = "gravitee@sagbot.com";
       };
 
       # Swagger/OpenAPI configuration
@@ -134,8 +131,6 @@
 
       # Plugins configuration
       plugins = {
-        # Note: ${...} syntax is usually interpreted by Nix.
-        # If this variable is internal to Gravitee, escape it like this: ''${gravitee.home}''
         path = "\${gravitee.home}/plugins";
       };
 
@@ -158,14 +153,27 @@
 
       # Portal configuration
       portal = {
-        url = "http://localhost:8085";
+        url = "http://127.0.0.82:8085";
         entrypoint = "/portal";
       };
 
       # Console (Management UI) configuration
       console = {
-        url = "http://localhost:3000";
+        url = "http://127.0.0.82:3000";
       };
     };
+  };
+
+  services.postgresql = {
+    ensureDatabases = [
+      "gravitee"
+    ];
+
+    ensureUsers = [
+      {
+        name = "gravitee";
+        ensureDBOwnership = true;
+      }
+    ];
   };
 }

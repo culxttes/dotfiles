@@ -5,6 +5,7 @@
     ./ai
     ./databases
     ./github-runner
+    ./gravitee
     ./haproxy
     ./keycloak
     ./mailcow
