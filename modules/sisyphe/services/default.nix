@@ -9,8 +9,8 @@
     ./haproxy
     ./keycloak
     ./mailcow
+    ./metrics
     ./minecraft
-    ./stats
     ./vaultwarden
     ./webs
     # keep-sorted end

@@ -1,9 +1,15 @@
-{ pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
     # keep-sorted start
     ./nixos-module.nix
+    ./secrets
     # keep-sorted end
   ];
 
@@ -23,12 +29,17 @@
       ];
     };
 
+    environmentFiles = [
+      config.sops.secrets."gravitee/postgresql/password".path
+    ];
+
     settings = {
       management = {
         type = "jdbc";
         jdbc = {
-          url = "jdbc:postgresql://localhost/gravitee?host=/run/postgresql/";
+          url = "jdbc:postgresql:gravitee";
           username = "gravitee";
+          password = "\${PGPASSWORD}";
           pool = {
             autoCommit = true;
             connectionTimeout = 10000;
@@ -43,8 +54,9 @@
       ratelimit = {
         type = "jdbc";
         jdbc = {
-          url = "jdbc:postgresql://localhost/gravitee?host=/run/postgresql/";
+          url = "jdbc:postgresql:gravitee";
           username = "gravitee";
+          password = "\${PGPASSWORD}";
           pool = {
             autoCommit = true;
             connectionTimeout = 10000;
@@ -59,9 +71,13 @@
       analytics = {
         type = "elasticsearch";
         elasticsearch = {
-          endpoints = [
-            "http://localhost:9200"
-          ];
+          endpoints =
+            let
+              inherit (config.services.elasticsearch) listenAddress port;
+            in
+            [
+              "http://${listenAddress}:${toString port}"
+            ];
         };
       };
 
@@ -142,7 +158,7 @@
           http = {
             enabled = true;
             port = 18082;
-            host = "localhost";
+            host = "127.0.0.82";
             authentication = {
               type = "basic";
               users = {
@@ -161,6 +177,44 @@
       console = {
         url = "http://127.0.0.82:3000";
       };
+
+      reporters = {
+        elasticsearch = {
+          enabled = true;
+          endpoints = [
+            "http://\${ds.elastic.host}:\${ds.elastic.port}"
+          ];
+        };
+      };
+    };
+  };
+
+  custom.services.haproxy = {
+    backends = [
+      {
+        name = "gravitee";
+        mode = "http";
+        servers =
+          let
+            inherit (config.custom.services.gravitee.settings.portal) url;
+          in
+          [
+            {
+              name = "server1";
+              addr = lib.removePrefix "http://" url;
+              check = true;
+            }
+          ];
+      }
+    ];
+
+    maps = {
+      url = [
+        {
+          url = "api.sagbot.com";
+          backend = "gravitee";
+        }
+      ];
     };
   };
 

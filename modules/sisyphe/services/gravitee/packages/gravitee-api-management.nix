@@ -9,7 +9,7 @@
 stdenv.mkDerivation rec {
   pname = "gravitee-api-management-gateway";
 
-  version = "4.9.4";
+  version = "4.9.7";
 
   src = fetchzip {
     url = "https://download.gravitee.io/graviteeio-apim/distributions/graviteeio-full-${version}.zip";

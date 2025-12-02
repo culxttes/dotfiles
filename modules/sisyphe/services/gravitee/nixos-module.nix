@@ -33,6 +33,15 @@ in
       };
     };
 
+    environmentFiles = lib.mkOption {
+      type = lib.types.listOf lib.types.path;
+      default = [ ];
+      description = ''
+        List of environment files set in the gravitee systemd service.
+        For example passwords should be set in one of these files.
+      '';
+    };
+
     group = lib.mkOption {
       type = lib.types.str;
       default = "gravitee";
@@ -61,7 +70,9 @@ in
         User = cfg.user;
         Group = cfg.group;
 
-        Type = "notify";
+        Type = "simple";
+
+        EnvironmentFile = cfg.environmentFiles;
 
         ExecStartPre =
           let
@@ -85,6 +96,8 @@ in
               for file in "${cfg.package}/share/gravitee/lib"/*; do
                 ln -sf "$file" "${runDir}/lib/"
               done
+
+              echo "ALTER USER gravitee WITH PASSWORD '$PGPASSWORD';" | ${pkgs.postgresql}/bin/psql
 
               ln -sf "${graviteeConfig}" "${runDir}/config/gravitee.yml"
 
