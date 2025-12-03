@@ -20,7 +20,7 @@ jobs:
 
       - name: Config Git
         run: |
-          git config user.name "Culottes"
+          git config user.name "c2fc2f"
           git config user.email "culottes@sagbot.com"
           echo "${{ secrets.GPG_PRIVATE_KEY }}" | gpg --batch --import
           KEY_ID=$(gpg --list-secret-keys --with-colons | awk -F: '/^sec/ {print $5; exit}')
