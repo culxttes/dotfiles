@@ -645,6 +645,26 @@
         "type": "github"
       }
     },
+    "nh": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1764847908,
+        "narHash": "sha256-f8ah6zXS+6nO0lYZMvpo/wvqJwMN54I3y/+TM8oyWDE=",
+        "owner": "nix-community",
+        "repo": "nh",
+        "rev": "c8be4dfc00e92e6062f69c98cea06575f1199f5b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nh",
+        "type": "github"
+      }
+    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -848,6 +868,7 @@
         "hermux": "hermux",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
+        "nh": "nh",
         "nix-index-database": "nix-index-database",
         "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs",
