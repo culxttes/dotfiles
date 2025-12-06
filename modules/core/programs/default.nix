@@ -17,7 +17,6 @@
     ./runtime
     ./shell
     ./ssh
-    ./tmux
     ./update
     ./vim
     ./zoxide
