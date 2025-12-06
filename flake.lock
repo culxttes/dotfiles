@@ -739,11 +739,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1765049774,
-        "narHash": "sha256-aHsDAdfJDeXN1Yc+3oDbThEFpDSbJIwrVFBX1U2Nq4Q=",
+        "lastModified": 1765051866,
+        "narHash": "sha256-fgGJzeU2dxR37zLjwl3/YnVJq8hLKhpg80NDLIZMCgo=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "bd04172bf700da1a466a1bd99d968df1a69cda6a",
+        "rev": "58a74402883fdf78cc5107bf143808354d3ec551",
         "type": "github"
       },
       "original": {
@@ -789,11 +789,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1765049383,
-        "narHash": "sha256-Qf7M7zhnf5k+9hdwnGEwNH9eDwcjW8MSNrkytlxuRK4=",
+        "lastModified": 1765052272,
+        "narHash": "sha256-jX1K82ccO41ighJDep9AIgtBy4Z5+W6FE4Ntgz16PnM=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "16bdbca04dc27d94e2405916eb047b99877358c3",
+        "rev": "57f7f3014b3862423649eefe039f9d3e5bab9ea8",
         "type": "github"
       },
       "original": {
